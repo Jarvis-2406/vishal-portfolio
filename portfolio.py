@@ -197,7 +197,7 @@ st.markdown(
         background: linear-gradient(to right, darken({button_bg}, 10%), darken({button_bg}, 15%));
         transform: scale(1.1);
     }}
-    .phone-info{
+    .phone-info{{
         margin-top: 1rem;
         text-align: center;
         font-size: 1.1rem;
