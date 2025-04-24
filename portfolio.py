@@ -10,7 +10,7 @@ def toggle_theme():
     st.session_state["theme"] = "dark" if st.session_state["theme"] == "light" else "light"
 
 # Display the toggle button
-st.sidebar.button("Toggle Theme", on_click=toggle_theme)
+st.sidebar.button("Toggle", on_click=toggle_theme)
 
 # Define theme colors based on the current state
 if st.session_state["theme"] == "light":
@@ -104,9 +104,9 @@ st.download_button(label="📄 **Download My Resume**",
 # About Me
 st.header("**🧑‍💼 About Me**")
 st.write("""
-Hello! I'm Vishal, a detail-oriented analyst with a passion for data and machine learning.
-I've helped HSBC and BYJUS streamline operations with analytics, and built tools like a
-financial audit assistant powered by AI.
+Hi, I’m Vishal Anand, an aspiring data professional passionate about using data to solve problems and drive insights. 
+With skills in SQL, Python, Excel, and data visualization, I enjoy analyzing and presenting data to help organizations make informed decisions. 
+Outside of data, I love cooking, traveling, and listening to podcasts. I’m excited to grow in this field and contribute to data-driven solutions.
 """)
 
 # Skills
