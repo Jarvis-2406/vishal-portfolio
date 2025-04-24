@@ -94,6 +94,4 @@ st.markdown("""
 - English, Hindi, Telugu, German (Basic)
 """)
 
-# Footer
-st.markdown("---")
-st.markdown("Built with ❤️ using Streamlit")
+
