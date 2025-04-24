@@ -6,6 +6,9 @@ st.set_page_config(page_title="Vishal Anand Portfolio", layout="wide")
 
 # Header
 st.title("👋 Hey, I'm Vishal Anand")
+# Load and display image
+image = Image.open("vishal.jpg")
+st.image(image, width=200, caption="Vishal Anand")
 st.markdown("### Data Analyst | Business Intelligence | ML Enthusiast")
 
 # Sidebar
@@ -13,6 +16,7 @@ st.sidebar.header("Contact")
 st.sidebar.markdown("[📧 anand24061998@gmail.com](mailto:anand24061998@gmail.com)")
 st.sidebar.markdown("[🔗 LinkedIn](https://www.linkedin.com/in/vishal-anand2404/)")
 st.sidebar.markdown("[💻 GitHub](https://github.com/Jarvis-2406)")
+
 
 # About Me
 st.header("🧑‍💼 About Me")
