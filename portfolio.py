@@ -1,5 +1,6 @@
 import streamlit as st
 from PIL import Image
+import base64
 
 # Initialize theme state in session state if it doesn't exist
 if "theme" not in st.session_state:
@@ -137,30 +138,36 @@ st.markdown(
     }}
     .certifications-section {{
         margin-top: 2rem;
-        overflow-x: auto;
-        white-space: nowrap;
-        padding-bottom: 1rem;
         display: flex;
-        gap: 1rem;
-    }}
-    .certification-button {{
-        background: {button_bg};
-        color: {button_text_color};
-        border: none;
-        border-radius: 10px;
-        padding: 0.75rem 1.5rem;
-        cursor: pointer;
-        transition: background-color 0.3s ease-in-out, transform 0.1s ease;
-        display: inline-flex;
-        align-items: center;
+        flex-wrap: wrap;
         justify-content: center;
-        min-width: 180px;
-        white-space: nowrap;
-        font-size: 1.1rem;
+        gap: 1.5rem;
     }}
-    .certification-button:hover {{
-        background: linear-gradient(to right, darken({button_bg}, 10%), darken({button_bg}, 15%));
-        transform: scale(1.05);
+    .certification-card {{
+        background-color: rgba(255, 255, 255, 0.08);
+        border-radius: 10px;
+        padding: 1.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+        width: 300px;
+        text-align: center;
+    }}
+    .certification-card:hover {{
+        background-color: rgba(255, 255, 255, 0.15);
+        transform: translateY(-5px);
+    }}
+    .certification-card h3 {{
+        margin-bottom: 1rem;
+        color: {accent_color};
+        font-size: 1.2rem;
+        font-weight: 600;
+    }}
+    .certification-card img {{
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+        margin-bottom: 1rem;
     }}
     </style>
     """,
@@ -292,16 +299,33 @@ st.markdown("""
 [🔗 **GitHub Repo**](https://github.com/Jarvis-2406/BellaBeat-Data-Insights)
 """, True)
 
-# Certifications (Scrolling Buttons)
+# Certifications (Styled Cards)
 st.header("**📜 Certifications**")
+google_certificate = Image.open("GoogleDataAnalyticsProfessionalCertificate_Badge20250422-28-pgim2u_page-0001.jpg")  # Load the image
+kaggle_certificate = Image.open("Completed 5-Day Gen AI Intensive.jpg")  # Load the Kaggle image
+
 st.markdown(
     """
     <div class="certifications-section">
-        <div class="certification-button">Google Professional Data Analytics – Coursera</div>
-        <div class="certification-button">SAS Certified Specialist – Base Programming</div>
-        <div class="certification-button">GenAI – Kaggle</div>
+        <div class="certification-card">
+            <h3>Google Professional Data Analytics</h3>
+            <img src="data:image/jpeg;base64,{google_img_to_bytes}" alt="Google Data Analytics Certificate">
+            <p>Coursera</p>
+        </div>
+        <div class="certification-card">
+            <h3>SAS Certified Specialist</h3>
+            <p>Base Programming</p>
+        </div>
+        <div class="certification-card">
+            <h3>GenAI</h3>
+            <img src="data:image/jpeg;base64,{kaggle_img_to_bytes}" alt="Kaggle GenAI Certificate">
+            <p>Kaggle</p>
+        </div>
     </div>
-    """,
+    """.format(
+        google_img_to_bytes=base64.b64encode(google_certificate.getvalue()).decode(),
+        kaggle_img_to_bytes=base64.b64encode(kaggle_certificate.getvalue()).decode()
+    ),
     unsafe_allow_html=True,
 )
 
