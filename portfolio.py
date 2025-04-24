@@ -39,6 +39,12 @@ else:
 st.markdown(
     f"""
     <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    body {{
+        font-family: 'Inter', sans-serif;
+        color: {text_color};
+    }}
     [data-testid="stAppViewContainer"] {{
         background: linear-gradient(to bottom, {primary_gradient_start}, {primary_gradient_end});
         color: {text_color};
@@ -59,6 +65,7 @@ st.markdown(
     }}
     h1, h2, h3, h4, h5, h6 {{
         color: {text_color};
+        font-weight: 700;
     }}
     .st-eb {{
         background-color: {content_background};
@@ -164,6 +171,37 @@ st.markdown(
     .certification-card p{{
         font-size: 1rem;
         color: {text_color};
+    }}
+    .social-buttons {{
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1rem;
+    }}
+    .social-button {{
+        background: {button_bg};
+        color: {button_text_color};
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out, transform 0.1s ease;
+        text-decoration: none;
+    }}
+    .social-button:hover {{
+        background: linear-gradient(to right, darken({button_bg}, 10%), darken({button_bg}, 15%));
+        transform: scale(1.1);
+    }}
+    .phone-info{
+        margin-top: 1rem;
+        text-align: center;
+        font-size: 1.1rem;
+        color: {text_color}
     }}
     </style>
     """,
@@ -322,3 +360,28 @@ st.header("**🗣️ Languages**")
 st.markdown("""
 - **English**, **Hindi**, **Telugu**, German (Basic)
 """, True)
+
+# Contact Section
+st.header("**📬 Contact**")
+st.markdown(
+    """
+    <div class="social-buttons">
+        <a href="https://www.linkedin.com/in/vishal-anand2404/" target="_blank" class="social-button">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://github.com/Jarvis-2406" target="_blank" class="social-button">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.instagram.com/vishalanand2404/?hl=en" target="_blank" class="social-button">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="mailto:anand24061998@gmail.com" class="social-button">
+            <i class="far fa-envelope"></i>
+        </a>
+    </div>
+    <div class = "phone-info">
+        <p> +91-7989353480</p>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
