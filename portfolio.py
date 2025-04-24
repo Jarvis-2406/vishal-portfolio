@@ -12,16 +12,16 @@ def toggle_theme():
 # Display the toggle switch
 st.sidebar.checkbox("Dark Mode", value=(st.session_state["theme"] == "dark"), on_change=toggle_theme)
 
-# Define theme colors based on the current state (more modern gradients)
+# Define theme colors based on the current state (Light Theme Gradients)
 if st.session_state["theme"] == "light":
-    primary_gradient_start = "#667eea"  # Mauve
-    primary_gradient_end = "#764ba2"    # Plum
-    secondary_gradient_start = "#fbc2eb" # Misty Rose
-    secondary_gradient_end = "#a6c0ee"   # Steel Blue
+    primary_gradient_start = "#e0f7fa"  # Light Cyan
+    primary_gradient_end = "#b2ebf2"    # Pale Turquoise
+    secondary_gradient_start = "#f0f4c3"  # Light Yellowish Green
+    secondary_gradient_end = "#dcedc8"    # Light Green
     text_color = "#333333"            # Dark Gray
     accent_color = "#007bff"            # Blue
     content_background = "#f9f9f9"      # Light Gray
-    button_bg = "linear-gradient(to right, #667eea, #764ba2)"
+    button_bg = "linear-gradient(to right, #a5d6a7, #66bb6a)"  # Light Green shades
     button_text_color = "white"
 else:
     primary_gradient_start = "#2c3e50"  # Dark Slate Gray
@@ -115,7 +115,7 @@ st.sidebar.markdown("[💻 **GitHub**](https://github.com/Jarvis-2406)")
 with open("Vishal Anand .pdf", "rb") as pdf_file:
     PDFbyte = pdf_file.read()
 
-st.download_button(label="📄 **Download My Resume**",
+st.download_button(label="📄 **My Resume**", # Changed Here
                     data=PDFbyte,
                     file_name="Vishal Anand .pdf",
                     mime='application/octet-stream')
