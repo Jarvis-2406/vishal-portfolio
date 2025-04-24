@@ -14,46 +14,33 @@ st.sidebar.checkbox("Dark Mode", value=(st.session_state["theme"] == "dark"), on
 
 # Define theme colors based on the current state
 if st.session_state["theme"] == "light":
-    gradient_start = "magenta"
-    gradient_mid1 = "white"
-    gradient_mid2 = "orange"
-    gradient_end = "red"
+    background_color = "#f0f8ff"  # Light Blue
+    header_color = "#ADD8E6"      # Light Sky Blue
+    sidebar_color = "#E0FFFF"     # Light Cyan
     text_color = "#191970"        # Midnight Blue
     content_background = "#f5f5dc" # Beige
-    button_bg = "linear-gradient(to right, magenta, white, orange, red)"
-    button_text_color = "black"
 else:
-    gradient_start = "#8B008B"  # Dark Magenta
-    gradient_mid1 = "#333333"  # Dark Gray
-    gradient_mid2 = "#FF8C00"  # Dark Orange
-    gradient_end = "#8B0000"    # Dark Red
+    background_color = "#1e1e1e"  # Dark Gray
+    header_color = "#333333"      # Darker Gray
+    sidebar_color = "#222222"     # Even Darker Gray
     text_color = "#ffffff"        # White
     content_background = "#444444" # Slightly lighter dark gray
-    button_bg = "linear-gradient(to right, #8B008B, #333333, #FF8C00, #8B0000)"
-    button_text_color = "white"
 
 # Custom Theme Configuration
 st.markdown(
     f"""
     <style>
     [data-testid="stAppViewContainer"] {{
-        background: linear-gradient(to bottom right, {gradient_start}, {gradient_mid1}, {gradient_mid2}, {gradient_end});
+        background-color: {background_color};
         color: {text_color};
-        min-height: 100vh; /* Ensure full viewport height for gradient */
     }}
     [data-testid="stHeader"] {{
-        background: rgba(255, 255, 255, 0.1); /* Semi-transparent white for header */
-        backdrop-filter: blur(10px); /* Add a blur effect */
+        background-color: {header_color};
         color: {text_color};
-        padding: 1rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     }}
     [data-testid="stSidebar"] {{
-        background: rgba(255, 255, 255, 0.05); /* Very subtle white for sidebar */
-        backdrop-filter: blur(5px);
+        background-color: {sidebar_color};
         color: {text_color};
-        padding: 1rem;
-        border-right: 1px solid rgba(255, 255, 255, 0.1);
     }}
     h1, h2, h3, h4, h5, h6 {{
         color: {text_color};
@@ -68,25 +55,22 @@ st.markdown(
         font-weight: bold;
         color: {text_color}; /* Ensure bold text is also themed */
     }}
-    .stDownloadButton > button {{
-        background: {button_bg};
-        color: {button_text_color};
-        border: none;
-        border-radius: 5px;
-        padding: 0.5rem 1rem;
-        cursor: pointer;
+    .stDownloadButton {{
+        color: {text_color};
+        border-color: {text_color};
     }}
-    .stDownloadButton > button:hover {{
-        opacity: 0.8;
+    .stDownloadButton:hover {{
+        background-color: {header_color};
+        color: {text_color};
     }}
     a {{ /* Style for links */
-        color: #ADD8E6; /* Light Sky Blue for links */
+        color: #007bff; /* Default link color */
     }}
     a:visited {{
-        color: #8A2BE2; /* Blue Violet for visited links */
+        color: #663ab7; /* Visited link color */
     }}
     a:hover {{
-        color: #00FFFF; /* Cyan for hovered links */
+        color: #0056b3; /* Hovered link color */
     }}
     div[data-testid="stMarkdownContainer"] > p {{
         color: {text_color};
