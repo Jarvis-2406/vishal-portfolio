@@ -299,11 +299,6 @@ st.markdown("""
 [🔗 **GitHub Repo**](https://github.com/Jarvis-2406/BellaBeat-Data-Insights)
 """, True)
 
-# Certifications (Styled Cards)
-st.header("**📜 Certifications**")
-google_certificate = Image.open("GoogleDataAnalyticsProfessionalCertificate_Badge20250422-28-pgim2u_page-0001.jpg")  # Load the image
-kaggle_certificate = Image.open("Completed 5-Day Gen AI Intensive.jpg")  # Load the Kaggle image
-
 st.markdown(
     """
     <div class="certifications-section">
