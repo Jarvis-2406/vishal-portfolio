@@ -138,9 +138,8 @@ st.markdown(
     }}
     .certifications-section {{
         margin-top: 2rem;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 1.5rem;
     }}
     .certification-card {{
@@ -150,7 +149,6 @@ st.markdown(
         border: 1px solid rgba(255, 255, 255, 0.1);
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         transition: background-color 0.3s ease-in-out, transform 0.2s ease;
-        width: 300px;
         text-align: center;
     }}
     .certification-card:hover {{
@@ -158,16 +156,14 @@ st.markdown(
         transform: translateY(-5px);
     }}
     .certification-card h3 {{
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
         color: {accent_color};
         font-size: 1.2rem;
         font-weight: 600;
     }}
-    .certification-card img {{
-        max-width: 100%;
-        height: auto;
-        border-radius: 5px;
-        margin-bottom: 1rem;
+    .certification-card p{{
+        font-size: 1rem;
+        color: {text_color};
     }}
     </style>
     """,
@@ -299,12 +295,13 @@ st.markdown("""
 [🔗 **GitHub Repo**](https://github.com/Jarvis-2406/BellaBeat-Data-Insights)
 """, True)
 
+# Certifications (Styled Cards) - No Images
+st.header("**📜 Certifications**")
 st.markdown(
     """
     <div class="certifications-section">
         <div class="certification-card">
             <h3>Google Professional Data Analytics</h3>
-            <img src="data:image/jpeg;base64,{google_img_to_bytes}" alt="Google Data Analytics Certificate">
             <p>Coursera</p>
         </div>
         <div class="certification-card">
@@ -313,14 +310,10 @@ st.markdown(
         </div>
         <div class="certification-card">
             <h3>GenAI</h3>
-            <img src="data:image/jpeg;base64,{kaggle_img_to_bytes}" alt="Kaggle GenAI Certificate">
             <p>Kaggle</p>
         </div>
     </div>
-    """.format(
-        google_img_to_bytes=base64.b64encode(google_certificate.getvalue()).decode(),
-        kaggle_img_to_bytes=base64.b64encode(kaggle_certificate.getvalue()).decode()
-    ),
+    """,
     unsafe_allow_html=True,
 )
 
