@@ -17,6 +17,13 @@ st.sidebar.markdown("[📧 anand24061998@gmail.com](mailto:anand24061998@gmail.c
 st.sidebar.markdown("[🔗 LinkedIn](https://www.linkedin.com/in/vishal-anand2404/)")
 st.sidebar.markdown("[💻 GitHub](https://github.com/Jarvis-2406)")
 
+with open("Vishal_Anand_Resume.pdf", "rb") as pdf_file:
+    PDFbyte = pdf_file.read()
+
+st.download_button(label="📄 Download My Resume",
+                   data=PDFbyte,
+                   file_name="Vishal_Anand_Resume.pdf",
+                   mime='application/octet-stream')
 
 # About Me
 st.header("🧑‍💼 About Me")
