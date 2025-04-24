@@ -1,11 +1,24 @@
 [theme]
-base = "light"
-primaryColor = "#0A192F"             # Deep navy blue for tech vibes
-backgroundColor = "#F3F4F6"          # Cool light gray background
-secondaryBackgroundColor = "#FFFFFF" # Card/background element color
-textColor = "#1F2937"                # Dark slate text for contrast
-font = "monospace"                   # Code-style font
+# This base mode will auto-switch based on user's system preference
+base = "auto"
+
+primaryColor = "#0A192F"
+backgroundColor = "#F3F4F6"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#1F2937"
+font = "monospace"
 
 [theme.colors]
-accentColor = "#FF4C29"              # Bold orange-red for highlights
-linkColor = "#2563EB"                # Blue links, tech feel
+accentColor = "#FF4C29"
+linkColor = "#2563EB"
+
+[darkTheme]
+primaryColor = "#0A192F"
+backgroundColor = "#0D1117"            # Dark GitHub-style background
+secondaryBackgroundColor = "#161B22"   # Card/background
+textColor = "#F8F8F2"                  # Bright white text
+font = "monospace"
+
+[darkTheme.colors]
+accentColor = "#FF7849"                # Coral-orange for highlights
+linkColor = "#60A5FA"                  # Soft blue links
