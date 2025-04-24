@@ -10,28 +10,28 @@ def toggle_theme():
     st.session_state["theme"] = "dark" if st.session_state["theme"] == "light" else "light"
 
 # Display the toggle switch
-st.sidebar.checkbox("Dark Mode", value=(st.session_state["theme"] == "dark"), on_change=toggle_theme)
+st.sidebar.checkbox("🌟", value=(st.session_state["theme"] == "dark"), on_change=toggle_theme)
 
-# Define theme colors based on the current state (Light Theme Gradients)
+# Define theme colors based on the current state (Modern Gradient Theme)
 if st.session_state["theme"] == "light":
-    primary_gradient_start = "#e0f7fa"  # Light Cyan
-    primary_gradient_end = "#b2ebf2"    # Pale Turquoise
-    secondary_gradient_start = "#f0f4c3"  # Light Yellowish Green
-    secondary_gradient_end = "#dcedc8"    # Light Green
-    text_color = "#333333"            # Dark Gray
-    accent_color = "#007bff"            # Blue
-    content_background = "#f9f9f9"      # Light Gray
-    button_bg = "linear-gradient(to right, #a5d6a7, #66bb6a)"  # Light Green shades
+    primary_gradient_start = "#f0f2ff"  # Light Lavender
+    primary_gradient_end = "#e0eafc"    # Light Periwinkle
+    secondary_gradient_start = "#d1c4e9"  # Light Lilac
+    secondary_gradient_end = "#b39ddb"    # Medium Purple
+    text_color = "#212121"            # Very Dark Gray
+    accent_color = "#7e57c2"            # Deep Purple
+    content_background = "#ffffff"      # White
+    button_bg = "linear-gradient(to right, #7e57c2, #5e35b1)"  # Deep Purple Gradient
     button_text_color = "white"
 else:
-    primary_gradient_start = "#2c3e50"  # Dark Slate Gray
-    primary_gradient_end = "#000000"    # Black
-    secondary_gradient_start = "#37474f" # Darker Gray
-    secondary_gradient_end = "#263238"   # Deep Gray
+    primary_gradient_start = "#1a1a2e"  # Very Dark Purple
+    primary_gradient_end = "#3f37c9"    # Dark Indigo
+    secondary_gradient_start = "#485696"  # Dark Slate Blue
+    secondary_gradient_end = "#242424"    # Near Black
     text_color = "#ffffff"            # White
-    accent_color = "#5bc0de"            # Cyan
-    content_background = "#222222"      # Very Dark Gray
-    button_bg = "linear-gradient(to right, #2c3e50, #000000)"
+    accent_color = "#90caf9"            # Light Blue
+    content_background = "#121212"      # Black
+    button_bg = "linear-gradient(to right, #4a148c, #1a237e)"  # Darker Purple Gradient
     button_text_color = "white"
 
 # Custom Theme Configuration
@@ -44,10 +44,10 @@ st.markdown(
         min-height: 100vh;
     }}
     [data-testid="stHeader"] {{
-        background: rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(10px);
+        background: rgba(0, 0, 0, 0.05);
+        backdrop-filter: blur(12px);
         color: {text_color};
-        padding: 1.5rem 1rem;
+        padding: 2rem 1rem;
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }}
     [data-testid="stSidebar"] {{
@@ -59,40 +59,108 @@ st.markdown(
     h1, h2, h3, h4, h5, h6 {{
         color: {text_color};
     }}
-    .st-eb {{ /* Main content area */
+    .st-eb {{
         background-color: {content_background};
-        padding: 2rem;
+        padding: 2.5rem;
         border-radius: 12px;
         color: {text_color};
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     }}
-    .css-1adrpsg {{ /* Bold markdown text */
-        font-weight: bold;
+    .st-eb:hover {{
+        transform: translateY(-4px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }}
+    .css-1adrpsg {{
+        font-weight: 600;
         color: {text_color};
     }}
     .stDownloadButton > button {{
         background: {button_bg};
         color: {button_text_color};
         border: none;
-        border-radius: 8px;
-        padding: 0.75rem 1.5rem;
+        border-radius: 10px;
+        padding: 0.8rem 2rem;
         cursor: pointer;
-        transition: opacity 0.2s ease-in-out;
+        transition: background-color 0.3s ease-in-out, transform 0.1s ease;
     }}
     .stDownloadButton > button:hover {{
-        opacity: 0.8;
+        background: linear-gradient(to right, darken({button_bg}, 10%), darken({button_bg}, 15%));
+        transform: scale(1.05);
     }}
-    a {{ /* Links */
+    a {{
         color: {accent_color};
         text-decoration: none;
-        transition: color 0.2s ease-in-out;
+        transition: color 0.3s ease-in-out;
     }}
     a:hover {{
         color: lighten({accent_color}, 20%);
     }}
     div[data-testid="stMarkdownContainer"] > p {{
         color: {text_color};
-        line-height: 1.6; /* Improve readability */
+        line-height: 1.7;
+        font-size: 1.1rem;
+    }}
+    .skills-section {{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }}
+    .skill-box {{
+        background-color: rgba(255, 255, 255, 0.08);
+        border-radius: 10px;
+        padding: 1.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+    }}
+    .skill-box:hover {{
+        background-color: rgba(255, 255, 255, 0.15);
+        transform: translateY(-5px);
+    }}
+    .skill-box h3 {{
+        margin-bottom: 1rem;
+        color: {accent_color};
+        font-size: 1.4rem;
+        font-weight: 600;
+    }}
+    .skill-box ul {{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-size: 1.1rem;
+    }}
+    .skill-box li {{
+        margin-bottom: 0.75rem;
+        opacity: 0.9;
+    }}
+    .certifications-section {{
+        margin-top: 2rem;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 1rem;
+        display: flex;
+        gap: 1rem;
+    }}
+    .certification-button {{
+        background: {button_bg};
+        color: {button_text_color};
+        border: none;
+        border-radius: 10px;
+        padding: 0.75rem 1.5rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out, transform 0.1s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 180px;
+        white-space: nowrap;
+        font-size: 1.1rem;
+    }}
+    .certification-button:hover {{
+        background: linear-gradient(to right, darken({button_bg}, 10%), darken({button_bg}, 15%));
+        transform: scale(1.05);
     }}
     </style>
     """,
@@ -115,7 +183,7 @@ st.sidebar.markdown("[💻 **GitHub**](https://github.com/Jarvis-2406)")
 with open("Vishal Anand .pdf", "rb") as pdf_file:
     PDFbyte = pdf_file.read()
 
-st.download_button(label="📄 **My Resume**", # Changed Here
+st.download_button(label="📄 **My Resume**",
                     data=PDFbyte,
                     file_name="Vishal Anand .pdf",
                     mime='application/octet-stream')
@@ -129,14 +197,61 @@ make informed decisions. Outside of data, I love cooking, traveling, and listeni
 in this field and contribute to data-driven solutions.
 """)
 
-# Skills
+# Skills (Detailed and in Columns)
 st.header("**🛠️ Skills**")
-st.markdown("""
-- **Programming:** **Python**, **R**, **SAS**
-- **Libraries:** **Pandas**, **NumPy**, **Seaborn**, **Matplotlib**, **Scikit-learn**
-- **Tools:** **Power BI**, **Tableau**, **Excel**, **SQL**
-- **Others:** **Machine Learning**, **Data Wrangling**, **Predictive Modeling**
-""", True)
+st.markdown(
+    """
+    <div class="skills-section">
+        <div class="skill-box">
+            <h3>Programming</h3>
+            <ul>
+                <li>Python (Pandas, NumPy, Seaborn, Matplotlib)</li>
+                <li>R</li>
+                <li>SAS</li>
+            </ul>
+        </div>
+        <div class="skill-box">
+            <h3>Data Analysis & Manipulation</h3>
+            <ul>
+                <li>Excel (PivotTables, Power Query, DAX)</li>
+                <li>SQL (Joins, Aggregations, Subqueries)</li>
+            </ul>
+        </div>
+        <div class="skill-box">
+            <h3>Data Visualization</h3>
+            <ul>
+                <li>Tableau</li>
+                <li>Power BI</li>
+            </ul>
+        </div>
+        <div class="skill-box">
+            <h3>Machine Learning & AI</h3>
+            <ul>
+                <li>Predictive Modeling</li>
+                <li>Data Mining</li>
+            </ul>
+        </div>
+        <div class="skill-box">
+            <h3>Business & Analytics Tools</h3>
+            <ul>
+                <li>KPI Tracking</li>
+                <li>Stakeholder Management</li>
+                <li>Business Intelligence</li>
+            </ul>
+        </div>
+        <div class="skill-box">
+            <h3>Analytical Skills</h3>
+            <ul>
+                <li>Data Wrangling</li>
+                <li>Data Visualization</li>
+                <li>Decision-Making with Data</li>
+                <li>Data Ethics</li>
+            </ul>
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
 # Experience
 st.header("**💼 Experience**")
@@ -177,13 +292,18 @@ st.markdown("""
 [🔗 **GitHub Repo**](https://github.com/Jarvis-2406/BellaBeat-Data-Insights)
 """, True)
 
-# Certifications
+# Certifications (Scrolling Buttons)
 st.header("**📜 Certifications**")
-st.markdown("""
-- **Google Professional Data Analytics** – Coursera
-- **SAS Certified Specialist** – Base Programming
-- **GenAI** – Kaggle
-""", True)
+st.markdown(
+    """
+    <div class="certifications-section">
+        <div class="certification-button">Google Professional Data Analytics – Coursera</div>
+        <div class="certification-button">SAS Certified Specialist – Base Programming</div>
+        <div class="certification-button">GenAI – Kaggle</div>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
 # Languages
 st.header("**🗣️ Languages**")
