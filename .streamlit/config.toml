@@ -1,11 +1,11 @@
 [theme]
-base="light"
-primaryColor="#0A192F"       # Deep navy
-backgroundColor="#FDFDFD"    # Light background
-secondaryBackgroundColor="#FFFFFF"
-textColor="#1F2937"          # Dark slate
-font="monospace"
+base = "light"
+primaryColor = "#0A192F"             # Deep navy blue for tech vibes
+backgroundColor = "#F3F4F6"          # Cool light gray background
+secondaryBackgroundColor = "#FFFFFF" # Card/background element color
+textColor = "#1F2937"                # Dark slate text for contrast
+font = "monospace"                   # Code-style font
 
 [theme.colors]
-accentColor="#FF4C29"        # Bold red-orange
-linkColor="#2563EB"          # Techy blue
+accentColor = "#FF4C29"              # Bold orange-red for highlights
+linkColor = "#2563EB"                # Blue links, tech feel
