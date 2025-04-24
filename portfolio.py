@@ -1,4 +1,22 @@
 import streamlit as st
+
+# Initialize theme state
+if "theme" not in st.session_state:
+    st.session_state.theme = "light"
+
+# Toggle theme
+theme_toggle = st.sidebar.toggle("🌗 Toggle Dark Mode")
+
+# Update session state based on toggle
+st.session_state.theme = "dark" if theme_toggle else "light"
+
+# Apply selected theme CSS
+def load_theme(theme):
+    with open(f"{theme}.css") as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+load_theme(st.session_state.theme)
+
 from PIL import Image
 
 # Page Configuration
