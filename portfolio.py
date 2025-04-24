@@ -12,68 +12,87 @@ def toggle_theme():
 # Display the toggle switch
 st.sidebar.checkbox("Dark Mode", value=(st.session_state["theme"] == "dark"), on_change=toggle_theme)
 
-# Define theme colors based on the current state
+# Define theme colors based on the current state (more modern gradients)
 if st.session_state["theme"] == "light":
-    background_color = "#f0f8ff"  # Light Blue
-    header_color = "#ADD8E6"      # Light Sky Blue
-    sidebar_color = "#E0FFFF"     # Light Cyan
-    text_color = "#191970"        # Midnight Blue
-    content_background = "#f5f5dc" # Beige
+    primary_gradient_start = "#667eea"  # Mauve
+    primary_gradient_end = "#764ba2"    # Plum
+    secondary_gradient_start = "#fbc2eb" # Misty Rose
+    secondary_gradient_end = "#a6c0ee"   # Steel Blue
+    text_color = "#333333"            # Dark Gray
+    accent_color = "#007bff"            # Blue
+    content_background = "#f9f9f9"      # Light Gray
+    button_bg = "linear-gradient(to right, #667eea, #764ba2)"
+    button_text_color = "white"
 else:
-    background_color = "#1e1e1e"  # Dark Gray
-    header_color = "#333333"      # Darker Gray
-    sidebar_color = "#222222"     # Even Darker Gray
-    text_color = "#ffffff"        # White
-    content_background = "#444444" # Slightly lighter dark gray
+    primary_gradient_start = "#2c3e50"  # Dark Slate Gray
+    primary_gradient_end = "#000000"    # Black
+    secondary_gradient_start = "#37474f" # Darker Gray
+    secondary_gradient_end = "#263238"   # Deep Gray
+    text_color = "#ffffff"            # White
+    accent_color = "#5bc0de"            # Cyan
+    content_background = "#222222"      # Very Dark Gray
+    button_bg = "linear-gradient(to right, #2c3e50, #000000)"
+    button_text_color = "white"
 
 # Custom Theme Configuration
 st.markdown(
     f"""
     <style>
     [data-testid="stAppViewContainer"] {{
-        background-color: {background_color};
+        background: linear-gradient(to bottom, {primary_gradient_start}, {primary_gradient_end});
         color: {text_color};
+        min-height: 100vh;
     }}
     [data-testid="stHeader"] {{
-        background-color: {header_color};
+        background: rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
         color: {text_color};
+        padding: 1.5rem 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }}
     [data-testid="stSidebar"] {{
-        background-color: {sidebar_color};
+        background: linear-gradient(to bottom, {secondary_gradient_start}, {secondary_gradient_end});
         color: {text_color};
+        padding: 1rem;
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
     }}
     h1, h2, h3, h4, h5, h6 {{
         color: {text_color};
     }}
-    .st-eb {{ /* Style for the main content area */
+    .st-eb {{ /* Main content area */
         background-color: {content_background};
-        padding: 20px;
-        border-radius: 10px;
-        color: {text_color}; /* Ensure text in content area is also themed */
+        padding: 2rem;
+        border-radius: 12px;
+        color: {text_color};
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }}
-    .css-1adrpsg {{ /* Style for markdown text to make it bold */
+    .css-1adrpsg {{ /* Bold markdown text */
         font-weight: bold;
-        color: {text_color}; /* Ensure bold text is also themed */
-    }}
-    .stDownloadButton {{
-        color: {text_color};
-        border-color: {text_color};
-    }}
-    .stDownloadButton:hover {{
-        background-color: {header_color};
         color: {text_color};
     }}
-    a {{ /* Style for links */
-        color: #007bff; /* Default link color */
+    .stDownloadButton > button {{
+        background: {button_bg};
+        color: {button_text_color};
+        border: none;
+        border-radius: 8px;
+        padding: 0.75rem 1.5rem;
+        cursor: pointer;
+        transition: opacity 0.2s ease-in-out;
     }}
-    a:visited {{
-        color: #663ab7; /* Visited link color */
+    .stDownloadButton > button:hover {{
+        opacity: 0.8;
+    }}
+    a {{ /* Links */
+        color: {accent_color};
+        text-decoration: none;
+        transition: color 0.2s ease-in-out;
     }}
     a:hover {{
-        color: #0056b3; /* Hovered link color */
+        color: lighten({accent_color}, 20%);
     }}
     div[data-testid="stMarkdownContainer"] > p {{
         color: {text_color};
+        line-height: 1.6; /* Improve readability */
     }}
     </style>
     """,
@@ -82,10 +101,10 @@ st.markdown(
 
 # Header
 st.title(f"👋 Hey, I'm **Vishal Anand**")
-# Load and display image
+# Load and display image (increased width)
 image = Image.open("vishal.jpg")
-st.image(image, width=200, caption="Vishal Anand")
-st.markdown(f"### **Data Analyst | Business Intelligence | ML Enthusiast**")
+st.image(image, width=250, caption="Vishal Anand")
+st.markdown(f"### **Aspiring Data Professional**")
 
 # Sidebar
 st.sidebar.header("**Contact**")
@@ -101,12 +120,13 @@ st.download_button(label="📄 **Download My Resume**",
                     file_name="Vishal Anand .pdf",
                     mime='application/octet-stream')
 
-# About Me
+# About Me (Updated Content)
 st.header("**🧑‍💼 About Me**")
 st.write("""
-Hi, I’m Vishal Anand, an aspiring data professional passionate about using data to solve problems and drive insights. 
-With skills in SQL, Python, Excel, and data visualization, I enjoy analyzing and presenting data to help organizations make informed decisions. 
-Outside of data, I love cooking, traveling, and listening to podcasts. I’m excited to grow in this field and contribute to data-driven solutions.
+Hi, I’m Vishal Anand, an aspiring data professional passionate about using data to solve problems and drive insights.
+With skills in SQL, Python, Excel, and data visualization, I enjoy analyzing and presenting data to help organizations
+make informed decisions. Outside of data, I love cooking, traveling, and listening to podcasts. I’m excited to grow
+in this field and contribute to data-driven solutions.
 """)
 
 # Skills
