@@ -39,10 +39,10 @@ else:
 st.markdown(
     f"""
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;700&family=Times+New+Roman:wght@400;700&display=swap');
 
     body {{
-        font-family: 'Inter', sans-serif;
+        font-family: 'Arial', sans-serif; /* Default font */
         color: {text_color};
     }}
     [data-testid="stAppViewContainer"] {{
@@ -65,6 +65,7 @@ st.markdown(
     }}
     h1, h2, h3, h4, h5, h6 {{
         color: {text_color};
+        font-family: 'Times New Roman', serif; /* Heading font */
         font-weight: 700;
     }}
     .st-eb {{
@@ -212,7 +213,7 @@ st.markdown(
 st.title(f"👋 Hey, I'm **Vishal Anand**")
 # Load and display image (increased width)
 image = Image.open("vishal.jpg")
-st.image(image, width=250, caption="Vishal Anand")
+st.image(image, width=500, caption="Vishal Anand")
 st.markdown(f"### **Aspiring Data Professional**")
 
 # Sidebar
