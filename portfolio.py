@@ -71,6 +71,7 @@ st.subheader("2. Gold Price Prediction")
 st.markdown("""
 - Built predictive ML model with XGBoost  
 - EDA using Pandas & Seaborn  
+[🔗 GitHub Repo](https://github.com/Jarvis-2406/Gold-Price-Prediction)
 """)
 
 st.subheader("3. BellaBeat Data Insights")
