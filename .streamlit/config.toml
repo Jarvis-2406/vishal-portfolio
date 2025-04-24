@@ -1,0 +1,22 @@
+# Custom Theme - Techy + Bold with Monospace
+[theme]
+primaryColor = "#0A192F"        # Deep navy blue
+secondaryColor = "#FF4C29"      # Bright energetic red-orange
+backgroundColor = "#FDFDFD"     # Almost white for clean contrast
+textColor = "#1F2937"           # Dark slate for good readability
+font = "Fira Code"              # Monospace font with style
+accentColor = "#FFA500"         # Strong orange for emphasis (buttons, highlights)
+borderColor = "#E5E7EB"         # Light gray for subtle outlines
+linkColor = "#2563EB"           # Vivid blue for links
+hoverColor = "#FF7849"          # Lively coral when hovering
+
+[theme.dark]
+primaryColor = "#0A192F"
+secondaryColor = "#FF4C29"
+backgroundColor = "#121212"
+textColor = "#E0E0E0"
+font = "Fira Code"
+accentColor = "#FF7849"
+borderColor = "#2C2C2C"
+linkColor = "#60A5FA"
+hoverColor = "#FFB347"
