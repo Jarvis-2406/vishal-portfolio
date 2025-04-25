@@ -168,7 +168,7 @@ st.markdown(
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 2.5rem;
     }}
-    .project-card {{
+    .project-card, .certification-card {{
         background-color: rgba(255, 255, 255, 0.08);
         border-radius: 12px;
         padding: 2rem;
@@ -181,19 +181,19 @@ st.markdown(
         justify-content: space-between;
         min-height: 200px;
     }}
-    .project-card:hover {{
+    .project-card:hover, .certification-card:hover {{
         background-color: rgba(255, 255, 255, 0.15);
         transform: translateY(-5px);
         box-shadow: 0 10px 12px rgba(0, 0, 0, 0.2);
     }}
-    .project-card h3 {{
+    .project-card h3, .certification-card h3 {{
         margin-bottom: 0.75rem;
         color: {accent_color};
         font-size: 1.3rem;
         font-weight: 600;
         letter-spacing: 0.5px;
     }}
-    .project-card p{{
+    .project-card p, .certification-card p{{
         font-size: 1.1rem;
         color: {text_color};
         margin-bottom: 0.5rem;
@@ -215,18 +215,6 @@ st.markdown(
         background: linear-gradient(to right, #9ccc65, #8bc34a);
         transform: scale(1.05);
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }}
-
-    .certifications-section .certification-card h3{{
-        margin-bottom: 0.75rem;
-        color: {accent_color};
-        font-size: 1.3rem;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-    }}
-    .certifications-section .certification-card p{{
-        font-size: 1.1rem;
-        color: {text_color};
     }}
     .social-buttons {{
         display: flex;
@@ -398,7 +386,6 @@ st.markdown(
         <div class="project-card">
             <h3>AI-powered Financial Audit Assistant</h3>
             <p>Automated document search using LangChain & OpenAI</p>
-            <p>Implemented FAISS for fast retrieval</p>
             <a href="https://github.com/Jarvis-2406/GenAI-for-Financial-Audits" target="_blank" class="github-button">
                 GitHub Repo
             </a>
