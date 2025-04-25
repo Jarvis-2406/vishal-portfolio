@@ -456,9 +456,6 @@ st.markdown(
         <a href="mailto:anand24061998@gmail.com" class="social-button">
             <i class="far fa-envelope"></i>
         </a>
-        <a href="https://vishal-portfolio.streamlit.app/" target="_blank" class="social-button">
-            <i class="fas fa-link"></i>
-        </a>
     </div>
     <div class = "phone-info">
         <p> +91-7989353480</p>
