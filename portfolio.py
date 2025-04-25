@@ -256,7 +256,7 @@ st.button("🌙", on_click=toggle_theme, key="theme_toggle")
 
 # Load and display image (increased width)
 image = Image.open("vishal.jpg")
-st.image(image, width=700, caption="Vishal Anand", use_column_width=True)
+st.image(image, width=700, caption="Vishal Anand", use_container_width=True)
 st.markdown(f"<h3 style='margin-bottom: 2rem;'>Aspiring Data Professional</h3>", unsafe_allow_html=True)
 
 
