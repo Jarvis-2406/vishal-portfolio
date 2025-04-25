@@ -218,6 +218,12 @@ st.markdown(
     .theme-button:hover {{
         color: {accent_color};
     }}
+    .doodle {{
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }}
     </style>
     """,
     unsafe_allow_html=True,
@@ -249,6 +255,9 @@ With skills in SQL, Python, Excel, and data visualization, I enjoy analyzing and
 make informed decisions. Outside of data, I love cooking, traveling, and listening to podcasts. I’m excited to grow
 in this field and contribute to data-driven solutions.
 """)
+
+# Add a doodle here
+st.image("doodle1.png", caption="Data Analysis Doodle", use_column_width=True, output_format="PNG",  ) # Added doodle
 
 # Skills (Detailed and in Columns)
 st.header("**🛠️ Skills**")
@@ -319,6 +328,9 @@ st.markdown("""
 - Led data reporting for operational efficiency
 """, True)
 
+# Add a doodle here
+st.image("doodle2.png", caption="Machine Learning Workflow", use_column_width=True, output_format="PNG") # Added doodle
+
 st.subheader("**BYJUS — Business Development Associate (Dec 2020 - Sep 2022)**")
 st.markdown("""
 - Analyzed sales data using SQL
@@ -334,6 +346,9 @@ st.markdown("""
 - Implemented FAISS for fast retrieval
 [🔗 **GitHub Repo**](https://github.com/Jarvis-2406/GenAI-for-Financial-Audits)
 """, True)
+
+# Add a doodle here
+st.image("doodle3.png", caption="Project Planning Doodle", use_column_width=True, output_format="PNG") # Added doodle
 
 st.subheader("**2. Gold Price Prediction**")
 st.markdown("""
