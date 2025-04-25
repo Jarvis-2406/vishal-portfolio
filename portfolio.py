@@ -193,7 +193,9 @@ st.markdown(
         color: {text_color};
     }}
     .social-buttons {{
-        display: block;
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
         margin-top: 2rem;
     }}
     .social-button {{
@@ -201,18 +203,16 @@ st.markdown(
         color: {button_text_color};
         border: 1px solid rgba(255,255,255,0.3);
         border-radius: 50%;
-        width: 50px;
-        height: 50px;
+        width: 60px;
+        height: 60px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.5rem;
+        font-size: 1.8rem;
         cursor: pointer;
         transition: background-color 0.3s ease-in-out, transform 0.1s ease, box-shadow 0.3s ease;
         text-decoration: none;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        margin-bottom: 1.5rem;
-        margin-right: 0;
     }}
     .social-button:hover {{
         background: linear-gradient(to right, #aed581, #7cb342);
