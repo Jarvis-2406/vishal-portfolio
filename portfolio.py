@@ -10,9 +10,6 @@ if "theme" not in st.session_state:
 def toggle_theme():
     st.session_state["theme"] = "dark" if st.session_state["theme"] == "light" else "light"
 
-# Display the toggle switch
-st.sidebar.checkbox("🌟", value=(st.session_state["theme"] == "dark"), on_change=toggle_theme)
-
 # Define theme colors based on the current state (Modern Gradient Theme)
 if st.session_state["theme"] == "light":
     primary_gradient_start = "#f0f2ff"  # Light Lavender
@@ -56,6 +53,9 @@ st.markdown(
         color: {text_color};
         padding: 2rem 1rem;
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        display: flex; /* Use flexbox for layout */
+        justify-content: space-between; /* Space items evenly */
+        align-items: center; /* Vertically center items */
     }}
     [data-testid="stSidebar"] {{
         background: linear-gradient(to bottom, {secondary_gradient_start}, {secondary_gradient_end});
@@ -204,16 +204,33 @@ st.markdown(
         font-size: 1.1rem;
         color: {text_color}
     }}
+    .theme-button {{
+        background: none;
+        border: none;
+        color: {text_color};
+        cursor: pointer;
+        font-size: 1.2rem;
+        padding: 0.5rem;
+        display: flex;
+        align-items: center;
+        transition: color 0.3s ease;
+    }}
+    .theme-button:hover {{
+        color: {accent_color};
+    }}
     </style>
     """,
     unsafe_allow_html=True,
 )
 
 # Header
-st.title(f"👋 Hey, I'm **Vishal Anand**")
+st.header(f"👋 Hey, I'm **Vishal Anand**")
+# Add dark theme toggle button
+st.button("🌙", on_click=toggle_theme, key="theme_toggle", help="Toggle between light and dark themes")
+
 # Load and display image (increased width)
 image = Image.open("vishal.jpg")
-st.image(image, width=1200, caption="Vishal Anand")
+st.image(image, width=700, caption="Vishal Anand")
 st.markdown(f"### **Aspiring Data Professional**")
 
 with open("Vishal Anand .pdf", "rb") as pdf_file:
