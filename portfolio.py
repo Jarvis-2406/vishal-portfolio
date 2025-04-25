@@ -213,14 +213,8 @@ st.markdown(
 st.title(f"👋 Hey, I'm **Vishal Anand**")
 # Load and display image (increased width)
 image = Image.open("vishal.jpg")
-st.image(image, width=250, caption="Vishal Anand")
+st.image(image, width=1200, caption="Vishal Anand")
 st.markdown(f"### **Aspiring Data Professional**")
-
-# Sidebar
-st.sidebar.header("**Contact**")
-st.sidebar.markdown("[📧 anand24061998@gmail.com](mailto:anand24061998@gmail.com)")
-st.sidebar.markdown("[🔗 **LinkedIn**](https://www.linkedin.com/in/vishal-anand2404/)")
-st.sidebar.markdown("[💻 **GitHub**](https://github.com/Jarvis-2406)")
 
 with open("Vishal Anand .pdf", "rb") as pdf_file:
     PDFbyte = pdf_file.read()
