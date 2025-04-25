@@ -198,14 +198,14 @@ st.markdown(
         color: {text_color};
         margin-bottom: 0.5rem;
     }}
-    .certifications-section .certification-card h3{
+    .certifications-section .certification-card h3{{
         margin-bottom: 0.75rem;
         color: {accent_color};
         font-size: 1.3rem;
         font-weight: 600;
         letter-spacing: 0.5px;
     }}
-    .certifications-section .certification-card p{
+    .certifications-section .certification-card p{{
         font-size: 1.1rem;
         color: {text_color};
     }}
