@@ -12,10 +12,10 @@ def toggle_theme():
 
 # Define theme colors based on the current state
 if st.session_state["theme"] == "light":
-    primary_gradient_start = "#f0f4c3"  # Light Yellow
-    primary_gradient_end = "#d4e157"    # Yellow-Green
-    secondary_gradient_start = "#aed581"  # Light Green
-    secondary_gradient_end = "#7cb342"    # Darker Green
+    primary_gradient_start = "#f8f8f8"  # Very light gray
+    primary_gradient_end = "#ffffff"    # White
+    secondary_gradient_start = "#f8f8f8"  # Very light gray
+    secondary_gradient_end = "#ffffff"    # White
     text_color = "#212121"            # Very Dark Gray
     accent_color = "#558b2f"            # Olive Green
     content_background = "#ffffff"      # White
