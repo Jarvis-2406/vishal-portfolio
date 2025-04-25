@@ -213,7 +213,7 @@ st.markdown(
 st.title(f"👋 Hey, I'm **Vishal Anand**")
 # Load and display image (increased width)
 image = Image.open("vishal.jpg")
-st.image(image, width=500, caption="Vishal Anand")
+st.image(image, width=250, caption="Vishal Anand")
 st.markdown(f"### **Aspiring Data Professional**")
 
 # Sidebar
@@ -368,16 +368,16 @@ st.markdown(
     """
     <div class="social-buttons">
         <a href="https://www.linkedin.com/in/vishal-anand2404/" target="_blank" class="social-button">
-            <i class="fab fa-linkedin-in"></i>
+            <span style="font-family: Arial, sans-serif; font-weight: bold;">L</span>
         </a>
         <a href="https://github.com/Jarvis-2406" target="_blank" class="social-button">
-            <i class="fab fa-github"></i>
+            <span style="font-family: Arial, sans-serif; font-weight: bold;">G</span>
         </a>
         <a href="https://www.instagram.com/vishalanand2404/?hl=en" target="_blank" class="social-button">
-            <i class="fab fa-instagram"></i>
+            <span style="font-family: Arial, sans-serif; font-weight: bold;">I</span>
         </a>
         <a href="mailto:anand24061998@gmail.com" class="social-button">
-            <i class="far fa-envelope"></i>
+            <span style="font-family: Arial, sans-serif; font-weight: bold;">g</span>
         </a>
     </div>
     <div class = "phone-info">
