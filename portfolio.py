@@ -374,7 +374,7 @@ st.markdown(
 # Languages
 st.header("**🗣️ Languages**")
 st.markdown("""
-- **English**, **Hindi**, **Telugu**, **German (Basic)**
+- **English**, **Hindi**, **Telugu**, German (Basic)
 """, True)
 
 # Contact Section
