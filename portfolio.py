@@ -46,6 +46,7 @@ st.markdown(
         background: linear-gradient(to bottom, {primary_gradient_start}, {primary_gradient_end});
         color: {text_color};
         min-height: 100vh;
+        padding-bottom: 5rem; /* Add padding at the bottom for better spacing */
     }}
     [data-testid="stHeader"] {{
         background: rgba(0, 0, 0, 0.05);
@@ -56,6 +57,9 @@ st.markdown(
         display: flex; /* Use flexbox for layout */
         justify-content: space-between; /* Space items evenly */
         align-items: center; /* Vertically center items */
+        position: sticky; /* Make header sticky */
+        top: 0;
+        z-index: 100;
     }}
     [data-testid="stSidebar"] {{
         background: linear-gradient(to bottom, {secondary_gradient_start}, {secondary_gradient_end});
@@ -67,6 +71,14 @@ st.markdown(
         color: {text_color};
         font-family: 'Times New Roman', serif; /* Heading font */
         font-weight: 700;
+        margin-bottom: 1.5rem; /* Increased heading spacing */
+        line-height: 1.2;
+    }}
+    p {{
+        color: {text_color};
+        line-height: 1.7;
+        font-size: 1.1rem;
+        margin-bottom: 1rem; /* Increased paragraph spacing */
     }}
     .st-eb {{
         background-color: {content_background};
@@ -75,6 +87,7 @@ st.markdown(
         color: {text_color};
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        margin-bottom: 2rem; /* Increased section spacing */
     }}
     .st-eb:hover {{
         transform: translateY(-4px);
@@ -92,10 +105,12 @@ st.markdown(
         padding: 0.8rem 2rem;
         cursor: pointer;
         transition: background-color 0.3s ease-in-out, transform 0.1s ease;
+        margin-top: 1rem;
     }}
     .stDownloadButton > button:hover {{
         background: linear-gradient(to right, #b9f5b9, #b9f5b9);
         transform: scale(1.05);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }}
     a {{
         color: {accent_color};
@@ -112,27 +127,29 @@ st.markdown(
     }}
     .skills-section {{
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Increased min width */
+        gap: 2.5rem; /* Increased gap */
         margin-top: 2rem;
     }}
     .skill-box {{
         background-color: rgba(255, 255, 255, 0.08);
-        border-radius: 10px;
-        padding: 1.5rem;
+        border-radius: 12px; /* More rounded corners */
+        padding: 2rem; /* Increased padding */
         border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow */
+        transition: background-color 0.3s ease-in-out, transform 0.2s ease, box-shadow 0.3s ease; /* Added shadow transition */
     }}
     .skill-box:hover {{
         background-color: rgba(255, 255, 255, 0.15);
         transform: translateY(-5px);
+        box-shadow: 0 10px 12px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
     }}
     .skill-box h3 {{
-        margin-bottom: 1rem;
+        margin-bottom: 1.25rem; /* Increased spacing */
         color: {accent_color};
-        font-size: 1.4rem;
+        font-size: 1.5rem; /* Increased font size */
         font-weight: 600;
+        letter-spacing: 0.5px;
     }}
     .skill-box ul {{
         list-style: none;
@@ -141,67 +158,71 @@ st.markdown(
         font-size: 1.1rem;
     }}
     .skill-box li {{
-        margin-bottom: 0.75rem;
+        margin-bottom: 0.8rem; /* Increased spacing */
         opacity: 0.9;
     }}
     .certifications-section {{
         margin-top: 2rem;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Increased min width */
+        gap: 2.5rem; /* Increased gap */
     }}
     .certification-card {{
         background-color: rgba(255, 255, 255, 0.08);
-        border-radius: 10px;
-        padding: 1.5rem;
+        border-radius: 12px; /* More rounded corners */
+        padding: 2rem; /* Increased padding */
         border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow */
+        transition: background-color 0.3s ease-in-out, transform 0.2s ease, box-shadow 0.3s ease; /* Added shadow transition */
         text-align: center;
     }}
     .certification-card:hover {{
         background-color: rgba(255, 255, 255, 0.15);
         transform: translateY(-5px);
+        box-shadow: 0 10px 12px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
     }}
     .certification-card h3 {{
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.75rem; /* Increased spacing */
         color: {accent_color};
-        font-size: 1.2rem;
+        font-size: 1.3rem; /* Increased font size */
         font-weight: 600;
+        letter-spacing: 0.5px;
     }}
     .certification-card p{{
-        font-size: 1rem;
+        font-size: 1.1rem;
         color: {text_color};
     }}
     .social-buttons {{
         display: flex;
         justify-content: center;
-        gap: 1rem;
-        margin-top: 1rem;
+        gap: 1.5rem; /* Increased gap */
+        margin-top: 2rem; /* Increased spacing */
     }}
     .social-button {{
-        background: linear-gradient(to right, #a7f9a7, #a7f9a7);
+        background: {button_bg};
         color: {text_color};
         border: 1px solid rgba(255,255,255,0.3);
         border-radius: 50%;
-        width: 40px;
-        height: 40px;
+        width: 50px; /* Increased size */
+        height: 50px; /* Increased size */
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.2rem;
+        font-size: 1.5rem; /* Increased font size */
         cursor: pointer;
-        transition: background-color 0.3s ease-in-out, transform 0.1s ease;
+        transition: background-color 0.3s ease-in-out, transform 0.1s ease, box-shadow 0.3s ease; /* Added shadow transition */
         text-decoration: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }}
     .social-button:hover {{
         background: linear-gradient(to right, #b9f5b9, #b9f5b9);
         transform: scale(1.1);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Increased shadow on hover */
     }}
     .phone-info{{
-        margin-top: 1rem;
+        margin-top: 1.5rem; /* Increased spacing */
         text-align: center;
-        font-size: 1.1rem;
+        font-size: 1.2rem; /* Increased font size */
         color: {text_color}
     }}
     .theme-button {{
@@ -218,6 +239,11 @@ st.markdown(
     .theme-button:hover {{
         color: {accent_color};
     }}
+    hr {{
+        margin: 3rem 0; /* Increased spacing */
+        border: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }}
     </style>
     """,
     unsafe_allow_html=True,
@@ -230,8 +256,9 @@ st.button("🌙", on_click=toggle_theme, key="theme_toggle")
 
 # Load and display image (increased width)
 image = Image.open("vishal.jpg")
-st.image(image, width=700, caption="Vishal Anand")
-st.markdown(f"### **Aspiring Data Professional**")
+st.image(image, width=700, caption="Vishal Anand", use_column_width=True)
+st.markdown(f"<h3 style='margin-bottom: 2rem;'>Aspiring Data Professional</h3>", unsafe_allow_html=True)
+
 
 with open("Vishal Anand .pdf", "rb") as pdf_file:
     PDFbyte = pdf_file.read()
@@ -374,7 +401,7 @@ st.markdown(
 # Languages
 st.header("**🗣️ Languages**")
 st.markdown("""
-- **English**, **Hindi**, **Telugu**, German (Basic)
+- **English**, **Hindi**, **Telugu**, **German (Basic)**
 """, True)
 
 # Contact Section
