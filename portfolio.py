@@ -165,10 +165,10 @@ st.markdown(
     .certifications-section, .projects-section {{
         margin-top: 2rem;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 2.5rem;
     }}
-    .certification-card, .project-card {{
+    .project-card {{
         background-color: rgba(255, 255, 255, 0.08);
         border-radius: 12px;
         padding: 2rem;
@@ -176,20 +176,36 @@ st.markdown(
         box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
         transition: background-color 0.3s ease-in-out, transform 0.2s ease, box-shadow 0.3s ease;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 200px;
     }}
-    .certification-card:hover, .project-card:hover {{
+    .project-card:hover {{
         background-color: rgba(255, 255, 255, 0.15);
         transform: translateY(-5px);
         box-shadow: 0 10px 12px rgba(0, 0, 0, 0.2);
     }}
-    .certification-card h3, .project-card h3 {{
+    .project-card h3 {{
         margin-bottom: 0.75rem;
         color: {accent_color};
         font-size: 1.3rem;
         font-weight: 600;
         letter-spacing: 0.5px;
     }}
-    .certification-card p, .project-card p{{
+    .project-card p{{
+        font-size: 1.1rem;
+        color: {text_color};
+        margin-bottom: 0.5rem;
+    }}
+    .certifications-section .certification-card h3{
+        margin-bottom: 0.75rem;
+        color: {accent_color};
+        font-size: 1.3rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }}
+    .certifications-section .certification-card p{
         font-size: 1.1rem;
         color: {text_color};
     }}
