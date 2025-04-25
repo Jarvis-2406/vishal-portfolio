@@ -257,7 +257,7 @@ in this field and contribute to data-driven solutions.
 """)
 
 # Add a doodle here
-st.image("doodle1.png", caption="Data Analysis Doodle", use_container_width=True, output_format="PNG",  ) # Added doodle
+st.image("doodle1.png", caption="Data Analysis Doodle", use_container_width=True, output_format="PNG") # Added doodle
 
 # Skills (Detailed and in Columns)
 st.header("**🛠️ Skills**")
