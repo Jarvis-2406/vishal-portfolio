@@ -374,7 +374,7 @@ st.markdown("""
 st.subheader("**3. BellaBeat Data Insights**")
 st.markdown("""
 - Performed EDA on smart device data
-- Visualized findings with Tableau
+- Visualized findings with Python
 [🔗 **GitHub Repo**](https://github.com/Jarvis-2406/BellaBeat-Data-Insights)
 """, True)
 
