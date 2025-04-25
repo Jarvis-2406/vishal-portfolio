@@ -213,6 +213,7 @@ st.markdown(
         transition: background-color 0.3s ease-in-out, transform 0.1s ease, box-shadow 0.3s ease;
         text-decoration: none;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 1rem;
     }}
     .social-button:hover {{
         background: linear-gradient(to right, #aed581, #7cb342);
