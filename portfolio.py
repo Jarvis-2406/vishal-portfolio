@@ -10,26 +10,26 @@ if "theme" not in st.session_state:
 def toggle_theme():
     st.session_state["theme"] = "dark" if st.session_state["theme"] == "light" else "light"
 
-# Define theme colors based on the current state (Modern Gradient Theme)
+# Define theme colors based on the current state
 if st.session_state["theme"] == "light":
-    primary_gradient_start = "#f8f0fb"  # Lighter Lavender
-    primary_gradient_end = "#f0e6ef"    # Light Pink
-    secondary_gradient_start = "#e6d7ef"  # Pale Lilac
-    secondary_gradient_end = "#d1c4e9"    # Light Lilac
-    text_color = "#301e67"            # Dark Purple
-    accent_color = "#7e57c2"            # Deep Purple
+    primary_gradient_start = "#f0f4c3"  # Light Yellow
+    primary_gradient_end = "#d4e157"    # Yellow-Green
+    secondary_gradient_start = "#aed581"  # Light Green
+    secondary_gradient_end = "#7cb342"    # Darker Green
+    text_color = "#212121"            # Very Dark Gray
+    accent_color = "#558b2f"            # Olive Green
     content_background = "#ffffff"      # White
-    button_bg = "linear-gradient(to right, #a7f9a7, #a7f9a7)"  # Light Green
-    button_text_color = "#301e67"
+    button_bg = "linear-gradient(to right, #81c784, #66bb6a)"  # Light Green
+    button_text_color = "#ffffff"
 else:
-    primary_gradient_start = "#1a1a2e"  # Very Dark Purple
-    primary_gradient_end = "#3f37c9"    # Dark Indigo
-    secondary_gradient_start = "#485696"  # Dark Slate Blue
-    secondary_gradient_end = "#242424"    # Near Black
+    primary_gradient_start = "#2c3e50"  # Dark Blue-Gray
+    primary_gradient_end = "#34495e"    # Even Darker Blue-Gray
+    secondary_gradient_start = "#3498db"  # Bright Blue
+    secondary_gradient_end = "#2980b9"  # Darker Blue
     text_color = "#ffffff"            # White
-    accent_color = "#90caf9"            # Light Blue
-    content_background = "#121212"      # Black
-    button_bg = "linear-gradient(to right, #4a148c, #1a237e)"  # Darker Purple Gradient
+    accent_color = "#f1c40f"            # Yellow
+    content_background = "#1a1a1a"      # Near Black
+    button_bg = "linear-gradient(to right, #424242, #1e1e1e)"
     button_text_color = "white"
 
 # Custom Theme Configuration
@@ -39,14 +39,14 @@ st.markdown(
     @import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;700&family=Open+Sans:wght@400;700&family=Lato:wght@400;700&display=swap');
 
     body {{
-        font-family: 'Lato', sans-serif; /* Default font */
+        font-family: 'Lato', sans-serif;
         color: {text_color};
     }}
     [data-testid="stAppViewContainer"] {{
         background: linear-gradient(to bottom, {primary_gradient_start}, {primary_gradient_end});
         color: {text_color};
         min-height: 100vh;
-        padding-bottom: 5rem; /* Add padding at the bottom for better spacing */
+        padding-bottom: 5rem;
     }}
     [data-testid="stHeader"] {{
         background: rgba(0, 0, 0, 0.05);
@@ -54,10 +54,10 @@ st.markdown(
         color: {text_color};
         padding: 2rem 1rem;
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        display: flex; /* Use flexbox for layout */
-        justify-content: space-between; /* Space items evenly */
-        align-items: center; /* Vertically center items */
-        position: sticky; /* Make header sticky */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
         top: 0;
         z-index: 100;
     }}
@@ -69,16 +69,16 @@ st.markdown(
     }}
     h1, h2, h3, h4, h5, h6 {{
         color: {text_color};
-        font-family: 'Times New Roman', serif; /* Heading font */
+        font-family: 'Times New Roman', serif;
         font-weight: 700;
-        margin-bottom: 1.5rem; /* Increased heading spacing */
+        margin-bottom: 1.5rem;
         line-height: 1.2;
     }}
     p {{
         color: {text_color};
         line-height: 1.7;
         font-size: 1.1rem;
-        margin-bottom: 1rem; /* Increased paragraph spacing */
+        margin-bottom: 1rem;
     }}
     .st-eb {{
         background-color: {content_background};
@@ -87,7 +87,7 @@ st.markdown(
         color: {text_color};
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        margin-bottom: 2rem; /* Increased section spacing */
+        margin-bottom: 2rem;
     }}
     .st-eb:hover {{
         transform: translateY(-4px);
@@ -98,7 +98,7 @@ st.markdown(
         color: {text_color};
     }}
     .stDownloadButton > button {{
-        background: {button_bg}; /* Light Blue Gradient */
+        background: {button_bg};
         color: {button_text_color};
         border: 1px solid rgba(255,255,255,0.3);
         border-radius: 10px;
@@ -108,7 +108,7 @@ st.markdown(
         margin-top: 1rem;
     }}
     .stDownloadButton > button:hover {{
-        background: linear-gradient(to right, #b9f5b9, #b9f5b9);
+        background: linear-gradient(to right, #9ccc65, #8bc34a);
         transform: scale(1.05);
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }}
@@ -127,27 +127,27 @@ st.markdown(
     }}
     .skills-section {{
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Increased min width */
-        gap: 2.5rem; /* Increased gap */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2.5rem;
         margin-top: 2rem;
     }}
     .skill-box {{
         background-color: rgba(255, 255, 255, 0.08);
-        border-radius: 12px; /* More rounded corners */
-        padding: 2rem; /* Increased padding */
+        border-radius: 12px;
+        padding: 2rem;
         border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow */
-        transition: background-color 0.3s ease-in-out, transform 0.2s ease, box-shadow 0.3s ease; /* Added shadow transition */
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease-in-out, transform 0.2s ease, box-shadow 0.3s ease;
     }}
     .skill-box:hover {{
         background-color: rgba(255, 255, 255, 0.15);
         transform: translateY(-5px);
-        box-shadow: 0 10px 12px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+        box-shadow: 0 10px 12px rgba(0, 0, 0, 0.2);
     }}
     .skill-box h3 {{
-        margin-bottom: 1.25rem; /* Increased spacing */
+        margin-bottom: 1.25rem;
         color: {accent_color};
-        font-size: 1.5rem; /* Increased font size */
+        font-size: 1.5rem;
         font-weight: 600;
         letter-spacing: 0.5px;
     }}
@@ -158,33 +158,33 @@ st.markdown(
         font-size: 1.1rem;
     }}
     .skill-box li {{
-        margin-bottom: 0.8rem; /* Increased spacing */
+        margin-bottom: 0.8rem;
         opacity: 0.9;
     }}
     .certifications-section {{
         margin-top: 2rem;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Increased min width */
-        gap: 2.5rem; /* Increased gap */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2.5rem;
     }}
     .certification-card {{
         background-color: rgba(255, 255, 255, 0.08);
-        border-radius: 12px; /* More rounded corners */
-        padding: 2rem; /* Increased padding */
+        border-radius: 12px;
+        padding: 2rem;
         border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow */
-        transition: background-color 0.3s ease-in-out, transform 0.2s ease, box-shadow 0.3s ease; /* Added shadow transition */
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease-in-out, transform 0.2s ease, box-shadow 0.3s ease;
         text-align: center;
     }}
     .certification-card:hover {{
         background-color: rgba(255, 255, 255, 0.15);
         transform: translateY(-5px);
-        box-shadow: 0 10px 12px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+        box-shadow: 0 10px 12px rgba(0, 0, 0, 0.2);
     }}
     .certification-card h3 {{
-        margin-bottom: 0.75rem; /* Increased spacing */
+        margin-bottom: 0.75rem;
         color: {accent_color};
-        font-size: 1.3rem; /* Increased font size */
+        font-size: 1.3rem;
         font-weight: 600;
         letter-spacing: 0.5px;
     }}
@@ -195,34 +195,34 @@ st.markdown(
     .social-buttons {{
         display: flex;
         justify-content: center;
-        gap: 1.5rem; /* Increased gap */
-        margin-top: 2rem; /* Increased spacing */
+        gap: 1.5rem;
+        margin-top: 2rem;
     }}
     .social-button {{
         background: {button_bg};
-        color: {text_color};
+        color: {button_text_color};
         border: 1px solid rgba(255,255,255,0.3);
         border-radius: 50%;
-        width: 50px; /* Increased size */
-        height: 50px; /* Increased size */
+        width: 50px;
+        height: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.5rem; /* Increased font size */
+        font-size: 1.5rem;
         cursor: pointer;
-        transition: background-color 0.3s ease-in-out, transform 0.1s ease, box-shadow 0.3s ease; /* Added shadow transition */
+        transition: background-color 0.3s ease-in-out, transform 0.1s ease, box-shadow 0.3s ease;
         text-decoration: none;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }}
     .social-button:hover {{
-        background: linear-gradient(to right, #b9f5b9, #b9f5b9);
+        background: linear-gradient(to right, #aed581, #7cb342);
         transform: scale(1.1);
-        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Increased shadow on hover */
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
     }}
     .phone-info{{
-        margin-top: 1.5rem; /* Increased spacing */
+        margin-top: 1.5rem;
         text-align: center;
-        font-size: 1.2rem; /* Increased font size */
+        font-size: 1.2rem;
         color: {text_color}
     }}
     .theme-button {{
@@ -240,7 +240,7 @@ st.markdown(
         color: {accent_color};
     }}
     hr {{
-        margin: 3rem 0; /* Increased spacing */
+        margin: 3rem 0;
         border: 0;
         border-top: 1px solid rgba(255, 255, 255, 0.1);
     }}
@@ -410,16 +410,16 @@ st.markdown(
     """
     <div class="social-buttons">
         <a href="https://www.linkedin.com/in/vishal-anand2404/" target="_blank" class="social-button">
-            <span style="font-family: Arial, sans-serif; font-weight: bold;">L</span>
+            <span style="font-family: Arial, sans-serif; font-weight: bold;">Linkedin</span>
         </a>
         <a href="https://github.com/Jarvis-2406" target="_blank" class="social-button">
-            <span style="font-family: Arial, sans-serif; font-weight: bold;">G</span>
+            <span style="font-family: Arial, sans-serif; font-weight: bold;">GitHub</span>
         </a>
         <a href="https://www.instagram.com/vishalanand2404/?hl=en" target="_blank" class="social-button">
-            <span style="font-family: Arial, sans-serif; font-weight: bold;">I</span>
+            <span style="font-family: Arial, sans-serif; font-weight: bold;">Instagram</span>
         </a>
         <a href="mailto:anand24061998@gmail.com" class="social-button">
-            <span style="font-family: Arial, sans-serif; font-weight: bold;">g</span>
+            <span style="font-family: Arial, sans-serif; font-weight: bold;">GMail</span>
         </a>
     </div>
     <div class = "phone-info">
