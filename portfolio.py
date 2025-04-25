@@ -162,13 +162,13 @@ st.markdown(
         margin-bottom: 0.8rem;
         opacity: 0.9;
     }}
-    .certifications-section {{
+    .certifications-section, .projects-section {{
         margin-top: 2rem;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 2.5rem;
     }}
-    .certification-card {{
+    .certification-card, .project-card {{
         background-color: rgba(255, 255, 255, 0.08);
         border-radius: 12px;
         padding: 2rem;
@@ -177,19 +177,19 @@ st.markdown(
         transition: background-color 0.3s ease-in-out, transform 0.2s ease, box-shadow 0.3s ease;
         text-align: center;
     }}
-    .certification-card:hover {{
+    .certification-card:hover, .project-card:hover {{
         background-color: rgba(255, 255, 255, 0.15);
         transform: translateY(-5px);
         box-shadow: 0 10px 12px rgba(0, 0, 0, 0.2);
     }}
-    .certification-card h3 {{
+    .certification-card h3, .project-card h3 {{
         margin-bottom: 0.75rem;
         color: {accent_color};
         font-size: 1.3rem;
         font-weight: 600;
         letter-spacing: 0.5px;
     }}
-    .certification-card p{{
+    .certification-card p, .project-card p{{
         font-size: 1.1rem;
         color: {text_color};
     }}
@@ -357,26 +357,31 @@ st.markdown("""
 
 # Projects
 st.header("**📁 Projects**")
-st.subheader("**1. AI-powered Financial Audit Assistant**")
-st.markdown("""
-- Automated document search using LangChain & OpenAI
-- Implemented FAISS for fast retrieval
-[🔗 **GitHub Repo**](https://github.com/Jarvis-2406/GenAI-for-Financial-Audits)
-""", True)
-
-st.subheader("**2. Gold Price Prediction**")
-st.markdown("""
-- Built predictive ML model with XGBoost
-- EDA using Pandas & Seaborn
-[🔗 **GitHub Repo**](https://github.com/Jarvis-2406/Gold-Price-Prediction)
-""", True)
-
-st.subheader("**3. BellaBeat Data Insights**")
-st.markdown("""
-- Performed EDA on smart device data
-- Visualized findings with Python
-[🔗 **GitHub Repo**](https://github.com/Jarvis-2406/BellaBeat-Data-Insights)
-""", True)
+st.markdown(
+    """
+    <div class="projects-section">
+        <div class="project-card">
+            <h3>AI-powered Financial Audit Assistant</h3>
+            <p>Automated document search using LangChain & OpenAI</p>
+            <p>Implemented FAISS for fast retrieval</p>
+            <p>[🔗 **GitHub Repo**](https://github.com/Jarvis-2406/GenAI-for-Financial-Audits)</p>
+        </div>
+        <div class="project-card">
+            <h3>Gold Price Prediction</h3>
+            <p>Built predictive ML model with XGBoost</p>
+            <p>EDA using Pandas & Seaborn</p>
+            <p>[🔗 **GitHub Repo**](https://github.com/Jarvis-2406/Gold-Price-Prediction)</p>
+        </div>
+        <div class="project-card">
+            <h3>BellaBeat Data Insights</h3>
+            <p>Performed EDA on smart device data</p>
+            <p>Visualized findings with Tableau</p>
+            <p>[🔗 **GitHub Repo**](https://github.com/Jarvis-2406/BellaBeat-Data-Insights)</p>
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
 # Certifications (Styled Cards) - No Images
 st.header("**📜 Certifications**")
@@ -422,6 +427,9 @@ st.markdown(
         </a>
         <a href="mailto:anand24061998@gmail.com" class="social-button">
             <i class="far fa-envelope"></i>
+        </a>
+        <a href="https://vishal-portfolio.streamlit.app/" target="_blank" class="social-button">
+            <i class="fas fa-link"></i>
         </a>
     </div>
     <div class = "phone-info">
