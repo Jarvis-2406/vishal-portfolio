@@ -195,7 +195,7 @@ st.markdown(
     .social-buttons {{
         display: flex;
         justify-content: center;
-        gap: 1.5rem;
+        gap: 2rem;
         margin-top: 2rem;
     }}
     .social-button {{
