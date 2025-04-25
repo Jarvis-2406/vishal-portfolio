@@ -198,6 +198,25 @@ st.markdown(
         color: {text_color};
         margin-bottom: 0.5rem;
     }}
+    .project-card .github-button {{
+        background: {button_bg};
+        color: {button_text_color};
+        border: 1px solid rgba(255,255,255,0.3);
+        border-radius: 10px;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out, transform 0.1s ease;
+        margin-top: 1rem;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 1rem;
+    }}
+    .project-card .github-button:hover {{
+        background: linear-gradient(to right, #9ccc65, #8bc34a);
+        transform: scale(1.05);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }}
+
     .certifications-section .certification-card h3{{
         margin-bottom: 0.75rem;
         color: {accent_color};
@@ -380,19 +399,25 @@ st.markdown(
             <h3>AI-powered Financial Audit Assistant</h3>
             <p>Automated document search using LangChain & OpenAI</p>
             <p>Implemented FAISS for fast retrieval</p>
-            <p>[🔗 **GitHub Repo**](https://github.com/Jarvis-2406/GenAI-for-Financial-Audits)</p>
+            <a href="https://github.com/Jarvis-2406/GenAI-for-Financial-Audits" target="_blank" class="github-button">
+                GitHub Repo
+            </a>
         </div>
         <div class="project-card">
             <h3>Gold Price Prediction</h3>
             <p>Built predictive ML model with XGBoost</p>
             <p>EDA using Pandas & Seaborn</p>
-            <p>[🔗 **GitHub Repo**](https://github.com/Jarvis-2406/Gold-Price-Prediction)</p>
+            <a href="https://github.com/Jarvis-2406/Gold-Price-Prediction" target="_blank" class="github-button">
+                GitHub Repo
+            </a>
         </div>
         <div class="project-card">
             <h3>BellaBeat Data Insights</h3>
             <p>Performed EDA on smart device data</p>
             <p>Visualized findings with Tableau</p>
-            <p>[🔗 **GitHub Repo**](https://github.com/Jarvis-2406/BellaBeat-Data-Insights)</p>
+            <a href="https://github.com/Jarvis-2406/BellaBeat-Data-Insights" target="_blank" class="github-button">
+                GitHub Repo
+            </a>
         </div>
     </div>
     """,
