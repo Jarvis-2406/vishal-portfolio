@@ -12,15 +12,15 @@ def toggle_theme():
 
 # Define theme colors based on the current state (Modern Gradient Theme)
 if st.session_state["theme"] == "light":
-    primary_gradient_start = "#f0f2ff"  # Light Lavender
-    primary_gradient_end = "#e0eafc"    # Light Periwinkle
-    secondary_gradient_start = "#d1c4e9"  # Light Lilac
-    secondary_gradient_end = "#b39ddb"    # Medium Purple
-    text_color = "#212121"            # Very Dark Gray
+    primary_gradient_start = "#f8f0fb"  # Lighter Lavender
+    primary_gradient_end = "#f0e6ef"    # Light Pink
+    secondary_gradient_start = "#e6d7ef"  # Pale Lilac
+    secondary_gradient_end = "#d1c4e9"    # Light Lilac
+    text_color = "#301e67"            # Dark Purple
     accent_color = "#7e57c2"            # Deep Purple
     content_background = "#ffffff"      # White
-    button_bg = "linear-gradient(to right, #7e57c2, #5e35b1)"  # Deep Purple Gradient
-    button_text_color = "white"
+    button_bg = "linear-gradient(to right, #a7f9a7, #a7f9a7)"  # Light Green
+    button_text_color = "#301e67"
 else:
     primary_gradient_start = "#1a1a2e"  # Very Dark Purple
     primary_gradient_end = "#3f37c9"    # Dark Indigo
@@ -36,10 +36,10 @@ else:
 st.markdown(
     f"""
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;700&family=Open+Sans:wght@400;700&family=Lato:wght@400;700&display=swap');
 
     body {{
-        font-family: 'Open Sans', sans-serif; /* Default font */
+        font-family: 'Lato', sans-serif; /* Default font */
         color: {text_color};
     }}
     [data-testid="stAppViewContainer"] {{
@@ -85,8 +85,8 @@ st.markdown(
         color: {text_color};
     }}
     .stDownloadButton > button {{
-        background: linear-gradient(to right, #ADD8E6, #ADD8E6); /* Light Blue Gradient */
-        color: {text_color};
+        background: {button_bg}; /* Light Blue Gradient */
+        color: {button_text_color};
         border: 1px solid rgba(255,255,255,0.3);
         border-radius: 10px;
         padding: 0.8rem 2rem;
@@ -94,7 +94,7 @@ st.markdown(
         transition: background-color 0.3s ease-in-out, transform 0.1s ease;
     }}
     .stDownloadButton > button:hover {{
-        background: linear-gradient(to right, #FFFFFF, #FFFFFF);
+        background: linear-gradient(to right, #b9f5b9, #b9f5b9);
         transform: scale(1.05);
     }}
     a {{
@@ -180,7 +180,7 @@ st.markdown(
         margin-top: 1rem;
     }}
     .social-button {{
-        background: linear-gradient(to right, #ADD8E6, #ADD8E6);
+        background: linear-gradient(to right, #a7f9a7, #a7f9a7);
         color: {text_color};
         border: 1px solid rgba(255,255,255,0.3);
         border-radius: 50%;
@@ -195,7 +195,7 @@ st.markdown(
         text-decoration: none;
     }}
     .social-button:hover {{
-        background: linear-gradient(to right, #FFFFFF, #FFFFFF);
+        background: linear-gradient(to right, #b9f5b9, #b9f5b9);
         transform: scale(1.1);
     }}
     .phone-info{{
@@ -226,7 +226,7 @@ st.markdown(
 # Header
 st.header(f"👋 Hey, I'm **Vishal Anand**")
 # Add dark theme toggle button
-st.button("🌙", on_click=toggle_theme, key="theme_toggle", help="Toggle between light and dark themes")
+st.button("🌙", on_click=toggle_theme, key="theme_toggle")
 
 # Load and display image (increased width)
 image = Image.open("vishal.jpg")
