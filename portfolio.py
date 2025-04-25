@@ -39,10 +39,10 @@ else:
 st.markdown(
     f"""
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;700&family=Times+New+Roman:wght@400;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
 
     body {{
-        font-family: 'Arial', sans-serif; /* Default font */
+        font-family: 'Open Sans', sans-serif; /* Default font */
         color: {text_color};
     }}
     [data-testid="stAppViewContainer"] {{
@@ -85,16 +85,16 @@ st.markdown(
         color: {text_color};
     }}
     .stDownloadButton > button {{
-        background: {button_bg};
-        color: {button_text_color};
-        border: none;
+        background: linear-gradient(to right, #ADD8E6, #ADD8E6); /* Light Blue Gradient */
+        color: {text_color};
+        border: 1px solid rgba(255,255,255,0.3);
         border-radius: 10px;
         padding: 0.8rem 2rem;
         cursor: pointer;
         transition: background-color 0.3s ease-in-out, transform 0.1s ease;
     }}
     .stDownloadButton > button:hover {{
-        background: linear-gradient(to right, darken({button_bg}, 10%), darken({button_bg}, 15%));
+        background: linear-gradient(to right, #FFFFFF, #FFFFFF);
         transform: scale(1.05);
     }}
     a {{
@@ -180,9 +180,9 @@ st.markdown(
         margin-top: 1rem;
     }}
     .social-button {{
-        background: {button_bg};
-        color: {button_text_color};
-        border: none;
+        background: linear-gradient(to right, #ADD8E6, #ADD8E6);
+        color: {text_color};
+        border: 1px solid rgba(255,255,255,0.3);
         border-radius: 50%;
         width: 40px;
         height: 40px;
@@ -195,7 +195,7 @@ st.markdown(
         text-decoration: none;
     }}
     .social-button:hover {{
-        background: linear-gradient(to right, darken({button_bg}, 10%), darken({button_bg}, 15%));
+        background: linear-gradient(to right, #FFFFFF, #FFFFFF);
         transform: scale(1.1);
     }}
     .phone-info{{
