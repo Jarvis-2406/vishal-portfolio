@@ -37,6 +37,7 @@ st.markdown(
     f"""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;700&family=Open+Sans:wght@400;700&family=Lato:wght@400;700&display=swap');
+    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
 
     body {{
         font-family: 'Lato', sans-serif;
@@ -411,16 +412,16 @@ st.markdown(
     """
     <div class="social-buttons">
         <a href="https://www.linkedin.com/in/vishal-anand2404/" target="_blank" class="social-button">
-            <span style="font-family: Arial, sans-serif; font-weight: bold;">Linkedin</span>
+            <i class="fab fa-linkedin"></i>
         </a>
         <a href="https://github.com/Jarvis-2406" target="_blank" class="social-button">
-            <span style="font-family: Arial, sans-serif; font-weight: bold;">GitHub</span>
+            <i class="fab fa-github"></i>
         </a>
         <a href="https://www.instagram.com/vishalanand2404/?hl=en" target="_blank" class="social-button">
-            <span style="font-family: Arial, sans-serif; font-weight: bold;">Instagram</span>
+            <i class="fab fa-instagram"></i>
         </a>
         <a href="mailto:anand24061998@gmail.com" class="social-button">
-            <span style="font-family: Arial, sans-serif; font-weight: bold;">GMail</span>
+            <i class="far fa-envelope"></i>
         </a>
     </div>
     <div class = "phone-info">
