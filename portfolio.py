@@ -310,7 +310,11 @@ st.markdown(
 st.header("**💼 Experience**")
 st.subheader("**HSBC — Contact Centre Executive (Nov 2022 - Nov 2024)**")
 st.markdown("""
-- Built real-time dashboards to monitor service performance
+- Utilized Excel, SQL, and Power BI to analyze customer interaction data, with a focus on
+  identifying trends and opportunities to improve efficiency.
+- Played a key role in monitoring customer transaction patterns and applying predictive analytics
+  techniques to enhance fraud detection systems.
+- Developed real-time dashboards to monitor service performance
 - Used SQL & Power BI to improve fraud detection
 - Led data reporting for operational efficiency
 """, True)
