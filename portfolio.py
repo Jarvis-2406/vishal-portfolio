@@ -385,13 +385,10 @@ improve lead targeting and business performance.
 
 - Developed interactive dashboards in Tableau and provided visualization-driven reporting to sales and training
 teams, supporting strategic decision-making.
-
 - Planned and monitored onboarding program outcomes, building performance tracking models that helped
 optimize employee training initiatives.
-
 - Delivered actionable findings and business recommendations through regular stakeholder reporting sessions,
 ensuring alignment with organizational goals.
-
 - Ensured data reporting consistency and maintained data quality standards across different sales regions.
 """, True)
 
