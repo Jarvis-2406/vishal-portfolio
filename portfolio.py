@@ -290,7 +290,7 @@ with open("Vishal Anand .pdf", "rb") as pdf_file:
 
 st.download_button(label="📄 **My Resume**",
                     data=PDFbyte,
-                    file_name="Vishal Anand .pdf",
+                    file_name="Vishal Anand.pdf",
                     mime='application/octet-stream')
 
 # About Me (Updated Content)
