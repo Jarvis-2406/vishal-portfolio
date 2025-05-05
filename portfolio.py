@@ -467,7 +467,7 @@ st.markdown(
         <a href="https://www.instagram.com/vishalanand2404/?hl=en" target="_blank" class="social-button">
             <i class="fab fa-instagram"></i>
         </a>
-        <a href="mailto:anand24061998@gmail.com" class="social-button">
+        <a href="mailto:vishalanand2406@gmail.com" class="social-button">
             <i class="far fa-envelope"></i>
         </a>
     </div>
