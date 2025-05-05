@@ -362,20 +362,33 @@ st.markdown(
 st.header("**💼 Experience**")
 st.subheader("**HSBC — Contact Centre Executive (Nov 2022 - Nov 2024)**")
 st.markdown("""
-- Utilized Excel, SQL, and Power BI to analyze customer interaction data, with a focus on
-  identifying trends and opportunities to improve efficiency.
-- Played a key role in monitoring customer transaction patterns and applying predictive analytics
-  techniques to enhance fraud detection systems.
-- Developed real-time dashboards to monitor service performance
-- Used SQL & Power BI to improve fraud detection
-- Led data reporting for operational efficiency
+• Collected, organized, and analyzed large sets of customer interaction and transaction data using Excel, SQL, and
+Power BI to support business intelligence and operational improvements.
+• Built real-time dashboards and visualisations to track key service performance indicators (AHT, CSAT, FCR),
+enhancing data-driven monitoring and resource planning.
+• Spoke directly with customers to resolve complex banking queries with empathy and clarity, consistently
+maintaining high quality scores and low Average Handling Time (AHT).
+• Delivered excellent customer experience by actively listening, troubleshooting issues promptly, and ensuring first-
+contact resolution in compliance with service protocols.
+• Presented detailed data-driven reports and insights via PowerPoint to leadership, driving improvements in
+customer experience management.
+• Conducted predictive analytics to detect transaction fraud patterns, improving risk management and
+operational security strategies.
+• Ensured data accuracy, quality monitoring, and reporting needs were met through regular audits and collaboration
+with cross-functional teams, including Risk, Compliance, and Operations.
 """, True)
 
 st.subheader("**BYJUS — Business Development Associate (Dec 2020 - Sep 2022)**")
 st.markdown("""
-- Analyzed sales data using SQL
-- Created dashboards with Tableau & Google Analytics
-- Boosted conversion via data-driven lead segmentation
+• Analyzed sales and customer engagement data using SQL and Excel, identifying critical patterns and trends to
+improve lead targeting and business performance.
+• Developed interactive dashboards in Tableau and provided visualization-driven reporting to sales and training
+teams, supporting strategic decision-making.
+• Planned and monitored onboarding program outcomes, building performance tracking models that helped
+optimize employee training initiatives.
+• Delivered actionable findings and business recommendations through regular stakeholder reporting sessions,
+ensuring alignment with organizational goals.
+• Ensured data reporting consistency and maintained data quality standards across different sales regions.
 """, True)
 
 # Projects
