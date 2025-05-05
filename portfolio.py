@@ -362,19 +362,19 @@ st.markdown(
 st.header("**💼 Experience**")
 st.subheader("**HSBC — Contact Centre Executive (Nov 2022 - Nov 2024)**")
 st.markdown("""
-• Collected, organized, and analyzed large sets of customer interaction and transaction data using Excel, SQL, and
+- Collected, organized, and analyzed large sets of customer interaction and transaction data using Excel, SQL, and
 Power BI to support business intelligence and operational improvements.
-• Built real-time dashboards and visualisations to track key service performance indicators (AHT, CSAT, FCR),
+- Built real-time dashboards and visualisations to track key service performance indicators (AHT, CSAT, FCR),
 enhancing data-driven monitoring and resource planning.
-• Spoke directly with customers to resolve complex banking queries with empathy and clarity, consistently
+- Spoke directly with customers to resolve complex banking queries with empathy and clarity, consistently
 maintaining high quality scores and low Average Handling Time (AHT).
-• Delivered excellent customer experience by actively listening, troubleshooting issues promptly, and ensuring first-
+- Delivered excellent customer experience by actively listening, troubleshooting issues promptly, and ensuring first-
 contact resolution in compliance with service protocols.
-• Presented detailed data-driven reports and insights via PowerPoint to leadership, driving improvements in
+- Presented detailed data-driven reports and insights via PowerPoint to leadership, driving improvements in
 customer experience management.
-• Conducted predictive analytics to detect transaction fraud patterns, improving risk management and
+- Conducted predictive analytics to detect transaction fraud patterns, improving risk management and
 operational security strategies.
-• Ensured data accuracy, quality monitoring, and reporting needs were met through regular audits and collaboration
+- Ensured data accuracy, quality monitoring, and reporting needs were met through regular audits and collaboration
 with cross-functional teams, including Risk, Compliance, and Operations.
 """, True)
 
