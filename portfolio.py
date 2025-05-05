@@ -380,15 +380,15 @@ with cross-functional teams, including Risk, Compliance, and Operations.
 
 st.subheader("**BYJUS — Business Development Associate (Dec 2020 - Sep 2022)**")
 st.markdown("""
-• Analyzed sales and customer engagement data using SQL and Excel, identifying critical patterns and trends to
+- Analyzed sales and customer engagement data using SQL and Excel, identifying critical patterns and trends to
 improve lead targeting and business performance.
-• Developed interactive dashboards in Tableau and provided visualization-driven reporting to sales and training
+- Developed interactive dashboards in Tableau and provided visualization-driven reporting to sales and training
 teams, supporting strategic decision-making.
-• Planned and monitored onboarding program outcomes, building performance tracking models that helped
+- Planned and monitored onboarding program outcomes, building performance tracking models that helped
 optimize employee training initiatives.
-• Delivered actionable findings and business recommendations through regular stakeholder reporting sessions,
+- Delivered actionable findings and business recommendations through regular stakeholder reporting sessions,
 ensuring alignment with organizational goals.
-• Ensured data reporting consistency and maintained data quality standards across different sales regions.
+- Ensured data reporting consistency and maintained data quality standards across different sales regions.
 """, True)
 
 # Projects
