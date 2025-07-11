@@ -285,7 +285,7 @@ st.image(image, width=700, caption="Vishal Anand", use_container_width=True)
 st.markdown(f"<h3 style='margin-bottom: 2rem;'>Aspiring Data Professional</h3>", unsafe_allow_html=True)
 
 
-with open("VISHAL ANAND 2.pdf'f", "rb") as pdf_file:
+with open("VISHAL ANAND 2.pdf, "rb") as pdf_file:
     PDFbyte = pdf_file.read()
 
 st.download_button(label="📄 **My Resume**",
