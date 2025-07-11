@@ -296,31 +296,29 @@ st.download_button(
     mime='application/octet-stream'
 )
 
-# --- VIEW RESUME BUTTON (Styled) ---
+# --- VIEW RESUME BUTTON (Styled <a> only) ---
 google_drive_file_id = "1GuPDBqmRCobDLmr_dmv6Jg5xlPGplONX"
 viewer_url = f"https://drive.google.com/file/d/{google_drive_file_id}/preview"
 
 view_button_html = f"""
     <style>
-    .view-resume-button {{
+    .view-resume-link {{
+        display: inline-block;
         background-color: #4CAF50;
-        color: white;
+        color: white !important;
         padding: 0.6em 1.2em;
         text-align: center;
-        text-decoration: none;
-        display: inline-block;
         font-size: 16px;
         border-radius: 8px;
-        border: none;
-        cursor: pointer;
+        text-decoration: none;
+        margin-top: 1em;
     }}
-    .view-resume-button:hover {{
+    .view-resume-link:hover {{
         background-color: #45a049;
     }}
     </style>
-    <a href="{viewer_url}" target="_blank">
-        <button class="view-resume-button">👀 View My Resume</button>
-    </a>
+
+    <a href="{viewer_url}" target="_blank" class="view-resume-link">👀 View My Resume</a>
 """
 
 st.markdown(view_button_html, unsafe_allow_html=True)
