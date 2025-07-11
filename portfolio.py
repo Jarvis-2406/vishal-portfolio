@@ -285,12 +285,12 @@ st.image(image, width=700, caption="Vishal Anand", use_container_width=True)
 st.markdown(f"<h3 style='margin-bottom: 2rem;'>Aspiring Data Professional</h3>", unsafe_allow_html=True)
 
 
-with open("Vishal Anand.pdf", "rb") as pdf_file:
+with open("VISHAL ANAND.pdf", "rb") as pdf_file:
     PDFbyte = pdf_file.read()
 
 st.download_button(label="📄 **My Resume**",
                     data=PDFbyte,
-                    file_name="Vishal Anand.pdf",
+                    file_name="VISHAL ANAND.pdf",
                     mime='application/octet-stream')
 
 # About Me (Updated Content)
@@ -362,34 +362,20 @@ st.markdown(
 st.header("**💼 Experience**")
 st.subheader("**HSBC — Contact Centre Executive (Nov 2022 - Nov 2024)**")
 st.markdown("""
-- Collected, organized, and analyzed large sets of customer interaction and transaction data using Excel, SQL, and
-Power BI to support business intelligence and operational improvements.
-- Built real-time dashboards and visualisations to track key service performance indicators (AHT, CSAT, FCR),
-enhancing data-driven monitoring and resource planning.
-- Spoke directly with customers to resolve complex banking queries with empathy and clarity, consistently
-maintaining high quality scores and low Average Handling Time (AHT).
-- Delivered excellent customer experience by actively listening, troubleshooting issues promptly, and ensuring first-
-contact resolution in compliance with service protocols.
-- Presented detailed data-driven reports and insights via PowerPoint to leadership, driving improvements in
-customer experience management.
-- Conducted predictive analytics to detect transaction fraud patterns, improving risk management and
-operational security strategies.
-- Ensured data accuracy, quality monitoring, and reporting needs were met through regular audits and collaboration
-with cross-functional teams, including Risk, Compliance, and Operations.
+•	Analyzed over 10,000+ customer interactions using SQL and Excel to identify fraud indicators, contributing to a 20% reduction in false positives.
+•	Developed Power BI dashboards to monitor service KPIs (AHT, CSAT, FCR), leading to a 15% improvement in SLA adherence.
+•	Consistently maintained >95% quality assurance scores while handling high-volume customer queries, reducing average handling time by 18%.
+•	Delivered data-backed presentations to senior management, driving policy enhancements in fraud handling and customer retention.
+•	Collaborated with Risk and Compliance teams on predictive analytics models to detect account takeover and unauthorized transactions.
 """, True)
 
 st.subheader("**BYJUS — Business Development Associate (Dec 2020 - Sep 2022)**")
 st.markdown("""
-- Analyzed sales and customer engagement data using SQL and Excel, identifying critical patterns and trends to
-improve lead targeting and business performance.
-
-- Developed interactive dashboards in Tableau and provided visualization-driven reporting to sales and training
-teams, supporting strategic decision-making.
-- Planned and monitored onboarding program outcomes, building performance tracking models that helped
-optimize employee training initiatives.
-- Delivered actionable findings and business recommendations through regular stakeholder reporting sessions,
-ensuring alignment with organizational goals.
-- Ensured data reporting consistency and maintained data quality standards across different sales regions.
+•	Conducted cohort analysis and A/B testing across 100K+ users, improving learner retention by 15% on NEET and K-12 learning platforms.
+•	Created interactive Tableau dashboards on user engagement, optimizing app features and reducing churn by 10%.
+•	Leveraged SQL to identify high-potential leads, increasing sales conversion by 20% through refined targeting.
+•	Contributed to UX/product improvements by surfacing actionable user feedback during analytics reviews.
+•	Successfully generated sales and revenue exceeding ₹1 crore through strategic client engagement and personalized demo sessions.
 """, True)
 
 # Projects
