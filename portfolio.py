@@ -285,31 +285,28 @@ st.image(image, width=700, caption="Vishal Anand", use_container_width=True)
 st.markdown(f"<h3 style='margin-bottom: 2rem;'>Aspiring Data Professional</h3>", unsafe_allow_html=True)
 
 
-
-# Load PDF
+# Read the PDF file
 with open("Vishal Anand.pdf", "rb") as f:
     PDFbyte = f.read()
 
-# Download Button
+# --- DOWNLOAD BUTTON ---
 st.download_button(
     label="📄 Download My Resume",
     data=PDFbyte,
     file_name="Vishal Anand.pdf",
-    mime="application/octet-stream"
+    mime='application/octet-stream'
 )
 
-# Button to view resume
-if st.button("👀 View My Resume"):
-    # Encode PDF to base64
-    base64_pdf = base64.b64encode(PDFbyte).decode('utf-8')
+# --- VIEW IN NEW TAB BUTTON ---
+# Convert PDF to base64
+base64_pdf = base64.b64encode(PDFbyte).decode('utf-8')
 
-    # Embed PDF in HTML
-    pdf_display = f"""
-    <iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="700px" type="application/pdf"></iframe>
-    """
+# Create a data URI for the PDF
+pdf_link = f'<a href="data:application/pdf;base64,{base64_pdf}" target="_blank">👀 View My Resume</a>'
 
-    # Render PDF Viewer
-    st.markdown(pdf_display, unsafe_allow_html=True)
+# Render the button-like link
+st.markdown("### ", unsafe_allow_html=True)
+st.markdown(pdf_link, unsafe_allow_html=True)
 
 # About Me (Updated Content)
 st.header("**🧑‍💼 About Me**")
