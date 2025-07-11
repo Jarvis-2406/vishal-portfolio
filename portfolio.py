@@ -285,11 +285,10 @@ st.image(image, width=700, caption="Vishal Anand", use_container_width=True)
 st.markdown(f"<h3 style='margin-bottom: 2rem;'>Aspiring Data Professional</h3>", unsafe_allow_html=True)
 
 
-# Read the PDF file
+# --- DOWNLOAD BUTTON ---
 with open("Vishal Anand.pdf", "rb") as f:
     PDFbyte = f.read()
 
-# --- DOWNLOAD BUTTON ---
 st.download_button(
     label="📄 Download My Resume",
     data=PDFbyte,
@@ -297,16 +296,35 @@ st.download_button(
     mime='application/octet-stream'
 )
 
-# --- VIEW IN NEW TAB BUTTON ---
-# Convert PDF to base64
-base64_pdf = base64.b64encode(PDFbyte).decode('utf-8')
+# --- VIEW RESUME BUTTON (Styled) ---
+google_drive_file_id = "1GuPDBqmRCobDLmr_dmv6Jg5xlPGplONX"
+viewer_url = f"https://drive.google.com/file/d/{google_drive_file_id}/preview"
 
-# Create a data URI for the PDF
-pdf_link = f'<a href="data:application/pdf;base64,{base64_pdf}" target="_blank">👀 View My Resume</a>'
+view_button_html = f"""
+    <style>
+    .view-resume-button {{
+        background-color: #4CAF50;
+        color: white;
+        padding: 0.6em 1.2em;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+    }}
+    .view-resume-button:hover {{
+        background-color: #45a049;
+    }}
+    </style>
+    <a href="{viewer_url}" target="_blank">
+        <button class="view-resume-button">👀 View My Resume</button>
+    </a>
+"""
 
-# Render the button-like link
-st.markdown("### ", unsafe_allow_html=True)
-st.markdown(pdf_link, unsafe_allow_html=True)
+st.markdown(view_button_html, unsafe_allow_html=True)
+
 
 # About Me (Updated Content)
 st.header("**🧑‍💼 About Me**")
