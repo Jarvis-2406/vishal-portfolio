@@ -299,7 +299,6 @@ st.download_button(
 
 # Option to view resume
 with st.expander("👀 View My Resume"):
-    st.markdown("If the PDF doesn't load, please try opening in a different browser.")
     st.components.v1.iframe("Vishal Anand.pdf", height=600)
 
 # About Me (Updated Content)
