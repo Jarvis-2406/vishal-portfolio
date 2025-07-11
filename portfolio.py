@@ -364,20 +364,20 @@ st.markdown(
 st.header("**💼 Experience**")
 st.subheader("**HSBC — Contact Centre Executive (Nov 2022 - Nov 2024)**")
 st.markdown("""
-•	Analyzed over 10,000+ customer interactions using SQL and Excel to identify fraud indicators, contributing to a 20% reduction in false positives.
-•	Developed Power BI dashboards to monitor service KPIs (AHT, CSAT, FCR), leading to a 15% improvement in SLA adherence.
-•	Consistently maintained >95% quality assurance scores while handling high-volume customer queries, reducing average handling time by 18%.
-•	Delivered data-backed presentations to senior management, driving policy enhancements in fraud handling and customer retention.
-•	Collaborated with Risk and Compliance teams on predictive analytics models to detect account takeover and unauthorized transactions.
+- Analyzed over 10,000+ customer interactions using SQL and Excel to identify fraud indicators, contributing to a 20% reduction in false positives.
+- Developed Power BI dashboards to monitor service KPIs (AHT, CSAT, FCR), leading to a 15% improvement in SLA adherence.
+- Consistently maintained >95% quality assurance scores while handling high-volume customer queries, reducing average handling time by 18%.
+- Delivered data-backed presentations to senior management, driving policy enhancements in fraud handling and customer retention.
+- Collaborated with Risk and Compliance teams on predictive analytics models to detect account takeover and unauthorized transactions.
 """, True)
 
 st.subheader("**BYJUS — Business Development Associate (Dec 2020 - Sep 2022)**")
 st.markdown("""
-•	Conducted cohort analysis and A/B testing across 100K+ users, improving learner retention by 15% on NEET and K-12 learning platforms.
-•	Created interactive Tableau dashboards on user engagement, optimizing app features and reducing churn by 10%.
-•	Leveraged SQL to identify high-potential leads, increasing sales conversion by 20% through refined targeting.
-•	Contributed to UX/product improvements by surfacing actionable user feedback during analytics reviews.
-•	Successfully generated sales and revenue exceeding ₹1 crore through strategic client engagement and personalized demo sessions.
+- Conducted cohort analysis and A/B testing across 100K+ users, improving learner retention by 15% on NEET and K-12 learning platforms.
+- Created interactive Tableau dashboards on user engagement, optimizing app features and reducing churn by 10%.
+- Leveraged SQL to identify high-potential leads, increasing sales conversion by 20% through refined targeting.
+- Contributed to UX/product improvements by surfacing actionable user feedback during analytics reviews.
+- Successfully generated sales and revenue exceeding ₹1 crore through strategic client engagement and personalized demo sessions.
 """, True)
 
 # Projects
