@@ -293,7 +293,7 @@ st.download_button(
     label="📄 **Download My Resume**",
     data=PDFbyte,
     file_name="VISHAL ANAND.pdf",
-    mime='application/octet-stream'
+    mime='application/octet-stream')
 
 # About Me (Updated Content)
 st.header("**🧑‍💼 About Me**")
