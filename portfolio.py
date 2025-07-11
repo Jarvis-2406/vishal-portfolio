@@ -285,14 +285,14 @@ st.image(image, width=700, caption="Vishal Anand", use_container_width=True)
 st.markdown(f"<h3 style='margin-bottom: 2rem;'>Aspiring Data Professional</h3>", unsafe_allow_html=True)
 
 
-with open("VISHAL ANAND.pdf", "rb") as pdf_file:
+with open("Vishal Anand.pdf", "rb") as pdf_file:
     PDFbyte = pdf_file.read()
 
 # Create a download button in the Streamlit app
 st.download_button(
     label="📄 **Download My Resume**",
     data=PDFbyte,
-    file_name="VISHAL ANAND.pdf",
+    file_name="Vishal Anand.pdf",
     mime='application/octet-stream')
 
 # About Me (Updated Content)
