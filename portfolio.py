@@ -285,21 +285,31 @@ st.image(image, width=700, caption="Vishal Anand", use_container_width=True)
 st.markdown(f"<h3 style='margin-bottom: 2rem;'>Aspiring Data Professional</h3>", unsafe_allow_html=True)
 
 
-# Read PDF file
-with open("Vishal Anand.pdf", "rb") as pdf_file:
-    PDFbyte = pdf_file.read()
 
-# Download button
+# Load PDF
+with open("Vishal Anand.pdf", "rb") as f:
+    PDFbyte = f.read()
+
+# Download Button
 st.download_button(
     label="📄 Download My Resume",
     data=PDFbyte,
     file_name="Vishal Anand.pdf",
-    mime='application/octet-stream'
+    mime="application/octet-stream"
 )
 
-# Option to view resume
-with st.expander("👀 View My Resume"):
-    st.components.v1.iframe("Vishal Anand.pdf", height=600)
+# Button to view resume
+if st.button("👀 View My Resume"):
+    # Encode PDF to base64
+    base64_pdf = base64.b64encode(PDFbyte).decode('utf-8')
+
+    # Embed PDF in HTML
+    pdf_display = f"""
+    <iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="700px" type="application/pdf"></iframe>
+    """
+
+    # Render PDF Viewer
+    st.markdown(pdf_display, unsafe_allow_html=True)
 
 # About Me (Updated Content)
 st.header("**🧑‍💼 About Me**")
