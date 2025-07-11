@@ -285,7 +285,7 @@ st.image(image, width=700, caption="Vishal Anand", use_container_width=True)
 st.markdown(f"<h3 style='margin-bottom: 2rem;'>Aspiring Data Professional</h3>", unsafe_allow_html=True)
 
 
-# --- DOWNLOAD BUTTON ---
+# --- DOWNLOAD RESUME BUTTON ---
 with open("Vishal Anand.pdf", "rb") as f:
     PDFbyte = f.read()
 
@@ -296,7 +296,7 @@ st.download_button(
     mime='application/octet-stream'
 )
 
-# --- VIEW RESUME BUTTON (Styled <a> only) ---
+# --- VIEW RESUME BUTTON (Google Drive) ---
 google_drive_file_id = "1GuPDBqmRCobDLmr_dmv6Jg5xlPGplONX"
 viewer_url = f"https://drive.google.com/file/d/{google_drive_file_id}/preview"
 
@@ -304,17 +304,22 @@ view_button_html = f"""
     <style>
     .view-resume-link {{
         display: inline-block;
-        background-color: #4CAF50;
-        color: white !important;
-        padding: 0.6em 1.2em;
+        background: linear-gradient(90deg, #00C9FF, #92FE9D);
+        color: black !important;
+        padding: 0.75em 1.5em;
         text-align: center;
-        font-size: 16px;
-        border-radius: 8px;
+        font-weight: bold;
+        font-size: 18px;
+        border-radius: 12px;
         text-decoration: none;
-        margin-top: 1em;
+        margin-top: 1.5em;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
     }}
     .view-resume-link:hover {{
-        background-color: #45a049;
+        background: linear-gradient(90deg, #92FE9D, #00C9FF);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
     }}
     </style>
 
@@ -322,7 +327,6 @@ view_button_html = f"""
 """
 
 st.markdown(view_button_html, unsafe_allow_html=True)
-
 
 # About Me (Updated Content)
 st.header("**🧑‍💼 About Me**")
