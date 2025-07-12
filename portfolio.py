@@ -2,31 +2,45 @@ import streamlit as st
 from PIL import Image
 import base64
 
-# Force the theme to dark
-st.session_state["theme"] = "dark"
+# Initialize theme state in session state if it doesn't exist
+if "theme" not in st.session_state:
+    st.session_state["theme"] = "light"
 
-# Define theme colors for the dark theme (dark black colors)
-primary_gradient_start = "#000000"  # Pure Black
-primary_gradient_end = "#0a0a0a"    # Very Dark Gray
-secondary_gradient_start = "#1a1a1a"  # Dark Gray
-secondary_gradient_end = "#2a2a2a"  # Slightly Lighter Dark Gray
-text_color = "#e0e0e0"            # Light Gray
-accent_color = "#bbbbbb"            # Muted Silver/Gray for highlights
-content_background = "#0f0f0f"      # Darkest Gray for content boxes
-button_bg = "linear-gradient(to right, #212121, #121212)" # Darker gray gradient
-button_text_color = "white"
-button_hover_bg = "linear-gradient(to right, #333333, #222222)" # Slightly lighter hover for buttons
+# Function to toggle the theme
+def toggle_theme():
+    st.session_state["theme"] = "dark" if st.session_state["theme"] == "light" else "light"
 
+# Define theme colors based on the current state
+if st.session_state["theme"] == "light":
+    primary_gradient_start = "#f8f8f8"  # Very light gray
+    primary_gradient_end = "#ffffff"    # White
+    secondary_gradient_start = "#f8f8f8"  # Very light gray
+    secondary_gradient_end = "#ffffff"    # White
+    text_color = "#212121"            # Very Dark Gray
+    accent_color = "#558b2f"            # Olive Green
+    content_background = "#ffffff"      # White
+    button_bg = "linear-gradient(to right, #81c784, #66bb6a)"  # Light Green
+    button_text_color = "#ffffff"
+else:
+    primary_gradient_start = "#2c3e50"  # Dark Blue-Gray
+    primary_gradient_end = "#34495e"    # Even Darker Blue-Gray
+    secondary_gradient_start = "#3498db"  # Bright Blue
+    secondary_gradient_end = "#2980b9"  # Darker Blue
+    text_color = "#ffffff"            # White
+    accent_color = "#f1c40f"            # Yellow
+    content_background = "#1a1a1a"      # Near Black
+    button_bg = "linear-gradient(to right, #424242, #1e1e1e)"
+    button_text_color = "white"
 
-# Custom Theme Configuration and JavaScript for effects
+# Custom Theme Configuration
 st.markdown(
     f"""
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Times+New+Roman:wght@400;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;700&family=Open+Sans:wght@400;700&family=Lato:wght@400;700&display=swap');
     @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
 
     body {{
-        font-family: 'Poppins', sans-serif; /* Changed font */
+        font-family: 'Lato', sans-serif;
         color: {text_color};
     }}
     [data-testid="stAppViewContainer"] {{
@@ -56,7 +70,7 @@ st.markdown(
     }}
     h1, h2, h3, h4, h5, h6 {{
         color: {text_color};
-        font-family: 'Times New Roman', serif; /* Kept Times New Roman for headings for contrast */
+        font-family: 'Times New Roman', serif;
         font-weight: 700;
         margin-bottom: 1.5rem;
         line-height: 1.2;
@@ -73,60 +87,32 @@ st.markdown(
         border-radius: 12px;
         color: {text_color};
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smoother transition */
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         margin-bottom: 2rem;
     }}
     .st-eb:hover {{
-        transform: translateY(-8px); /* More pronounced lift */
-        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+        transform: translateY(-4px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }}
     .css-1adrpsg {{
         font-weight: 600;
         color: {text_color};
     }}
-    .stDownloadButton > button, .stButton > button, .project-card .github-button, .social-button, .view-resume-link {{ /* Apply to all relevant buttons */
+    .stDownloadButton > button {{
         background: {button_bg};
-        color: {button_text_color} !important; /* !important to override default link color */
-        border: none; /* Removed border for cleaner look */
+        color: {button_text_color};
+        border: 1px solid rgba(255,255,255,0.3);
         border-radius: 10px;
         padding: 0.8rem 2rem;
         cursor: pointer;
-        transition: background 0.4s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Smooth gradient transition */
+        transition: background-color 0.3s ease-in-out, transform 0.1s ease;
         margin-top: 1rem;
-        font-weight: bold;
-        letter-spacing: 0.5px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Initial shadow */
-        position: relative; /* Needed for absolute positioning of ripple */
-        overflow: hidden;   /* Hide overflow of ripple */
-        z-index: 1;         /* Ensure button is above ripple */
-        text-decoration: none; /* Ensure no underline for links */
-        display: inline-flex; /* For proper alignment of content and ripple */
-        align-items: center;
-        justify-content: center;
     }}
-    .stDownloadButton > button:hover, .stButton > button:hover, .project-card .github-button:hover, .social-button:hover, .view-resume-link:hover {{
-        background: {button_hover_bg}; /* Use specific hover gradient */
-        transform: scale(1.08); /* More pronounced scale */
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+    .stDownloadButton > button:hover {{
+        background: linear-gradient(to right, #9ccc65, #8bc34a);
+        transform: scale(1.05);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }}
-
-    /* Ripple effect styles */
-    .ripple {{
-        position: absolute;
-        border-radius: 50%;
-        transform: scale(0);
-        animation: ripple-animation 0.6s linear;
-        background-color: rgba(255, 255, 255, 0.7); /* White ripple */
-        z-index: 0; /* Ensure ripple is behind button content */
-    }}
-
-    @keyframes ripple-animation {{
-        to {{
-            transform: scale(4);
-            opacity: 0;
-        }}
-    }}
-
     a {{
         color: {accent_color};
         text-decoration: none;
@@ -147,7 +133,7 @@ st.markdown(
         margin-top: 2rem;
     }}
     .skill-box {{
-        background-color: {content_background}; /* Use content background for consistency */
+        background-color: rgba(255, 255, 255, 0.08);
         border-radius: 12px;
         padding: 2rem;
         border: 1px solid rgba(255, 255, 255, 0.1);
@@ -155,7 +141,7 @@ st.markdown(
         transition: background-color 0.3s ease-in-out, transform 0.2s ease, box-shadow 0.3s ease;
     }}
     .skill-box:hover {{
-        background-color: rgba(255, 255, 255, 0.15); /* Slightly lighter on hover for contrast */
+        background-color: rgba(255, 255, 255, 0.15);
         transform: translateY(-5px);
         box-shadow: 0 10px 12px rgba(0, 0, 0, 0.2);
     }}
@@ -183,7 +169,7 @@ st.markdown(
         gap: 2.5rem;
     }}
     .project-card, .certification-card {{
-        background-color: {content_background}; /* Use content background for consistency */
+        background-color: rgba(255, 255, 255, 0.08);
         border-radius: 12px;
         padding: 2rem;
         border: 1px solid rgba(255, 255, 255, 0.1);
@@ -196,7 +182,7 @@ st.markdown(
         min-height: 200px;
     }}
     .project-card:hover, .certification-card:hover {{
-        background-color: rgba(255, 255, 255, 0.15); /* Slightly lighter on hover for contrast */
+        background-color: rgba(255, 255, 255, 0.15);
         transform: translateY(-5px);
         box-shadow: 0 10px 12px rgba(0, 0, 0, 0.2);
     }}
@@ -212,11 +198,51 @@ st.markdown(
         color: {text_color};
         margin-bottom: 0.5rem;
     }}
+    .project-card .github-button {{
+        background: {button_bg};
+        color: {button_text_color};
+        border: 1px solid rgba(255,255,255,0.3);
+        border-radius: 10px;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out, transform 0.1s ease;
+        margin-top: 1rem;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 1rem;
+    }}
+    .project-card .github-button:hover {{
+        background: linear-gradient(to right, #9ccc65, #8bc34a);
+        transform: scale(1.05);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }}
     .social-buttons {{
         display: flex;
         justify-content: center;
         gap: 1.5rem;
         margin-top: 2rem;
+    }}
+    .social-button {{
+        background: {button_bg};
+        color: {button_text_color};
+        border: 1px solid rgba(255,255,255,0.3);
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out, transform 0.1s ease, box-shadow 0.3s ease;
+        text-decoration: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 1rem;
+    }}
+    .social-button:hover {{
+        background: linear-gradient(to right, #aed581, #7cb342);
+        transform: scale(1.1);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
     }}
     .phone-info{{
         margin-top: 1.5rem;
@@ -244,44 +270,6 @@ st.markdown(
         border-top: 1px solid rgba(255, 255, 255, 0.1);
     }}
     </style>
-
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Select all elements that should have the ripple effect
-        const buttons = document.querySelectorAll('.stDownloadButton > button, .stButton > button, .project-card .github-button, .social-button, .view-resume-link');
-
-        buttons.forEach(button => {
-            // Ensure event listener is added only once to avoid multiple ripples
-            if (!button.dataset.rippleListenerAdded) {
-                button.addEventListener('click', function(e) {
-                    const ripple = document.createElement('span');
-                    ripple.classList.add('ripple');
-                    const rect = button.getBoundingClientRect();
-                    
-                    // Calculate click position relative to the button
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-
-                    // Determine the largest dimension to create a circular ripple
-                    const size = Math.max(rect.width, rect.height);
-
-                    ripple.style.width = ripple.style.height = `${{size}}px`;
-                    ripple.style.left = `${{x - size / 2}}px`;
-                    ripple.style.top = `${{y - size / 2}}px`;
-
-                    // Append ripple to the button
-                    this.appendChild(ripple);
-
-                    // Remove ripple after animation ends
-                    ripple.addEventListener('animationend', function() {
-                        this.remove();
-                    });
-                });
-                button.dataset.rippleListenerAdded = 'true'; // Mark listener as added
-            }
-        });
-    });
-    </script>
     """,
     unsafe_allow_html=True,
 )
@@ -292,39 +280,49 @@ st.header(f"👋 Hey, I'm **Vishal Anand**")
 st.button("🌙", on_click=toggle_theme, key="theme_toggle")
 
 # Load and display image (increased width)
-# Assuming 'vishal.jpg' is in the same directory as your Streamlit app
-try:
-    image = Image.open("vishal.jpg")
-    st.image(image, width=700, caption="Vishal Anand", use_container_width=True)
-except FileNotFoundError:
-    st.warning("Image 'vishal.jpg' not found. Please ensure it's in the same directory.")
-    # You can add a placeholder image or a default image here if needed
-    # st.image("https://placehold.co/700x400/cccccc/333333?text=Image+Not+Found", caption="Placeholder Image", use_container_width=True)
-
+image = Image.open("vishal.jpg")
+st.image(image, width=700, caption="Vishal Anand", use_container_width=True)
 st.markdown(f"<h3 style='margin-bottom: 2rem;'>Aspiring Data Professional</h3>", unsafe_allow_html=True)
 
 
 # --- DOWNLOAD RESUME BUTTON ---
-# Assuming 'Vishal Anand.pdf' is in the same directory as your Streamlit app
-try:
-    with open("Vishal Anand.pdf", "rb") as f:
-        PDFbyte = f.read()
+with open("Vishal Anand.pdf", "rb") as f:
+    PDFbyte = f.read()
 
-    st.download_button(
-        label="📄 Download My Resume",
-        data=PDFbyte,
-        file_name="Vishal Anand.pdf",
-        mime='application/octet-stream'
-    )
-except FileNotFoundError:
-    st.warning("Resume file 'Vishal Anand.pdf' not found. Download button disabled.")
-
+st.download_button(
+    label="📄 Download My Resume",
+    data=PDFbyte,
+    file_name="Vishal Anand.pdf",
+    mime='application/octet-stream'
+)
 
 # --- VIEW RESUME BUTTON (Google Drive) ---
-google_drive_file_id = "1GuPDBqmRCobDLmr_dmv6Jg5xlPGplONX" # Replace with your actual Google Drive File ID
+google_drive_file_id = "1GuPDBqmRCobDLmr_dmv6Jg5xlPGplONX"
 viewer_url = f"https://drive.google.com/file/d/{google_drive_file_id}/preview"
 
 view_button_html = f"""
+    <style>
+    .view-resume-link {{
+        display: inline-block;
+        background: linear-gradient(90deg, #00C9FF, #92FE9D);
+        color: black !important;
+        padding: 0.75em 1.5em;
+        text-align: center;
+        font-weight: bold;
+        font-size: 18px;
+        border-radius: 12px;
+        text-decoration: none;
+        margin-top: 1.5em;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+    }}
+    .view-resume-link:hover {{
+        background: linear-gradient(90deg, #92FE9D, #00C9FF);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+    }}
+    </style>
+
     <a href="{viewer_url}" target="_blank" class="view-resume-link">👀 View My Resume</a>
 """
 
