@@ -23,29 +23,29 @@ if st.session_state["theme"] == "light":
     button_text_color = "#ffffff"
     # New button hover effect colors for light theme
     button_hover_bg = "linear-gradient(to right, #66BB6A, #A5D6A7)"
-else:
-    primary_gradient_start = "#1a2a6c"  # Deep Blue
-    primary_gradient_end = "#b21f1f"    # Deep Red
-    secondary_gradient_start = "#0f2027"  # Darkest Blue
-    secondary_gradient_end = "#203a43"  # Dark Blue-Green
+else: # Dark theme - truly dark, no vibrant colors
+    primary_gradient_start = "#0a0a0a"  # Almost Black
+    primary_gradient_end = "#1a1a1a"    # Slightly lighter black
+    secondary_gradient_start = "#222222"  # Dark Gray
+    secondary_gradient_end = "#333333"  # Medium Dark Gray
     text_color = "#e0e0e0"            # Light Gray
-    accent_color = "#fbc02d"            # Vibrant Yellow
-    content_background = "#212121"      # Dark Gray
-    button_bg = "linear-gradient(to right, #6a11cb, #2575fc)" # Purple to Blue
+    accent_color = "#bdbdbd"            # Muted Silver/Gray for highlights
+    content_background = "#121212"      # Darkest Gray
+    button_bg = "linear-gradient(to right, #424242, #212121)" # Darker gray gradient
     button_text_color = "white"
     # New button hover effect colors for dark theme
-    button_hover_bg = "linear-gradient(to right, #7b33e5, #3a85ff)"
+    button_hover_bg = "linear-gradient(to right, #555555, #333333)"
 
 
-# Custom Theme Configuration
+# Custom Theme Configuration and JavaScript for effects
 st.markdown(
     f"""
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;700&family=Open+Sans:wght@400;700&family=Lato:wght@400;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Times+New+Roman:wght@400;700&display=swap');
     @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
 
     body {{
-        font-family: 'Lato', sans-serif;
+        font-family: 'Poppins', sans-serif; /* Changed font */
         color: {text_color};
     }}
     [data-testid="stAppViewContainer"] {{
@@ -75,7 +75,7 @@ st.markdown(
     }}
     h1, h2, h3, h4, h5, h6 {{
         color: {text_color};
-        font-family: 'Times New Roman', serif;
+        font-family: 'Times New Roman', serif; /* Kept Times New Roman for headings for contrast */
         font-weight: 700;
         margin-bottom: 1.5rem;
         line-height: 1.2;
@@ -103,9 +103,9 @@ st.markdown(
         font-weight: 600;
         color: {text_color};
     }}
-    .stDownloadButton > button, .stButton > button {{ /* Apply to all st.button and st.download_button */
+    .stDownloadButton > button, .stButton > button, .project-card .github-button, .social-button, .view-resume-link {{ /* Apply to all relevant buttons */
         background: {button_bg};
-        color: {button_text_color};
+        color: {button_text_color} !important; /* !important to override default link color */
         border: none; /* Removed border for cleaner look */
         border-radius: 10px;
         padding: 0.8rem 2rem;
@@ -115,12 +115,37 @@ st.markdown(
         font-weight: bold;
         letter-spacing: 0.5px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Initial shadow */
+        position: relative; /* Needed for absolute positioning of ripple */
+        overflow: hidden;   /* Hide overflow of ripple */
+        z-index: 1;         /* Ensure button is above ripple */
+        text-decoration: none; /* Ensure no underline for links */
+        display: inline-flex; /* For proper alignment of content and ripple */
+        align-items: center;
+        justify-content: center;
     }}
-    .stDownloadButton > button:hover, .stButton > button:hover {{
+    .stDownloadButton > button:hover, .stButton > button:hover, .project-card .github-button:hover, .social-button:hover, .view-resume-link:hover {{
         background: {button_hover_bg}; /* Use specific hover gradient */
         transform: scale(1.08); /* More pronounced scale */
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
     }}
+
+    /* Ripple effect styles */
+    .ripple {{
+        position: absolute;
+        border-radius: 50%;
+        transform: scale(0);
+        animation: ripple-animation 0.6s linear;
+        background-color: rgba(255, 255, 255, 0.7); /* White ripple */
+        z-index: 0; /* Ensure ripple is behind button content */
+    }}
+
+    @keyframes ripple-animation {{
+        to {{
+            transform: scale(4);
+            opacity: 0;
+        }}
+    }}
+
     a {{
         color: {accent_color};
         text-decoration: none;
@@ -206,53 +231,11 @@ st.markdown(
         color: {text_color};
         margin-bottom: 0.5rem;
     }}
-    .project-card .github-button {{
-        background: {button_bg};
-        color: {button_text_color};
-        border: none; /* Removed border for cleaner look */
-        border-radius: 10px;
-        padding: 0.5rem 1rem;
-        cursor: pointer;
-        transition: background 0.4s ease, transform 0.1s ease, box-shadow 0.3s ease;
-        margin-top: 1rem;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 1rem;
-        font-weight: bold;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }}
-    .project-card .github-button:hover {{
-        background: {button_hover_bg}; /* Use specific hover gradient */
-        transform: scale(1.05);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    }}
     .social-buttons {{
         display: flex;
         justify-content: center;
         gap: 1.5rem;
         margin-top: 2rem;
-    }}
-    .social-button {{
-        background: {button_bg};
-        color: {button_text_color};
-        border: none; /* Removed border for cleaner look */
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.8rem;
-        cursor: pointer;
-        transition: background 0.4s ease, transform 0.1s ease, box-shadow 0.3s ease;
-        text-decoration: none;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        margin-bottom: 1rem;
-    }}
-    .social-button:hover {{
-        background: {button_hover_bg}; /* Use specific hover gradient */
-        transform: scale(1.15); /* More pronounced scale */
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
     }}
     .phone-info{{
         margin-top: 1.5rem;
@@ -280,6 +263,44 @@ st.markdown(
         border-top: 1px solid rgba(255, 255, 255, 0.1);
     }}
     </style>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Select all elements that should have the ripple effect
+        const buttons = document.querySelectorAll('.stDownloadButton > button, .stButton > button, .project-card .github-button, .social-button, .view-resume-link');
+
+        buttons.forEach(button => {
+            // Ensure event listener is added only once to avoid multiple ripples
+            if (!button.dataset.rippleListenerAdded) {
+                button.addEventListener('click', function(e) {
+                    const ripple = document.createElement('span');
+                    ripple.classList.add('ripple');
+                    const rect = button.getBoundingClientRect();
+                    
+                    // Calculate click position relative to the button
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    // Determine the largest dimension to create a circular ripple
+                    const size = Math.max(rect.width, rect.height);
+
+                    ripple.style.width = ripple.style.height = `${size}px`;
+                    ripple.style.left = `${x - size / 2}px`; // Center ripple on click horizontally
+                    ripple.style.top = `${y - size / 2}px`;   // Center ripple on click vertically
+
+                    // Append ripple to the button
+                    this.appendChild(ripple);
+
+                    // Remove ripple after animation ends
+                    ripple.addEventListener('animationend', function() {
+                        this.remove();
+                    });
+                });
+                button.dataset.rippleListenerAdded = 'true'; // Mark listener as added
+            }
+        });
+    });
+    </script>
     """,
     unsafe_allow_html=True,
 )
@@ -323,28 +344,6 @@ google_drive_file_id = "1GuPDBqmRCobDLmr_dmv6Jg5xlPGplONX" # Replace with your a
 viewer_url = f"https://drive.google.com/file/d/{google_drive_file_id}/preview"
 
 view_button_html = f"""
-    <style>
-    .view-resume-link {{
-        display: inline-block;
-        background: linear-gradient(90deg, #00C9FF, #92FE9D);
-        color: black !important;
-        padding: 0.75em 1.5em;
-        text-align: center;
-        font-weight: bold;
-        font-size: 18px;
-        border-radius: 12px;
-        text-decoration: none;
-        margin-top: 1.5em;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-        transition: all 0.3s ease;
-    }}
-    .view-resume-link:hover {{
-        background: linear-gradient(90deg, #92FE9D, #00C9FF);
-        transform: translateY(-2px);
-        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
-    }}
-    </style>
-
     <a href="{viewer_url}" target="_blank" class="view-resume-link">👀 View My Resume</a>
 """
 
