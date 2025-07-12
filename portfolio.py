@@ -10,27 +10,32 @@ if "theme" not in st.session_state:
 def toggle_theme():
     st.session_state["theme"] = "dark" if st.session_state["theme"] == "light" else "light"
 
-# Define theme colors based on the current state
+# Define theme colors based on the current state for a more vibrant look
 if st.session_state["theme"] == "light":
-    primary_gradient_start = "#f8f8f8"  # Very light gray
-    primary_gradient_end = "#ffffff"    # White
-    secondary_gradient_start = "#f8f8f8"  # Very light gray
-    secondary_gradient_end = "#ffffff"    # White
-    text_color = "#212121"            # Very Dark Gray
-    accent_color = "#558b2f"            # Olive Green
+    primary_gradient_start = "#e0f7fa"  # Light Cyan
+    primary_gradient_end = "#e8f5e9"    # Light Greenish Blue
+    secondary_gradient_start = "#bbdefb"  # Light Blue
+    secondary_gradient_end = "#c5cae9"  # Light Indigo
+    text_color = "#263238"            # Dark Blue Gray
+    accent_color = "#ff7043"            # Vibrant Orange
     content_background = "#ffffff"      # White
-    button_bg = "linear-gradient(to right, #81c784, #66bb6a)"  # Light Green
+    button_bg = "linear-gradient(to right, #4CAF50, #8BC34A)"  # Green to Light Green
     button_text_color = "#ffffff"
+    # New button hover effect colors for light theme
+    button_hover_bg = "linear-gradient(to right, #66BB6A, #A5D6A7)"
 else:
-    primary_gradient_start = "#2c3e50"  # Dark Blue-Gray
-    primary_gradient_end = "#34495e"    # Even Darker Blue-Gray
-    secondary_gradient_start = "#3498db"  # Bright Blue
-    secondary_gradient_end = "#2980b9"  # Darker Blue
-    text_color = "#ffffff"            # White
-    accent_color = "#f1c40f"            # Yellow
-    content_background = "#1a1a1a"      # Near Black
-    button_bg = "linear-gradient(to right, #424242, #1e1e1e)"
+    primary_gradient_start = "#1a2a6c"  # Deep Blue
+    primary_gradient_end = "#b21f1f"    # Deep Red
+    secondary_gradient_start = "#0f2027"  # Darkest Blue
+    secondary_gradient_end = "#203a43"  # Dark Blue-Green
+    text_color = "#e0e0e0"            # Light Gray
+    accent_color = "#fbc02d"            # Vibrant Yellow
+    content_background = "#212121"      # Dark Gray
+    button_bg = "linear-gradient(to right, #6a11cb, #2575fc)" # Purple to Blue
     button_text_color = "white"
+    # New button hover effect colors for dark theme
+    button_hover_bg = "linear-gradient(to right, #7b33e5, #3a85ff)"
+
 
 # Custom Theme Configuration
 st.markdown(
@@ -87,31 +92,34 @@ st.markdown(
         border-radius: 12px;
         color: {text_color};
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smoother transition */
         margin-bottom: 2rem;
     }}
     .st-eb:hover {{
-        transform: translateY(-4px);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        transform: translateY(-8px); /* More pronounced lift */
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Stronger shadow */
     }}
     .css-1adrpsg {{
         font-weight: 600;
         color: {text_color};
     }}
-    .stDownloadButton > button {{
+    .stDownloadButton > button, .stButton > button {{ /* Apply to all st.button and st.download_button */
         background: {button_bg};
         color: {button_text_color};
-        border: 1px solid rgba(255,255,255,0.3);
+        border: none; /* Removed border for cleaner look */
         border-radius: 10px;
         padding: 0.8rem 2rem;
         cursor: pointer;
-        transition: background-color 0.3s ease-in-out, transform 0.1s ease;
+        transition: background 0.4s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Smooth gradient transition */
         margin-top: 1rem;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Initial shadow */
     }}
-    .stDownloadButton > button:hover {{
-        background: linear-gradient(to right, #9ccc65, #8bc34a);
-        transform: scale(1.05);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    .stDownloadButton > button:hover, .stButton > button:hover {{
+        background: {button_hover_bg}; /* Use specific hover gradient */
+        transform: scale(1.08); /* More pronounced scale */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
     }}
     a {{
         color: {accent_color};
@@ -133,7 +141,7 @@ st.markdown(
         margin-top: 2rem;
     }}
     .skill-box {{
-        background-color: rgba(255, 255, 255, 0.08);
+        background-color: {content_background}; /* Use content background for consistency */
         border-radius: 12px;
         padding: 2rem;
         border: 1px solid rgba(255, 255, 255, 0.1);
@@ -141,7 +149,7 @@ st.markdown(
         transition: background-color 0.3s ease-in-out, transform 0.2s ease, box-shadow 0.3s ease;
     }}
     .skill-box:hover {{
-        background-color: rgba(255, 255, 255, 0.15);
+        background-color: rgba(255, 255, 255, 0.15); /* Slightly lighter on hover for contrast */
         transform: translateY(-5px);
         box-shadow: 0 10px 12px rgba(0, 0, 0, 0.2);
     }}
@@ -169,7 +177,7 @@ st.markdown(
         gap: 2.5rem;
     }}
     .project-card, .certification-card {{
-        background-color: rgba(255, 255, 255, 0.08);
+        background-color: {content_background}; /* Use content background for consistency */
         border-radius: 12px;
         padding: 2rem;
         border: 1px solid rgba(255, 255, 255, 0.1);
@@ -182,7 +190,7 @@ st.markdown(
         min-height: 200px;
     }}
     .project-card:hover, .certification-card:hover {{
-        background-color: rgba(255, 255, 255, 0.15);
+        background-color: rgba(255, 255, 255, 0.15); /* Slightly lighter on hover for contrast */
         transform: translateY(-5px);
         box-shadow: 0 10px 12px rgba(0, 0, 0, 0.2);
     }}
@@ -201,20 +209,22 @@ st.markdown(
     .project-card .github-button {{
         background: {button_bg};
         color: {button_text_color};
-        border: 1px solid rgba(255,255,255,0.3);
+        border: none; /* Removed border for cleaner look */
         border-radius: 10px;
         padding: 0.5rem 1rem;
         cursor: pointer;
-        transition: background-color 0.3s ease-in-out, transform 0.1s ease;
+        transition: background 0.4s ease, transform 0.1s ease, box-shadow 0.3s ease;
         margin-top: 1rem;
         text-decoration: none;
         display: inline-block;
         font-size: 1rem;
+        font-weight: bold;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }}
     .project-card .github-button:hover {{
-        background: linear-gradient(to right, #9ccc65, #8bc34a);
+        background: {button_hover_bg}; /* Use specific hover gradient */
         transform: scale(1.05);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     }}
     .social-buttons {{
         display: flex;
@@ -225,7 +235,7 @@ st.markdown(
     .social-button {{
         background: {button_bg};
         color: {button_text_color};
-        border: 1px solid rgba(255,255,255,0.3);
+        border: none; /* Removed border for cleaner look */
         border-radius: 50%;
         width: 60px;
         height: 60px;
@@ -234,15 +244,15 @@ st.markdown(
         justify-content: center;
         font-size: 1.8rem;
         cursor: pointer;
-        transition: background-color 0.3s ease-in-out, transform 0.1s ease, box-shadow 0.3s ease;
+        transition: background 0.4s ease, transform 0.1s ease, box-shadow 0.3s ease;
         text-decoration: none;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         margin-bottom: 1rem;
     }}
     .social-button:hover {{
-        background: linear-gradient(to right, #aed581, #7cb342);
-        transform: scale(1.1);
-        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        background: {button_hover_bg}; /* Use specific hover gradient */
+        transform: scale(1.15); /* More pronounced scale */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
     }}
     .phone-info{{
         margin-top: 1.5rem;
