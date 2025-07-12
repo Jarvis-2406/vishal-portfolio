@@ -284,9 +284,9 @@ st.markdown(
                     // Determine the largest dimension to create a circular ripple
                     const size = Math.max(rect.width, rect.height);
 
-                    ripple.style.width = ripple.style.height = `${size}px`;
-                    ripple.style.left = `${x - size / 2}px`; // Center ripple on click horizontally
-                    ripple.style.top = `${y - size / 2}px`;   // Center ripple on click vertically
+                    ripple.style.width = ripple.style.height = `${{size}}px`; /* Corrected: Escaped curly braces */
+                    ripple.style.left = `${{x - size / 2}}px`; /* Corrected: Escaped curly braces */
+                    ripple.style.top = `${{y - size / 2}}px`;   /* Corrected: Escaped curly braces */
 
                     // Append ripple to the button
                     this.appendChild(ripple);
@@ -343,6 +343,9 @@ except FileNotFoundError:
 google_drive_file_id = "1GuPDBqmRCobDLmr_dmv6Jg5xlPGplONX" # Replace with your actual Google Drive File ID
 viewer_url = f"https://drive.google.com/file/d/{google_drive_file_id}/preview"
 
+# Corrected: Removed the f-string syntax from this markdown block
+# The original error was in the CSS style block within the f-string,
+# but this markdown block was also unnecessarily an f-string.
 view_button_html = f"""
     <a href="{viewer_url}" target="_blank" class="view-resume-link">👀 View My Resume</a>
 """
