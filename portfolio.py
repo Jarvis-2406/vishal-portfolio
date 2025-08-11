@@ -441,6 +441,12 @@ st.markdown(
                 GitHub Repo
             </a>
         </div>
+        <div class="project-card">
+        <h3>Counterfeit Fraud Analysis</h3>
+        <p>This project detects potential counterfeit product transactions using machine learning on a synthetic, realistic e-commerce dataset.</p>
+        <p>It includes an end-to-end pipeline (preprocessing, modeling, evaluation, explainability)</p>
+        <a href="https://github.com/Jarvis-2406/Counterfeit-Transaction-Detection" target="_blank" class="github-button">
+            GitHub Repo
     </div>
     """,
     unsafe_allow_html=True,
