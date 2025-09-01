@@ -67,7 +67,7 @@ st.markdown(
         color: {text_color};
     }}
 
-    /* Project and Certification Cards */
+    /* Project, Skills, and Certification Cards */
     .card {{
         background-color: {card_bg};
         border-radius: 12px;
@@ -92,6 +92,7 @@ st.markdown(
     }}
     .card p {{
         font-size: 1rem;
+        line-height: 1.8; /* Added line-height for better spacing in skills cards */
         color: {text_color};
         flex-grow: 1;
     }}
@@ -121,32 +122,6 @@ st.markdown(
     .github-button:hover {{
         transform: scale(1.05);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }}
-
-    /* Skills Section Styling */
-    .skills-section {{
-        background: linear-gradient(135deg, #1e3c72, #2a5298);
-        padding: 2.5rem;
-        border-radius: 15px;
-        color: white;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    }}
-    .skills-section h2 {{
-        text-align: center;
-        margin-bottom: 2rem;
-        color: white;
-    }}
-    .skills-category {{
-        font-size: 1.25rem;
-        margin-top: 1.5rem;
-        font-weight: bold;
-        text-decoration: underline;
-    }}
-    .skill-list {{
-        padding-top: 0.5rem;
-        padding-left: 1.2rem;
-        font-size: 1rem;
-        line-height: 1.8;
     }}
     
     /* Contact Section Styling */
@@ -209,34 +184,38 @@ Hi, I’m Vishal Anand, a data professional passionate about using data to solve
 """)
 
 
-# --- SKILLS (CORRECTED) ---
+# --- SKILLS (DYNAMIC CARD LAYOUT) ---
+st.header("🛠️ Skills")
 st.markdown("""
-<div class="skills-section">
-    <h2>🛠️ Skills</h2>
-    
-    <div class="skills-category">Programming</div>
-    <div class="skill-list">
-        Python (Pandas, NumPy, Matplotlib, Seaborn)<br>
-        R<br>
-        SAS
+<div class="card-grid">
+    <div class="card">
+        <h3>Programming</h3>
+        <p>
+            Python (Pandas, NumPy, Matplotlib, Seaborn)<br>
+            R<br>
+            SAS
+        </p>
     </div>
-    
-    <div class="skills-category">Data Analysis</div>
-    <div class="skill-list">
-        Excel (PivotTables, Power Query, DAX)<br>
-        SQL (Joins, Aggregations, Subqueries)
+    <div class="card">
+        <h3>Data Analysis</h3>
+        <p>
+            Excel (PivotTables, Power Query, DAX)<br>
+            SQL (Joins, Aggregations, Subqueries)
+        </p>
     </div>
-    
-    <div class="skills-category">Visualization</div>
-    <div class="skill-list">
-        Tableau<br>
-        Power BI
+    <div class="card">
+        <h3>Visualization</h3>
+        <p>
+            Tableau<br>
+            Power BI
+        </p>
     </div>
-    
-    <div class="skills-category">Machine Learning</div>
-    <div class="skill-list">
-        Predictive Modeling<br>
-        Data Mining
+    <div class="card">
+        <h3>Machine Learning</h3>
+        <p>
+            Predictive Modeling<br>
+            Data Mining
+        </p>
     </div>
 </div>
 """, unsafe_allow_html=True)
@@ -257,7 +236,7 @@ st.markdown("""
 - Leveraged SQL for targeted lead generation, boosting conversion rates by 20%.
 """)
 
-# --- PROJECTS (CORRECTED - ALL 5 PROJECTS RESTORED) ---
+# --- PROJECTS ---
 st.header("📁 Projects")
 st.markdown(
     """
