@@ -2,33 +2,33 @@ import streamlit as st
 from PIL import Image
 import base64
 
-# Initialize theme state in session state if it doesn't exist
+# Initialize theme state
 if "theme" not in st.session_state:
     st.session_state["theme"] = "light"
 
-# Function to toggle the theme
+# Toggle theme
 def toggle_theme():
     st.session_state["theme"] = "dark" if st.session_state["theme"] == "light" else "light"
 
-# Define theme colors based on the current state
+# Theme colors
 if st.session_state["theme"] == "light":
-    primary_gradient_start = "#f8f8f8"  # Very light gray
-    primary_gradient_end = "#ffffff"    # White
-    secondary_gradient_start = "#f8f8f8"  
-    secondary_gradient_end = "#ffffff"  
-    text_color = "#212121"              # Dark Gray
-    accent_color = "#558b2f"            # Olive Green
-    content_background = "#ffffff"      
-    button_bg = "linear-gradient(to right, #81c784, #66bb6a)"  
+    primary_gradient_start = "#f8f8f8"
+    primary_gradient_end = "#ffffff"
+    secondary_gradient_start = "#f8f8f8"
+    secondary_gradient_end = "#ffffff"
+    text_color = "#212121"
+    accent_color = "#558b2f"
+    content_background = "#ffffff"
+    button_bg = "linear-gradient(to right, #81c784, #66bb6a)"
     button_text_color = "#ffffff"
 else:
-    primary_gradient_start = "#2c3e50"  
-    primary_gradient_end = "#34495e"    
-    secondary_gradient_start = "#3498db"  
-    secondary_gradient_end = "#2980b9"  
-    text_color = "#ffffff"            
-    accent_color = "#f1c40f"            
-    content_background = "#1a1a1a"      
+    primary_gradient_start = "#2c3e50"
+    primary_gradient_end = "#34495e"
+    secondary_gradient_start = "#3498db"
+    secondary_gradient_end = "#2980b9"
+    text_color = "#ffffff"
+    accent_color = "#f1c40f"
+    content_background = "#1a1a1a"
     button_bg = "linear-gradient(to right, #424242, #1e1e1e)"
     button_text_color = "white"
 
@@ -154,6 +154,51 @@ st.markdown(
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 2.5rem;
     }}
+    .skills-section {{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+    }}
+    .skills-section .card {{
+        background: linear-gradient(135deg, #38b000, #70e000);
+        color: #fff;
+        padding: 25px;
+        border-radius: 15px;
+        width: 80%;
+        max-width: 600px;
+        text-align: left;
+        box-shadow: 0px 6px 12px rgba(0,0,0,0.15);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }}
+    .skills-section .card:hover {{
+        transform: scale(1.05);
+        box-shadow: 0px 12px 24px rgba(0,0,0,0.25);
+    }}
+    .skills-section h2 {{
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        font-weight: bold;
+        text-align: center;
+    }}
+    .skills-section h3 {{
+        font-size: 1.2rem;
+        margin-top: 15px;
+        margin-bottom: 10px;
+        font-weight: bold;
+        border-bottom: 2px solid rgba(255,255,255,0.6);
+        display: inline-block;
+        padding-bottom: 3px;
+    }}
+    .skills-section ul {{
+        list-style-type: disc;
+        margin-left: 20px;
+        margin-bottom: 15px;
+    }}
+    .skills-section li {{
+        margin-bottom: 5px;
+        font-size: 1rem;
+    }}
     </style>
     """,
     unsafe_allow_html=True,
@@ -163,7 +208,7 @@ st.markdown(
 st.header("👋 Hey, I'm **Vishal Anand**")
 st.button("🌙", on_click=toggle_theme, key="theme_toggle")
 
-# Load and display image
+# Profile Image
 image = Image.open("vishal.jpg")
 st.image(image, width=700, caption="Vishal Anand", use_container_width=True)
 st.markdown("<h3 style='margin-bottom: 2rem;'>Aspiring Data Professional</h3>", unsafe_allow_html=True)
@@ -176,19 +221,13 @@ st.download_button(
     label="📄 Download My Resume",
     data=PDFbyte,
     file_name="Vishal Anand.pdf",
-    mime='application/octet-stream'
+    mime="application/octet-stream",
 )
 
-# Resume View (Google Drive)
+# Resume View
 google_drive_file_id = "1GuPDBqmRCobDLmr_dmv6Jg5xlPGplONX"
 viewer_url = f"https://drive.google.com/file/d/{google_drive_file_id}/preview"
-
-st.markdown(
-    f"""
-    <a href="{viewer_url}" target="_blank" class="view-resume-link">👀 View My Resume</a>
-    """,
-    unsafe_allow_html=True,
-)
+st.markdown(f'<a href="{viewer_url}" target="_blank">👀 View My Resume</a>', unsafe_allow_html=True)
 
 # About Me
 st.header("🧑‍💼 About Me")
@@ -198,92 +237,42 @@ With skills in SQL, Python, Excel, and data visualization, I enjoy analyzing and
 make informed decisions. Outside of data, I love cooking, traveling, and listening to podcasts.
 """)
 
+# Skills Section
+st.markdown(
+    """
+    <section class="skills-section">
+      <div class="card">
+        <h2>&#128295; Skills</h2>
 
-<!-- Skills Section -->
-<section class="skills-section">
-  <div class="card">
-    <h2>🛠 Skills</h2>
+        <h3>Programming</h3>
+        <ul>
+          <li>Python (Pandas, NumPy, Seaborn, Matplotlib)</li>
+          <li>R</li>
+          <li>SAS</li>
+        </ul>
 
-    <h3>Programming</h3>
-    <ul>
-      <li>Python (Pandas, NumPy, Seaborn, Matplotlib)</li>
-      <li>R</li>
-      <li>SAS</li>
-    </ul>
+        <h3>Data Analysis</h3>
+        <ul>
+          <li>Excel (PivotTables, Power Query, DAX)</li>
+          <li>SQL (Joins, Aggregations, Subqueries)</li>
+        </ul>
 
-    <h3>Data Analysis</h3>
-    <ul>
-      <li>Excel (PivotTables, Power Query, DAX)</li>
-      <li>SQL (Joins, Aggregations, Subqueries)</li>
-    </ul>
+        <h3>Visualization</h3>
+        <ul>
+          <li>Tableau</li>
+          <li>Power BI</li>
+        </ul>
 
-    <h3>Visualization</h3>
-    <ul>
-      <li>Tableau</li>
-      <li>Power BI</li>
-    </ul>
-
-    <h3>Machine Learning</h3>
-    <ul>
-      <li>Predictive Modeling</li>
-      <li>Data Mining</li>
-    </ul>
-  </div>
-</section>
-
-<style>
-.skills-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 30px;
-}
-
-.skills-section .card {
-  background: linear-gradient(135deg, #38b000, #70e000);
-  color: #fff;
-  padding: 25px;
-  border-radius: 15px;
-  width: 80%;
-  max-width: 600px;
-  text-align: left;
-  box-shadow: 0px 6px 12px rgba(0,0,0,0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.skills-section .card:hover {
-  transform: scale(1.05);
-  box-shadow: 0px 12px 24px rgba(0,0,0,0.25);
-}
-
-.skills-section h2 {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  font-weight: bold;
-  text-align: center;
-}
-
-.skills-section h3 {
-  font-size: 1.2rem;
-  margin-top: 15px;
-  margin-bottom: 10px;
-  font-weight: bold;
-  border-bottom: 2px solid rgba(255,255,255,0.6);
-  display: inline-block;
-  padding-bottom: 3px;
-}
-
-.skills-section ul {
-  list-style-type: disc;
-  margin-left: 20px;
-  margin-bottom: 15px;
-}
-
-.skills-section li {
-  margin-bottom: 5px;
-  font-size: 1rem;
-}
-</style>
+        <h3>Machine Learning</h3>
+        <ul>
+          <li>Predictive Modeling</li>
+          <li>Data Mining</li>
+        </ul>
+      </div>
+    </section>
+    """,
+    unsafe_allow_html=True,
+)
 
 # Experience
 st.header("💼 Experience")
