@@ -237,97 +237,69 @@ With skills in SQL, Python, Excel, and data visualization, I enjoy analyzing and
 make informed decisions. Outside of data, I love cooking, traveling, and listening to podcasts.
 """)
 
-<section id="skills" class="skills-section">
+import streamlit as st
+
+# Inject custom CSS for styling
+st.markdown("""
+    <style>
+    .skills-section {
+        background: linear-gradient(135deg, #1e3c72, #2a5298);
+        padding: 30px;
+        border-radius: 15px;
+        color: white;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        margin-bottom: 20px;
+    }
+    .skills-section h2 {
+        font-size: 28px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .skills-category {
+        font-size: 20px;
+        margin-top: 15px;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+    .skill-list {
+        margin-left: 20px;
+        font-size: 16px;
+        line-height: 1.8;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+# HTML block inside Python
+st.markdown("""
+<div class="skills-section">
     <h2>🛠 Skills</h2>
-    <div class="skills-grid">
-        
-        <div class="skill-card">
-            <h3>Programming</h3>
-            <ul>
-                <li>Python (Pandas, NumPy, Seaborn, Matplotlib)</li>
-                <li>R</li>
-                <li>SAS</li>
-            </ul>
-        </div>
-
-        <div class="skill-card">
-            <h3>Data Analysis</h3>
-            <ul>
-                <li>Excel (PivotTables, Power Query, DAX)</li>
-                <li>SQL (Joins, Aggregations, Subqueries)</li>
-            </ul>
-        </div>
-
-        <div class="skill-card">
-            <h3>Visualization</h3>
-            <ul>
-                <li>Tableau</li>
-                <li>Power BI</li>
-            </ul>
-        </div>
-
-        <div class="skill-card">
-            <h3>Machine Learning</h3>
-            <ul>
-                <li>Predictive Modeling</li>
-                <li>Data Mining</li>
-            </ul>
-        </div>
-
+    
+    <div class="skills-category">Programming</div>
+    <div class="skill-list">
+        Python (Pandas, NumPy, Matplotlib, Seaborn)<br>
+        R<br>
+        SAS
     </div>
-</section>
-
-<style>
-.skills-section {
-    text-align: center;
-    margin: 50px 0;
-    padding: 40px 20px;
-    background: linear-gradient(135deg, #27ae60, #2ecc71);
-    color: white;
-    border-radius: 15px;
-}
-
-.skills-section h2 {
-    font-size: 2.2rem;
-    margin-bottom: 30px;
-    font-weight: bold;
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.skill-card {
-    background: #fff;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    transition: transform 0.3s, box-shadow 0.3s;
-    text-align: left;
-    color: #2c3e50;
-}
-
-.skill-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.25);
-}
-
-.skill-card h3 {
-    margin-bottom: 10px;
-    color: #27ae60;
-    font-weight: bold;
-}
-
-.skill-card ul {
-    list-style: disc inside;
-    padding-left: 10px;
-}
-</style>
-
-
+    
+    <div class="skills-category">Data Analysis</div>
+    <div class="skill-list">
+        Excel (PivotTables, Power Query, DAX)<br>
+        SQL (Joins, Aggregations, Subqueries)
+    </div>
+    
+    <div class="skills-category">Visualization</div>
+    <div class="skill-list">
+        Tableau<br>
+        Power BI
+    </div>
+    
+    <div class="skills-category">Machine Learning</div>
+    <div class="skill-list">
+        Predictive Modeling<br>
+        Data Mining
+    </div>
+</div>
+""", unsafe_allow_html=True)
 # Experience
 st.header("💼 Experience")
 st.subheader("HSBC — Contact Centre Executive (Nov 2022 - Nov 2024)")
