@@ -154,51 +154,33 @@ st.markdown(
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 2.5rem;
     }}
+    
+    /* --- CORRECTED SKILLS SECTION STYLES --- */
     .skills-section {{
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        background: linear-gradient(135deg, #1e3c72, #2a5298);
         padding: 30px;
-    }}
-    .skills-section .card {{
-        background: linear-gradient(135deg, #38b000, #70e000);
-        color: #fff;
-        padding: 25px;
         border-radius: 15px;
-        width: 80%;
-        max-width: 600px;
-        text-align: left;
-        box-shadow: 0px 6px 12px rgba(0,0,0,0.15);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }}
-    .skills-section .card:hover {{
-        transform: scale(1.05);
-        box-shadow: 0px 12px 24px rgba(0,0,0,0.25);
+        color: white;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        margin-bottom: 20px;
     }}
     .skills-section h2 {{
-        font-size: 1.8rem;
-        margin-bottom: 20px;
-        font-weight: bold;
+        font-size: 28px;
         text-align: center;
+        margin-bottom: 20px;
     }}
-    .skills-section h3 {{
-        font-size: 1.2rem;
+    .skills-category {{
+        font-size: 20px;
         margin-top: 15px;
-        margin-bottom: 10px;
         font-weight: bold;
-        border-bottom: 2px solid rgba(255,255,255,0.6);
-        display: inline-block;
-        padding-bottom: 3px;
+        text-decoration: underline;
     }}
-    .skills-section ul {{
-        list-style-type: disc;
+    .skill-list {{
         margin-left: 20px;
-        margin-bottom: 15px;
+        font-size: 16px;
+        line-height: 1.8;
     }}
-    .skills-section li {{
-        margin-bottom: 5px;
-        font-size: 1rem;
-    }}
+
     </style>
     """,
     unsafe_allow_html=True,
@@ -237,37 +219,9 @@ With skills in SQL, Python, Excel, and data visualization, I enjoy analyzing and
 make informed decisions. Outside of data, I love cooking, traveling, and listening to podcasts.
 """)
 
-# Inject custom CSS
-st.markdown("""
-    <style>
-    .skills-section {
-        background: linear-gradient(135deg, #1e3c72, #2a5298);
-        padding: 30px;
-        border-radius: 15px;
-        color: white;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        margin-bottom: 20px;
-    }
-    .skills-section h2 {
-        font-size: 28px;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-    .skills-category {
-        font-size: 20px;
-        margin-top: 15px;
-        font-weight: bold;
-        text-decoration: underline;
-    }
-    .skill-list {
-        margin-left: 20px;
-        font-size: 16px;
-        line-height: 1.8;
-    }
-    </style>
-""", unsafe_allow_html=True)
+# --- REMOVED THE REDUNDANT CSS INJECTION THAT WAS HERE ---
 
-# Add HTML content (NOT as code block!)
+# Add HTML content
 st.markdown("""
 <div class="skills-section">
     <h2>🛠 Skills</h2>
