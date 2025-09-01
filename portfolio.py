@@ -237,9 +237,7 @@ With skills in SQL, Python, Excel, and data visualization, I enjoy analyzing and
 make informed decisions. Outside of data, I love cooking, traveling, and listening to podcasts.
 """)
 
-import streamlit as st
-
-# Inject custom CSS for styling
+# Inject custom CSS
 st.markdown("""
     <style>
     .skills-section {
@@ -269,7 +267,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# HTML block inside Python
+# Add HTML content (NOT as code block!)
 st.markdown("""
 <div class="skills-section">
     <h2>🛠 Skills</h2>
@@ -300,6 +298,7 @@ st.markdown("""
     </div>
 </div>
 """, unsafe_allow_html=True)
+
 # Experience
 st.header("💼 Experience")
 st.subheader("HSBC — Contact Centre Executive (Nov 2022 - Nov 2024)")
