@@ -447,6 +447,16 @@ st.markdown(
         <p>It includes an end-to-end pipeline (preprocessing, modeling, evaluation, explainability)</p>
         <a href="https://github.com/Jarvis-2406/Counterfeit-Transaction-Detection" target="_blank" class="github-button">
             GitHub Repo
+            </div>
+            <div class="project-card">
+            <h3>Financial Planner</h3>
+            <p>A comprehensive single-page web application for personal finance tracking, analysis, and forecasting.</p>
+            <p>This tool provides an interactive platform to manage your financial life with data visualization, AI-powered analysis, and professional PDF reporting.</p>
+            <a href="https://github.com/Jarvis-2406/Financial-Planner" target="_blank" class="github-button">
+        GitHub Repo
+    </a>
+</div>
+
     </div>
     """,
     unsafe_allow_html=True,
