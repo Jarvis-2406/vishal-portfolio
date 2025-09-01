@@ -237,42 +237,96 @@ With skills in SQL, Python, Excel, and data visualization, I enjoy analyzing and
 make informed decisions. Outside of data, I love cooking, traveling, and listening to podcasts.
 """)
 
-# Skills Section
-st.markdown(
-    """
-    <section class="skills-section">
-      <div class="card">
-        <h2>&#128295; Skills</h2>
+<section id="skills" class="skills-section">
+    <h2>🛠 Skills</h2>
+    <div class="skills-grid">
+        
+        <div class="skill-card">
+            <h3>Programming</h3>
+            <ul>
+                <li>Python (Pandas, NumPy, Seaborn, Matplotlib)</li>
+                <li>R</li>
+                <li>SAS</li>
+            </ul>
+        </div>
 
-        <h3>Programming</h3>
-        <ul>
-          <li>Python (Pandas, NumPy, Seaborn, Matplotlib)</li>
-          <li>R</li>
-          <li>SAS</li>
-        </ul>
+        <div class="skill-card">
+            <h3>Data Analysis</h3>
+            <ul>
+                <li>Excel (PivotTables, Power Query, DAX)</li>
+                <li>SQL (Joins, Aggregations, Subqueries)</li>
+            </ul>
+        </div>
 
-        <h3>Data Analysis</h3>
-        <ul>
-          <li>Excel (PivotTables, Power Query, DAX)</li>
-          <li>SQL (Joins, Aggregations, Subqueries)</li>
-        </ul>
+        <div class="skill-card">
+            <h3>Visualization</h3>
+            <ul>
+                <li>Tableau</li>
+                <li>Power BI</li>
+            </ul>
+        </div>
 
-        <h3>Visualization</h3>
-        <ul>
-          <li>Tableau</li>
-          <li>Power BI</li>
-        </ul>
+        <div class="skill-card">
+            <h3>Machine Learning</h3>
+            <ul>
+                <li>Predictive Modeling</li>
+                <li>Data Mining</li>
+            </ul>
+        </div>
 
-        <h3>Machine Learning</h3>
-        <ul>
-          <li>Predictive Modeling</li>
-          <li>Data Mining</li>
-        </ul>
-      </div>
-    </section>
-    """,
-    unsafe_allow_html=True,
-)
+    </div>
+</section>
+
+<style>
+.skills-section {
+    text-align: center;
+    margin: 50px 0;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    color: white;
+    border-radius: 15px;
+}
+
+.skills-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.skill-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: left;
+    color: #2c3e50;
+}
+
+.skill-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+}
+
+.skill-card h3 {
+    margin-bottom: 10px;
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.skill-card ul {
+    list-style: disc inside;
+    padding-left: 10px;
+}
+</style>
+
 
 # Experience
 st.header("💼 Experience")
