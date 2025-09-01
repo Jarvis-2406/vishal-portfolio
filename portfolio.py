@@ -198,9 +198,7 @@ With skills in SQL, Python, Excel, and data visualization, I enjoy analyzing and
 make informed decisions. Outside of data, I love cooking, traveling, and listening to podcasts.
 """)
 
-# Skills
-st.header("🛠️ Skills")
-st.markdown(
+
 <!-- Skills Section -->
 <section class="skills-section">
   <div class="card">
