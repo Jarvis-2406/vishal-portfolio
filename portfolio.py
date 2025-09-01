@@ -140,9 +140,7 @@ st.markdown(
         font-size: 1.25rem;
         margin-top: 1.5rem;
         font-weight: bold;
-        border-bottom: 2px solid {accent_color};
-        padding-bottom: 0.3rem;
-        display: inline-block;
+        text-decoration: underline;
     }}
     .skill-list {{
         padding-top: 0.5rem;
@@ -211,21 +209,35 @@ Hi, I’m Vishal Anand, a data professional passionate about using data to solve
 """)
 
 
-# --- SKILLS ---
+# --- SKILLS (CORRECTED) ---
 st.markdown("""
 <div class="skills-section">
     <h2>🛠️ Skills</h2>
+    
     <div class="skills-category">Programming</div>
-    <div class="skill-list">Python (Pandas, NumPy, Matplotlib, Seaborn) &bull; R &bull; SAS</div>
+    <div class="skill-list">
+        Python (Pandas, NumPy, Matplotlib, Seaborn)<br>
+        R<br>
+        SAS
+    </div>
     
     <div class="skills-category">Data Analysis</div>
-    <div class="skill-list">Excel (PivotTables, Power Query, DAX) &bull; SQL (Joins, Aggregations, Subqueries)</div>
+    <div class="skill-list">
+        Excel (PivotTables, Power Query, DAX)<br>
+        SQL (Joins, Aggregations, Subqueries)
+    </div>
     
     <div class="skills-category">Visualization</div>
-    <div class="skill-list">Tableau &bull; Power BI</div>
+    <div class="skill-list">
+        Tableau<br>
+        Power BI
+    </div>
     
     <div class="skills-category">Machine Learning</div>
-    <div class="skill-list">Predictive Modeling &bull; Data Mining</div>
+    <div class="skill-list">
+        Predictive Modeling<br>
+        Data Mining
+    </div>
 </div>
 """, unsafe_allow_html=True)
 
@@ -245,7 +257,7 @@ st.markdown("""
 - Leveraged SQL for targeted lead generation, boosting conversion rates by 20%.
 """)
 
-# --- PROJECTS ---
+# --- PROJECTS (CORRECTED - ALL 5 PROJECTS RESTORED) ---
 st.header("📁 Projects")
 st.markdown(
     """
@@ -264,6 +276,16 @@ st.markdown(
             <h3>BellaBeat Data Insights</h3>
             <p>Performed an in-depth EDA on smart device usage data to provide strategic business recommendations, visualized with Tableau.</p>
             <a href="https://github.com/Jarvis-2406/BellaBeat-Data-Insights" target="_blank" class="github-button">GitHub Repo</a>
+        </div>
+        <div class="card">
+            <h3>Counterfeit Fraud Analysis</h3>
+            <p>Detects counterfeit transactions using ML on an e-commerce dataset. Includes preprocessing, modeling, and evaluation.</p>
+            <a href="https://github.com/Jarvis-2406/Counterfeit-Transaction-Detection" target="_blank" class="github-button">GitHub Repo</a>
+        </div>
+        <div class="card">
+            <h3>Financial Planner</h3>
+            <p>A single-page web app for personal finance tracking, analysis, and forecasting with interactive visualizations.</p>
+            <a href="https://github.com/Jarvis-2406/Financial-Planner" target="_blank" class="github-button">GitHub Repo</a>
         </div>
     </div>
     """,
