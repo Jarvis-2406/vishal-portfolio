@@ -201,28 +201,91 @@ make informed decisions. Outside of data, I love cooking, traveling, and listeni
 # Skills
 st.header("🛠️ Skills")
 st.markdown(
-    """
-    <div class="skills-section">
-        <div class="skill-box">
-            <h3>Programming</h3>
-            <ul><li>Python (Pandas, NumPy, Seaborn, Matplotlib)</li><li>R</li><li>SAS</li></ul>
-        </div>
-        <div class="skill-box">
-            <h3>Data Analysis</h3>
-            <ul><li>Excel (PivotTables, Power Query, DAX)</li><li>SQL (Joins, Aggregations, Subqueries)</li></ul>
-        </div>
-        <div class="skill-box">
-            <h3>Visualization</h3>
-            <ul><li>Tableau</li><li>Power BI</li></ul>
-        </div>
-        <div class="skill-box">
-            <h3>Machine Learning</h3>
-            <ul><li>Predictive Modeling</li><li>Data Mining</li></ul>
-        </div>
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
+<!-- Skills Section -->
+<section class="skills-section">
+  <div class="card">
+    <h2>🛠 Skills</h2>
+
+    <h3>Programming</h3>
+    <ul>
+      <li>Python (Pandas, NumPy, Seaborn, Matplotlib)</li>
+      <li>R</li>
+      <li>SAS</li>
+    </ul>
+
+    <h3>Data Analysis</h3>
+    <ul>
+      <li>Excel (PivotTables, Power Query, DAX)</li>
+      <li>SQL (Joins, Aggregations, Subqueries)</li>
+    </ul>
+
+    <h3>Visualization</h3>
+    <ul>
+      <li>Tableau</li>
+      <li>Power BI</li>
+    </ul>
+
+    <h3>Machine Learning</h3>
+    <ul>
+      <li>Predictive Modeling</li>
+      <li>Data Mining</li>
+    </ul>
+  </div>
+</section>
+
+<style>
+.skills-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.skills-section .card {
+  background: linear-gradient(135deg, #38b000, #70e000);
+  color: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  width: 80%;
+  max-width: 600px;
+  text-align: left;
+  box-shadow: 0px 6px 12px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skills-section .card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 12px 24px rgba(0,0,0,0.25);
+}
+
+.skills-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.skills-section h3 {
+  font-size: 1.2rem;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  border-bottom: 2px solid rgba(255,255,255,0.6);
+  display: inline-block;
+  padding-bottom: 3px;
+}
+
+.skills-section ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+.skills-section li {
+  margin-bottom: 5px;
+  font-size: 1rem;
+}
+</style>
 
 # Experience
 st.header("💼 Experience")
