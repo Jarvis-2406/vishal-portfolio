@@ -394,5 +394,5 @@ st.markdown("""
     <a href="https://github.com/Jarvis-2406" target="_blank" class="social-button"><i class="fab fa-github"></i></a>
     <a href="mailto:vishalanand2406@gmail.com" class="social-button"><i class="far fa-envelope"></i></a>
 </div>
-<p style="text-align: center; margin-top: 1rem;">+91-7989353480</p>
+<p style="text-align: center; margin-top: 1rem;">+91-9000570939</p>
 """, unsafe_allow_html=True)
