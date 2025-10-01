@@ -195,7 +195,7 @@ st.markdown(
 # --- ENCODE LOCAL IMAGES ---
 # **IMPORTANT**: Rename your file "cognizant logo.jpg" to "cognizant_logo.jpg"
 amazon_logo_b64 = image_to_base64("Amazon.png")
-cognizant_logo_b64 = image_to_base64("cognizant_logo.jpg") # Using the new filename
+cognizant_logo_b64 = image_to_base64("cognizant logo.jpg") # Using the new filename
 hsbc_logo_b64 = image_to_base64("hsbc.jpg")
 byjus_logo_b64 = image_to_base64("Byjus.png")
 
@@ -289,7 +289,7 @@ st.markdown(f"""
     <div class="flip-card">
         <div class="flip-card-inner">
             <div class="flip-card-front">
-                <img src="{cognizant_logo_b64}" alt="Cognizant Logo" class="company-logo">
+                <img src="{cognizant logo_b64}" alt="Cognizant Logo" class="company-logo">
             </div>
             <div class="flip-card-back">
                 <h3>Process Specialist</h3>
