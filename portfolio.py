@@ -56,7 +56,6 @@ st.markdown(
     f"""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
-    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
 
     body {{
         font-family: 'Times New Roman', serif !important;
@@ -77,7 +76,6 @@ st.markdown(
         font-family: 'Playfair Display', serif !important;
         font-weight: 700;
     }}
-    /* Ensure body paragraphs also use Times New Roman */
     p, li {{
         font-family: 'Times New Roman', serif !important;
     }}
@@ -89,14 +87,14 @@ st.markdown(
     .header-section {{
         text-align: center;
         width: 100%;
+        padding-top: 1rem; /* Add some space at the top */
     }}
     .header-section h1 {{
-        margin-bottom: -0.5rem;
+        margin-bottom: 0.5rem; /* Adjusted space */
     }}
     .header-section p {{
-        font-family: 'Times New Roman', serif !important; /* Ensure subtitle uses body font */
+        font-family: 'Times New Roman', serif !important;
         font-size: 1.25rem;
-        margin-top: -1rem;
     }}
 
     /* --- CARD STYLES --- */
@@ -233,16 +231,18 @@ byjus_logo_b64 = image_to_base64("Byjus.png")
 
 
 # --- HEADER & PROFILE ---
-header_col, theme_toggle_col = st.columns([0.9, 0.1])
-with header_col:
-    st.markdown(f"""
-    <div class="header-section">
-        <h1>👋 Hey, I'm <strong>Vishal Anand</strong></h1>
-        <p>The Amiable Analyst, Catching Bad Apples 🍎</p>
-    </div>
-    """, unsafe_allow_html=True)
-with theme_toggle_col:
+# NEW LAYOUT: Place theme toggle on the right, then have a full-width centered header
+_, col2 = st.columns([0.9, 0.1])
+with col2:
     st.button("🌙" if st.session_state["theme"] == "dark" else "☀️", on_click=toggle_theme, key="theme_toggle")
+
+st.markdown(f"""
+<div class="header-section">
+    <h1>👋 Hey, I'm <strong>Vishal Anand</strong></h1>
+    <p>The Amiable Analyst, Catching Bad Apples 🍎</p>
+</div>
+""", unsafe_allow_html=True)
+
 
 # --- IMAGE (CENTERED AND RESIZED) ---
 img_col1, img_col2, img_col3 = st.columns([1, 2, 1])
@@ -413,7 +413,7 @@ st.markdown(
 
 # --- LANGUAGES ---
 st.header("🗣️ Languages")
-st.markdown("<div style='text-align: center;'><strong>English</strong> (Fluent) • <strong>Hindi</strong> (Native) • <strong>Telugu</strong> (Native) • <strong>German</strong> (Basic)</div>", unsafe_allow_html=True)
+st.markdown(f"<div style='text-align: center; color: {text_color};'><strong>English</strong> (Fluent) • <strong>Hindi</strong> (Native) • <strong>Telugu</strong> (Native) • <strong>German</strong> (Basic)</div>", unsafe_allow_html=True)
 
 # --- CONTACT ---
 st.header("📬 Contact")
