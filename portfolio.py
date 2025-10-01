@@ -9,7 +9,13 @@ def image_to_base64(img_path):
     try:
         img_bytes = Path(img_path).read_bytes()
         # You might need to adjust the MIME type based on your actual image type (png, jpeg, etc.)
-        return f"data:image/{Path(img_path).suffix[1:]};base64,{base64.b64encode(img_bytes).decode()}"
+        # Ensure the suffix is correctly extracted, handling cases like ".jpg" and ".png"
+        suffix = Path(img_path).suffix[1:]
+        if suffix.lower() == "jpg":
+            mime_type = "jpeg" # Common practice for .jpg files
+        else:
+            mime_type = suffix.lower()
+        return f"data:image/{mime_type};base64,{base64.b64encode(img_bytes).decode()}"
     except FileNotFoundError:
         return "https://via.placeholder.com/150?text=Image+Not+Found"
 
@@ -96,7 +102,6 @@ st.markdown(
         font-size: 1rem;
         line-height: 1.8;
         color: {text_color};
-        /* Removed flex-grow: 1 to prevent uneven stretching */
     }}
     .card-grid {{
         display: grid;
@@ -105,7 +110,7 @@ st.markdown(
     }}
     .flip-card {{
         background-color: transparent;
-        min-height: 380px; /* Adjusted height for paragraph content */
+        min-height: 480px; /* Adjusted height again to accommodate longer content */
         perspective: 1000px;
     }}
     .flip-card-inner {{
@@ -133,29 +138,30 @@ st.markdown(
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 1rem; /* Added padding to ensure logos don't touch edges */
+        padding: 1rem;
     }}
     .flip-card-back {{
         transform: rotateY(180deg);
-        padding: 2rem;
+        padding: 1.5rem; /* Slightly reduced padding for more space */
         display: flex;
         flex-direction: column;
-        /* Removed justify-content: flex-start; to allow content to naturally distribute */
+        justify-content: flex-start; /* Keep content at top, let it flow down */
     }}
     .company-logo {{
-        max-width: 90%; /* Increased max-width */
-        max-height: 90%; /* Increased max-height */
-        object-fit: contain; /* Ensures logo fits within bounds, maintains aspect ratio */
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
         border-radius: 8px;
     }}
     .experience-content {{
         text-align: left;
         margin-top: 1rem;
-        line-height: 1.6;
-        /* Removed flex-grow: 1 to prevent uneven stretching */
+        line-height: 1.5; /* Slightly reduced line-height for more compactness */
     }}
     .experience-content p {{
-        margin-bottom: 0.8rem; /* Space between paragraphs */
+        margin-bottom: 0.7rem; /* Space between paragraphs, slightly reduced */
+        color: {text_color};
+        font-size: 0.95rem; /* Slightly smaller font for experience content */
     }}
     .github-button {{
         background: {button_bg};
@@ -195,9 +201,8 @@ st.markdown(
 )
 
 # --- ENCODE LOCAL IMAGES ---
-# **IMPORTANT**: Rename your file "cognizant logo.jpg" to "cognizant_logo.jpg"
 amazon_logo_b64 = image_to_base64("amazon-png-logo-vector-6695.png")
-cognizant_logo_b64 = image_to_base64("Cognizant().png") # Using the new filename
+cognizant_logo_b64 = image_to_base64("Cognizant().png")
 hsbc_logo_b64 = image_to_base64("HSBC().png")
 byjus_logo_b64 = image_to_base64("Byjus.png")
 
@@ -280,9 +285,9 @@ st.markdown(f"""
                 <h3>Risk Specialist - Abuse Risk Mining</h3>
                 <p><strong>Amazon</strong> | Oct 2025 - Present</p>
                 <div class="experience-content">
-                    <p>Analyze complex data patterns to detect and mitigate fraudulent, abusive, and high-risk activities across Amazon’s global marketplace.
-                    Identify emerging abuse trends, conduct deep investigations, and drive process improvements to strengthen customer trust and marketplace integrity.
-                    Collaborate with cross-functional teams to develop risk strategies, automate detection mechanisms, and ensure compliance with Amazon’s high standards for safety and security.</p>
+                    <p>Analyzed complex data patterns to detect and mitigate fraudulent, abusive, and high-risk activities across Amazon’s global marketplace.</p>
+                    <p>Identified emerging abuse trends, conducted deep investigations, and drove process improvements to strengthen customer trust and marketplace integrity.</p>
+                    <p>Collaborated with cross-functional teams to develop risk strategies, automate detection mechanisms, and ensure compliance with Amazon’s high standards for safety and security.</p>
                 </div>
             </div>
         </div>
@@ -296,8 +301,8 @@ st.markdown(f"""
                 <h3>Process Specialist</h3>
                 <p><strong>Cognizant</strong> | Sep 2025 - Sep 2025</p>
                 <div class="experience-content">
-                    <p>Supported US clients via voice, chat, and email on the DocuSign platform, assisting with key features like eSignatures, templates, envelope workflows, and account configurations.
-                    Helped clients resolve issues, optimize their document processes, and ensure smooth adoption of DocuSign solutions.</p>
+                    <p>Supported US clients via voice, chat, and email on the DocuSign platform, assisting with key features like eSignatures, templates, envelope workflows, and account configurations.</p>
+                    <p>Helped clients resolve issues, optimize their document processes, and ensured smooth adoption of DocuSign solutions.</p>
                 </div>
             </div>
         </div>
@@ -311,9 +316,9 @@ st.markdown(f"""
                 <h3>Contact Centre Executive</h3>
                 <p><strong>HSBC</strong> | Nov 2022 - Nov 2024</p>
                 <div class="experience-content">
-                    <p>Analyzed 10,000+ customer interactions using SQL and Excel, reducing false positives by 20%.
-                    Developed Power BI dashboards to monitor KPIs, improving SLA adherence by 15%.
-                    Maintained >95% QA scores while reducing Average Handling Time (AHT) by 18%.</p>
+                    <p>Analyzed 10,000+ customer interactions using SQL and Excel, reducing false positives by 20%.</p>
+                    <p>Developed Power BI dashboards to monitor KPIs, improving SLA adherence by 15%.</p>
+                    <p>Maintained >95% QA scores while reducing Average Handling Time (AHT) by 18%.</p>
                 </div>
             </div>
         </div>
@@ -327,9 +332,9 @@ st.markdown(f"""
                 <h3>Business Development Associate</h3>
                 <p><strong>BYJUS</strong> | Dec 2020 - Sep 2022</p>
                 <div class="experience-content">
-                    <p>Conducted cohort analysis & A/B testing across 100K+ users, improving retention by 15%.
-                    Built Tableau dashboards on engagement metrics, contributing to a 10% reduction in churn.
-                    Leveraged SQL for targeted lead generation, boosting conversion rates by 20%.</p>
+                    <p>Conducted cohort analysis & A/B testing across 100K+ users, improving retention by 15%.</p>
+                    <p>Built Tableau dashboards on engagement metrics, contributing to a 10% reduction in churn.</p>
+                    <p>Leveraged SQL for targeted lead generation, boosting conversion rates by 20%.</p>
                 </div>
             </div>
         </div>
