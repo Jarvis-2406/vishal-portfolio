@@ -59,7 +59,7 @@ st.markdown(
     @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
 
     body {{
-        font-family: 'Nunito Sans', sans-serif;
+        font-family: 'Nunito Sans', sans-serif !important;
         color: {text_color};
     }}
     [data-testid="stAppViewContainer"] {{
@@ -74,7 +74,7 @@ st.markdown(
         color: {text_color} !important;
     }}
     h1, h2, h3 {{
-        font-family: 'Poppins', sans-serif;
+        font-family: 'Poppins', sans-serif !important;
         font-weight: 700;
     }}
     h2 {{
