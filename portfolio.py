@@ -55,11 +55,11 @@ else: # Dark theme
 st.markdown(
     f"""
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Nunito+Sans:wght@400;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
     @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
 
     body {{
-        font-family: 'Nunito Sans', sans-serif !important;
+        font-family: 'Times New Roman', serif !important;
         color: {text_color};
     }}
     [data-testid="stAppViewContainer"] {{
@@ -74,8 +74,12 @@ st.markdown(
         color: {text_color} !important;
     }}
     h1, h2, h3 {{
-        font-family: 'Poppins', sans-serif !important;
+        font-family: 'Playfair Display', serif !important;
         font-weight: 700;
+    }}
+    /* Ensure body paragraphs also use Times New Roman */
+    p, li {{
+        font-family: 'Times New Roman', serif !important;
     }}
     h2 {{
         text-align: center;
@@ -90,6 +94,7 @@ st.markdown(
         margin-bottom: -0.5rem;
     }}
     .header-section p {{
+        font-family: 'Times New Roman', serif !important; /* Ensure subtitle uses body font */
         font-size: 1.25rem;
         margin-top: -1rem;
     }}
@@ -281,7 +286,7 @@ st.markdown("""
     </div>
     <div class="card">
         <h3>Visualization</h3>
-        <l>Tableau<br>Power BI</l>
+        <p>Tableau<br>Power BI</p>
     </div>
     <div class="card">
         <h3>Machine Learning</h3>
