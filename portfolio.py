@@ -333,7 +333,7 @@ st.markdown(f"""
             <div class="flip-card-back">
                 <h3>Business Development Associate</h3>
                 <p><strong>BYJUS</strong> | Dec 2020 - Sep 2022</p>
-                <div class="experience-content"><p>Delivered personalized demos and counseling to parents, driving ₹1Cr+ in revenue through consultative sales. Promoted as Interim Manager, led a 7-member team to achieve ₹50L in 2 months. Consistently recognized as “Best Performer” for exceeding targets, training new hires, and optimizing CRM-driven sales pipelines. Improved conversions by tailoring strategies to regional needs and matching students with the right BYJU’s programs.</p></div>
+                <div class="experience-content"><p>Drove ₹1Cr+ in sales through personalized demos and parent counseling. Promoted to Interim Manager, led 7-member team to ₹50L in 2 months. Consistently awarded “Best Performer,” trained new hires, optimized CRM pipelines, and boosted conversions with tailored strategies.</p></div>
             </div>
         </div>
     </div>
