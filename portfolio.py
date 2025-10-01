@@ -384,7 +384,7 @@ st.markdown("""
 
 # --- LANGUAGES ---
 st.header("🗣️ Languages")
-st.markdown(f"<div style='text-align: center; color: {text_color};'><strong>English</strong> (Fluent) • <strong>Hindi</strong> (Native) • <strong>Telugu</strong> (Native) • <strong>German</strong> (Basic)</div>", unsafe_allow_html=True)
+st.markdown(f"<div style='text-align: center; color: {text_color};; font-family: 'Times New Roman', serif;'><strong>English</strong> (Fluent) • <strong>Hindi</strong> (Native) • <strong>Telugu</strong> (Native) • <strong>German</strong> (Basic)</div>", unsafe_allow_html=True)
 
 # --- CONTACT ---
 st.header("📬 Contact")
