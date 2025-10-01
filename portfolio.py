@@ -28,7 +28,7 @@ st.set_page_config(
 
 # --- THEME MANAGEMENT ---
 if "theme" not in st.session_state:
-    st.session_state["theme"] = "dark"
+    st.session_state["theme"] = "light" # Set the default theme to light
 
 def toggle_theme():
     st.session_state["theme"] = "light" if st.session_state["theme"] == "dark" else "dark"
@@ -231,7 +231,7 @@ byjus_logo_b64 = image_to_base64("Byjus.png")
 # --- HEADER & PROFILE ---
 _, col2 = st.columns([0.9, 0.1])
 with col2:
-    st.button("☀️" if st.session_state["theme"] == "light" else "🌙", on_click=toggle_theme, key="theme_toggle")
+    st.button("🌙" if st.session_state["theme"] == "dark" else "☀️", on_click=toggle_theme, key="theme_toggle")
 
 st.markdown(f"""
 <div class="header-section">
@@ -303,7 +303,7 @@ st.markdown(f"""
             <div class="flip-card-back">
                 <h3>Risk Specialist - Abuse Risk Mining</h3>
                 <p><strong>Amazon</strong> | Oct 2025 - Present</p>
-                <div class="experience-content"><p>As a Risk Specialist in Amazon’s Abuse Risk Mining team, I detect and mitigate fraud and high-risk activities by analyzing data patterns, investigating emerging abuse trends, and driving process improvements. I collaborate across teams to enhance risk strategies, automate detection, and uphold customer trust and marketplace integrity.</p></div>
+                <div class="experience-content"><p>As a Risk Specialist in Amazon’s Abuse Risk Mining team, I detect and mitigate fraud and high-risk activities by analyzing data patterns, investigating emerging abuse trends, and driving process improvements.</p></div>
             </div>
         </div>
     </div>
