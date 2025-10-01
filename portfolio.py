@@ -4,7 +4,6 @@ import base64
 from pathlib import Path
 
 # --- FUNCTION TO ENCODE IMAGES ---
-# This is the new function to properly handle local images
 def image_to_base64(img_path):
     """Converts a local image file to a base64 string."""
     try:
@@ -12,7 +11,6 @@ def image_to_base64(img_path):
         encoded = base64.b64encode(img_bytes).decode()
         return f"data:image/jpeg;base64,{encoded}"
     except FileNotFoundError:
-        # Return a placeholder or an error message if the file is not found
         return "https://via.placeholder.com/150?text=Image+Not+Found"
 
 # --- PAGE CONFIGURATION ---
@@ -61,25 +59,17 @@ st.markdown(
         font-family: 'Lato', sans-serif;
         color: {text_color};
     }}
-
-    /* Main container background */
     [data-testid="stAppViewContainer"] {{
         background: linear-gradient(180deg, {primary_gradient_start}, {primary_gradient_end});
     }}
-
-    /* Hide Streamlit's default header and footer */
     [data-testid="stHeader"], footer {{
         display: none;
     }}
-    
-    /* General Typography */
     h1, h2, h3 {{
         font-family: 'Roboto Slab', serif;
         font-weight: 700;
         color: {text_color};
     }}
-
-    /* Standard Card for Skills/Projects */
     .card {{
         background-color: {card_bg};
         border-radius: 12px;
@@ -108,18 +98,14 @@ st.markdown(
         color: {text_color};
         flex-grow: 1;
     }}
-
-    /* Grid layout for cards */
     .card-grid {{
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         gap: 1.5rem;
     }}
-    
-    /* --- CSS FOR FLIP CARD EXPERIENCE SECTION --- */
     .flip-card {{
         background-color: transparent;
-        min-height: 400px; /* Adjusted height for content */
+        min-height: 400px;
         perspective: 1000px;
     }}
     .flip-card-inner {{
@@ -136,7 +122,7 @@ st.markdown(
         position: absolute;
         width: 100%;
         height: 100%;
-        -webkit-backface-visibility: hidden; /* Safari */
+        -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         background-color: {card_bg};
         border-radius: 12px;
@@ -153,12 +139,12 @@ st.markdown(
         padding: 2rem;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start; /* Aligns content to the top */
+        justify-content: flex-start;
     }}
     .company-logo {{
         max-width: 70%;
         max-height: 70%;
-        border-radius: 8px; /* Optional: adds rounded corners to logos */
+        border-radius: 8px;
     }}
     .experience-list {{
         text-align: left;
@@ -167,11 +153,8 @@ st.markdown(
         flex-grow: 1;
     }}
     .experience-list li {{
-        margin-bottom: 0.75rem; /* Increased spacing between bullet points */
+        margin-bottom: 0.75rem;
     }}
-    /* --- END OF CSS --- */
-    
-    /* GitHub Button on Project Cards */
     .github-button {{
         background: {button_bg};
         color: {button_text_color} !important;
@@ -190,8 +173,6 @@ st.markdown(
         transform: scale(1.05);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }}
-    
-    /* Contact Section Styling */
     .social-buttons {{
         text-align: center;
         margin-top: 1rem;
@@ -212,9 +193,9 @@ st.markdown(
 )
 
 # --- ENCODE LOCAL IMAGES ---
-# Call the function for each of your logos
+# **IMPORTANT**: Rename your file "cognizant logo.jpg" to "cognizant_logo.jpg"
 amazon_logo_b64 = image_to_base64("Amazon.png")
-cognizant_logo_b64 = image_to_base64("cognizant logo.jpg")
+cognizant_logo_b64 = image_to_base64("cognizant_logo.jpg") # Using the new filename
 hsbc_logo_b64 = image_to_base64("hsbc.jpg")
 byjus_logo_b64 = image_to_base64("Byjus.png")
 
@@ -286,13 +267,12 @@ st.markdown("""
 
 # --- EXPERIENCE (NEW FLIP CARD LAYOUT) ---
 st.header("💼 Experience")
-# Use an f-string to embed the base64 image data
 st.markdown(f"""
 <div class="card-grid">
     <div class="flip-card">
         <div class="flip-card-inner">
             <div class="flip-card-front">
-                <img src="{Amazon.png}" alt="Amazon Logo" class="company-logo">
+                <img src="{amazon_logo_b64}" alt="Amazon Logo" class="company-logo">
             </div>
             <div class="flip-card-back">
                 <h3>Risk Specialist - Abuse Risk Mining</h3>
@@ -309,7 +289,7 @@ st.markdown(f"""
     <div class="flip-card">
         <div class="flip-card-inner">
             <div class="flip-card-front">
-                <img src="{cognizant logo.jpg}" alt="Cognizant Logo" class="company-logo">
+                <img src="{cognizant_logo_b64}" alt="Cognizant Logo" class="company-logo">
             </div>
             <div class="flip-card-back">
                 <h3>Process Specialist</h3>
@@ -325,7 +305,7 @@ st.markdown(f"""
     <div class="flip-card">
         <div class="flip-card-inner">
             <div class="flip-card-front">
-                <img src="{hsbc.jpg}" alt="HSBC Logo" class="company-logo">
+                <img src="{hsbc_logo_b64}" alt="HSBC Logo" class="company-logo">
             </div>
             <div class="flip-card-back">
                 <h3>Contact Centre Executive</h3>
@@ -341,7 +321,7 @@ st.markdown(f"""
     <div class="flip-card">
         <div class="flip-card-inner">
             <div class="flip-card-front">
-                 <img src="{Byjus.png}" alt="BYJUS Logo" class="company-logo">
+                 <img src="{byjus_logo_b64}" alt="BYJUS Logo" class="company-logo">
             </div>
             <div class="flip-card-back">
                 <h3>Business Development Associate</h3>
