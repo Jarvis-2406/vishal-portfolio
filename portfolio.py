@@ -28,28 +28,29 @@ if "theme" not in st.session_state:
 def toggle_theme():
     st.session_state["theme"] = "light" if st.session_state["theme"] == "dark" else "dark"
 
-# --- NEW HIGH-CONTRAST THEME COLORS ---
+# --- HIGH-CONTRAST THEME COLORS ---
 if st.session_state["theme"] == "light":
     # Clean White Theme
     primary_gradient_start = "#FFFFFF"
     primary_gradient_end = "#F0F2F6"
-    text_color = "#212529" # Dark text for light background
+    text_color = "#212529"
     accent_color = "#FF4B4B"
     button_bg = "linear-gradient(to right, #FF4B4B, #FF6B6B)"
     button_text_color = "#FFFFFF"
     card_bg = "rgba(255, 255, 255, 0.7)"
     card_border = "rgba(0, 0, 0, 0.1)"
+    card_glow = "0 6px 12px rgba(0, 0, 0, 0.1)" # Standard shadow for light theme
 else: # Dark theme
-    # High-Contrast Dark Theme
+    # High-Contrast Dark Theme with Glow
     primary_gradient_start = "#121212"
     primary_gradient_end = "#121212"
-    text_color = "#F8F9FA" # Bright text for dark background
+    text_color = "#F8F9FA"
     accent_color = "#08F7FE" # Vibrant Cyan Accent
     button_bg = "linear-gradient(to right, #08F7FE, #00BFFF)"
     button_text_color = "#121212"
     card_bg = "rgba(255, 255, 255, 0.07)"
     card_border = "rgba(8, 247, 254, 0.3)"
-
+    card_glow = f"0 0 20px {accent_color}" # Neon glow for dark theme
 
 # --- CUSTOM CSS ---
 st.markdown(
@@ -69,26 +70,30 @@ st.markdown(
         display: none;
     }}
     
-    /* Ensure all headers use the text_color variable */
-    h1, h2, h3, .st-emotion-cache-1629p8f {{ /* Targeting stsubheader for consistency */
+    /* --- Force Text Color Visibility --- */
+    h1, h2, h3, p, li, .st-emotion-cache-1629p8f {{
+        color: {text_color} !important;
+    }}
+
+    h1, h2, h3 {{
         font-family: 'Roboto Slab', serif;
         font-weight: 700;
-        color: {text_color} !important; /* Use !important to override Streamlit defaults */
     }}
     
-    /* Specific styling for the 'Hey, I'm Vishal Anand' section */
+    /* Centered Header Section */
     .header-section {{
         text-align: center;
         width: 100%;
     }}
     .header-section h1 {{
-        margin-bottom: -0.5rem; /* Reduce space between h1 and h2/subheader */
+        margin-bottom: -0.5rem;
     }}
-    .header-section .st-emotion-cache-1629p8f {{ /* Targeting subheader within the header section */
-        font-size: 1.25rem; /* Adjust subheader size if needed */
-        color: {text_color} !important;
+    .header-section p {{
+        font-size: 1.25rem;
+        margin-top: -1rem;
     }}
 
+    /* Standard Cards (Skills, Certs) */
     .card {{
         background-color: {card_bg};
         border-radius: 12px;
@@ -107,20 +112,18 @@ st.markdown(
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }}
     .card h3 {{
-        color: {accent_color} !important; /* Ensure card titles use accent color */
+        color: {accent_color} !important;
         font-size: 1.3rem;
         margin-bottom: 0.75rem;
     }}
-    .card p {{
-        font-size: 1rem;
-        line-height: 1.8;
-        color: {text_color} !important; /* Ensure card paragraphs use text color */
-    }}
+
     .card-grid {{
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         gap: 1.5rem;
     }}
+    
+    /* --- Experience Flip Cards with Glow Effect --- */
     .flip-card {{
         background-color: transparent;
         min-height: 500px;
@@ -145,8 +148,13 @@ st.markdown(
         background-color: {card_bg};
         border-radius: 12px;
         border: 1px solid {card_border};
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        box-shadow: {card_glow}; /* Applying the theme-dependent glow/shadow */
+        transition: box-shadow 0.3s ease;
     }}
+     .flip-card:hover .flip-card-front,
+     .flip-card:hover .flip-card-back {{
+        box-shadow: 0 0 35px {accent_color};
+     }}
     .flip-card-front {{
         display: flex;
         justify-content: center;
@@ -172,10 +180,10 @@ st.markdown(
         line-height: 1.5;
     }}
     .experience-content p {{
-        margin-bottom: 0.7rem;
-        color: {text_color} !important; /* Ensure experience content paragraphs use text color */
         font-size: 0.95rem;
     }}
+    
+    /* --- Other Elements --- */
     .github-button {{
         background: {button_bg};
         color: {button_text_color} !important;
@@ -199,13 +207,12 @@ st.markdown(
         margin-top: 1rem;
     }}
     .social-button {{
-        color: {text_color} !important; /* Ensure social icons use text color */
         margin: 0 15px;
         font-size: 2rem;
         transition: color 0.3s ease, transform 0.3s ease;
     }}
     .social-button:hover {{
-        color: {accent_color} !important; /* Ensure social icons hover with accent color */
+        color: {accent_color} !important;
         transform: scale(1.2);
     }}
     </style>
@@ -221,36 +228,27 @@ byjus_logo_b64 = image_to_base64("Byjus.png")
 
 
 # --- HEADER & PROFILE ---
-# Using a single column for centering the text, then a separate column for the theme toggle
 header_col, theme_toggle_col = st.columns([0.9, 0.1])
-
 with header_col:
-    # Use st.markdown with a div to center the text
     st.markdown(f"""
     <div class="header-section">
         <h1>👋 Hey, I'm <strong>Vishal Anand</strong></h1>
-        <p style="font-size: 1.25rem; color: {text_color}; margin-top: -1rem;">The Amiable Analyst, Catching Bad Apples 🍎</p>
+        <p>The Amiable Analyst, Catching Bad Apples 🍎</p>
     </div>
     """, unsafe_allow_html=True)
-
 with theme_toggle_col:
-    # Adjust button position if needed with padding or margin in CSS
     st.button("🌙" if st.session_state["theme"] == "dark" else "☀️", on_click=toggle_theme, key="theme_toggle")
-
 
 # --- IMAGE (CENTERED AND RESIZED) ---
 img_col1, img_col2, img_col3 = st.columns([1, 2, 1])
 with img_col2:
     st.image("IMG_0217.JPG")
 
-
 # --- RESUME BUTTONS ---
 with open("Vishal Anand.pdf", "rb") as f:
     pdf_bytes = f.read()
-
 google_drive_file_id = "1GuPDBqmRCobDLmr_dmv6Jg5xlPGplONX"
 viewer_url = f"https://drive.google.com/file/d/{google_drive_file_id}/preview"
-
 col1, col2 = st.columns(2)
 with col1:
     st.download_button(
@@ -263,13 +261,11 @@ with col1:
 with col2:
     st.markdown(f'<a href="{viewer_url}" target="_blank"><button style="width:100%; padding: 0.25rem 0.5rem; border-radius: 0.5rem; border-width: 1px; border-style: solid; border-color: rgb(222, 222, 228); color: {text_color}; background-color: transparent;">👀 View My Resume</button></a>', unsafe_allow_html=True)
 
-
 # --- ABOUT ME ---
 st.header("🧑‍💼 About Me")
-st.write(f"""
-<p style="color: {text_color};">Hi, I’m Vishal Anand, a data professional passionate about using data to solve problems and drive insights. With skills in SQL, Python, Excel, and data visualization, I enjoy analyzing and presenting data to help organizations make informed decisions. Outside of data, I love cooking, traveling, and listening to podcasts.</p>
-""", unsafe_allow_html=True)
-
+st.write("""
+Hi, I’m Vishal Anand, a data professional passionate about using data to solve problems and drive insights. With skills in SQL, Python, Excel, and data visualization, I enjoy analyzing and presenting data to help organizations make informed decisions. Outside of data, I love cooking, traveling, and listening to podcasts.
+""")
 
 # --- SKILLS (DYNAMIC CARD LAYOUT) ---
 st.header("🛠️ Skills")
@@ -293,7 +289,6 @@ st.markdown("""
     </div>
 </div>
 """, unsafe_allow_html=True)
-
 
 # --- EXPERIENCE (NEW FLIP CARD LAYOUT) ---
 st.header("💼 Experience")
@@ -362,7 +357,6 @@ st.markdown(f"""
     </div>
 </div>
 """, unsafe_allow_html=True)
-
 
 # --- PROJECTS ---
 st.header("📁 Projects")
