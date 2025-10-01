@@ -33,7 +33,7 @@ if st.session_state["theme"] == "light":
     # Clean White Theme
     primary_gradient_start = "#FFFFFF"
     primary_gradient_end = "#F0F2F6"
-    text_color = "#212529"
+    text_color = "#212529" # Dark text for light background
     accent_color = "#FF4B4B"
     button_bg = "linear-gradient(to right, #FF4B4B, #FF6B6B)"
     button_text_color = "#FFFFFF"
@@ -43,7 +43,7 @@ else: # Dark theme
     # High-Contrast Dark Theme
     primary_gradient_start = "#121212"
     primary_gradient_end = "#121212"
-    text_color = "#F8F9FA"
+    text_color = "#F8F9FA" # Bright text for dark background
     accent_color = "#08F7FE" # Vibrant Cyan Accent
     button_bg = "linear-gradient(to right, #08F7FE, #00BFFF)"
     button_text_color = "#121212"
@@ -68,11 +68,27 @@ st.markdown(
     [data-testid="stHeader"], footer {{
         display: none;
     }}
-    h1, h2, h3 {{
+    
+    /* Ensure all headers use the text_color variable */
+    h1, h2, h3, .st-emotion-cache-1629p8f {{ /* Targeting stsubheader for consistency */
         font-family: 'Roboto Slab', serif;
         font-weight: 700;
-        color: {text_color};
+        color: {text_color} !important; /* Use !important to override Streamlit defaults */
     }}
+    
+    /* Specific styling for the 'Hey, I'm Vishal Anand' section */
+    .header-section {{
+        text-align: center;
+        width: 100%;
+    }}
+    .header-section h1 {{
+        margin-bottom: -0.5rem; /* Reduce space between h1 and h2/subheader */
+    }}
+    .header-section .st-emotion-cache-1629p8f {{ /* Targeting subheader within the header section */
+        font-size: 1.25rem; /* Adjust subheader size if needed */
+        color: {text_color} !important;
+    }}
+
     .card {{
         background-color: {card_bg};
         border-radius: 12px;
@@ -91,14 +107,14 @@ st.markdown(
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }}
     .card h3 {{
-        color: {accent_color};
+        color: {accent_color} !important; /* Ensure card titles use accent color */
         font-size: 1.3rem;
         margin-bottom: 0.75rem;
     }}
     .card p {{
         font-size: 1rem;
         line-height: 1.8;
-        color: {text_color};
+        color: {text_color} !important; /* Ensure card paragraphs use text color */
     }}
     .card-grid {{
         display: grid;
@@ -157,7 +173,7 @@ st.markdown(
     }}
     .experience-content p {{
         margin-bottom: 0.7rem;
-        color: {text_color};
+        color: {text_color} !important; /* Ensure experience content paragraphs use text color */
         font-size: 0.95rem;
     }}
     .github-button {{
@@ -183,13 +199,13 @@ st.markdown(
         margin-top: 1rem;
     }}
     .social-button {{
-        color: {text_color};
+        color: {text_color} !important; /* Ensure social icons use text color */
         margin: 0 15px;
         font-size: 2rem;
         transition: color 0.3s ease, transform 0.3s ease;
     }}
     .social-button:hover {{
-        color: {accent_color};
+        color: {accent_color} !important; /* Ensure social icons hover with accent color */
         transform: scale(1.2);
     }}
     </style>
@@ -205,12 +221,22 @@ byjus_logo_b64 = image_to_base64("Byjus.png")
 
 
 # --- HEADER & PROFILE ---
-col1, col2 = st.columns([0.85, 0.15])
-with col1:
-    st.header("👋 Hey, I'm **Vishal Anand**")
-    st.subheader("Aspiring Data Professional")
-with col2:
+# Using a single column for centering the text, then a separate column for the theme toggle
+header_col, theme_toggle_col = st.columns([0.9, 0.1])
+
+with header_col:
+    # Use st.markdown with a div to center the text
+    st.markdown(f"""
+    <div class="header-section">
+        <h1>👋 Hey, I'm <strong>Vishal Anand</strong></h1>
+        <p style="font-size: 1.25rem; color: {text_color}; margin-top: -1rem;">Aspiring Data Professional</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+with theme_toggle_col:
+    # Adjust button position if needed with padding or margin in CSS
     st.button("🌙" if st.session_state["theme"] == "dark" else "☀️", on_click=toggle_theme, key="theme_toggle")
+
 
 # --- IMAGE (CENTERED AND RESIZED) ---
 img_col1, img_col2, img_col3 = st.columns([1, 2, 1])
@@ -240,9 +266,9 @@ with col2:
 
 # --- ABOUT ME ---
 st.header("🧑‍💼 About Me")
-st.write("""
-Hi, I’m Vishal Anand, a data professional passionate about using data to solve problems and drive insights. With skills in SQL, Python, Excel, and data visualization, I enjoy analyzing and presenting data to help organizations make informed decisions. Outside of data, I love cooking, traveling, and listening to podcasts.
-""")
+st.write(f"""
+<p style="color: {text_color};">Hi, I’m Vishal Anand, a data professional passionate about using data to solve problems and drive insights. With skills in SQL, Python, Excel, and data visualization, I enjoy analyzing and presenting data to help organizations make informed decisions. Outside of data, I love cooking, traveling, and listening to podcasts.</p>
+""", unsafe_allow_html=True)
 
 
 # --- SKILLS (DYNAMIC CARD LAYOUT) ---
