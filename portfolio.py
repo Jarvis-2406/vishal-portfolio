@@ -28,27 +28,27 @@ if "theme" not in st.session_state:
 def toggle_theme():
     st.session_state["theme"] = "light" if st.session_state["theme"] == "dark" else "dark"
 
-# --- UPDATED (BUT SAFE) THEME COLORS ---
+# --- NEW HIGH-CONTRAST THEME COLORS ---
 if st.session_state["theme"] == "light":
-    # A clean, soft blue and coral theme
-    primary_gradient_start = "#E0F7FA"
-    primary_gradient_end = "#FFFFFF"
-    text_color = "#1A202C"
-    accent_color = "#FF6F61"
-    button_bg = "linear-gradient(to right, #FF8A5B, #FF6F61)"
+    # Clean White Theme
+    primary_gradient_start = "#FFFFFF"
+    primary_gradient_end = "#F0F2F6"
+    text_color = "#212529"
+    accent_color = "#FF4B4B"
+    button_bg = "linear-gradient(to right, #FF4B4B, #FF6B6B)"
     button_text_color = "#FFFFFF"
-    card_bg = "rgba(255, 255, 255, 0.6)"
+    card_bg = "rgba(255, 255, 255, 0.7)"
     card_border = "rgba(0, 0, 0, 0.1)"
 else: # Dark theme
-    # A modern deep navy and cyan theme
-    primary_gradient_start = "#0D1B2A"
-    primary_gradient_end = "#1B263B"
-    text_color = "#E0E1DD"
-    accent_color = "#32DE8A"
-    button_bg = "linear-gradient(to right, #00BFFF, #1E90FF)"
-    button_text_color = "#FFFFFF"
-    card_bg = "rgba(27, 38, 59, 0.6)"
-    card_border = "rgba(0, 191, 255, 0.3)"
+    # High-Contrast Dark Theme
+    primary_gradient_start = "#121212"
+    primary_gradient_end = "#121212"
+    text_color = "#F8F9FA"
+    accent_color = "#08F7FE" # Vibrant Cyan Accent
+    button_bg = "linear-gradient(to right, #08F7FE, #00BFFF)"
+    button_text_color = "#121212"
+    card_bg = "rgba(255, 255, 255, 0.07)"
+    card_border = "rgba(8, 247, 254, 0.3)"
 
 
 # --- CUSTOM CSS ---
