@@ -281,7 +281,7 @@ st.markdown("""
     </div>
     <div class="card">
         <h3>Visualization</h3>
-        <p>Tableau<br>Power BI</p>
+        <l>Tableau<br>Power BI</l>
     </div>
     <div class="card">
         <h3>Machine Learning</h3>
