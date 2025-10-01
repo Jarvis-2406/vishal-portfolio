@@ -154,7 +154,7 @@ with col1:
 with col2:
     st.button("🌙" if st.session_state["theme"] == "dark" else "☀️", on_click=toggle_theme, key="theme_toggle")
 
-st.image("vishal.jpg", use_container_width=True)
+st.image("IMG_0217.JPG", use_container_width=True)
 
 
 # --- RESUME BUTTONS ---
