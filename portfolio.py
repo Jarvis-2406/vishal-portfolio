@@ -231,7 +231,7 @@ byjus_logo_b64 = image_to_base64("Byjus.png")
 # --- HEADER & PROFILE ---
 _, col2 = st.columns([0.9, 0.1])
 with col2:
-    st.button("🌙" if st.session_state["theme"] == "dark" else "☀️", on_click=toggle_theme, key="theme_toggle")
+    st.button("☀️" if st.session_state["theme"] == "light" else "🌙", on_click=toggle_theme, key="theme_toggle")
 
 st.markdown(f"""
 <div class="header-section">
