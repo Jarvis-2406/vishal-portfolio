@@ -292,7 +292,7 @@ st.markdown(f"""
     <div class="flip-card">
         <div class="flip-card-inner">
             <div class="flip-card-front">
-                <img src="{amazon_logo_b64}" alt="Amazon Logo" class="company-logo">
+                <img src="{Amazon.png}" alt="Amazon Logo" class="company-logo">
             </div>
             <div class="flip-card-back">
                 <h3>Risk Specialist - Abuse Risk Mining</h3>
@@ -309,7 +309,7 @@ st.markdown(f"""
     <div class="flip-card">
         <div class="flip-card-inner">
             <div class="flip-card-front">
-                <img src="{cognizant_logo_b64}" alt="Cognizant Logo" class="company-logo">
+                <img src="{cognizant logo.jpg}" alt="Cognizant Logo" class="company-logo">
             </div>
             <div class="flip-card-back">
                 <h3>Process Specialist</h3>
@@ -325,7 +325,7 @@ st.markdown(f"""
     <div class="flip-card">
         <div class="flip-card-inner">
             <div class="flip-card-front">
-                <img src="{hsbc_logo_b64}" alt="HSBC Logo" class="company-logo">
+                <img src="{hsbc.jpg}" alt="HSBC Logo" class="company-logo">
             </div>
             <div class="flip-card-back">
                 <h3>Contact Centre Executive</h3>
@@ -341,7 +341,7 @@ st.markdown(f"""
     <div class="flip-card">
         <div class="flip-card-inner">
             <div class="flip-card-front">
-                 <img src="{byjus_logo_b64}" alt="BYJUS Logo" class="company-logo">
+                 <img src="{Byjus.png}" alt="BYJUS Logo" class="company-logo">
             </div>
             <div class="flip-card-back">
                 <h3>Business Development Associate</h3>
