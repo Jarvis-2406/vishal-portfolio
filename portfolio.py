@@ -50,7 +50,6 @@ else: # Dark theme
     card_bg = "rgba(255, 255, 255, 0.07)"
     card_border = "rgba(8, 247, 254, 0.3)"
 
-
 # --- CUSTOM CSS ---
 st.markdown(
     f"""
@@ -87,10 +86,10 @@ st.markdown(
     .header-section {{
         text-align: center;
         width: 100%;
-        padding-top: 1rem; /* Add some space at the top */
+        padding-top: 1rem;
     }}
     .header-section h1 {{
-        margin-bottom: 0.5rem; /* Adjusted space */
+        margin-bottom: 0.5rem;
     }}
     .header-section p {{
         font-family: 'Times New Roman', serif !important;
@@ -210,6 +209,7 @@ st.markdown(
         margin-top: 1rem;
     }}
     .social-button {{
+        color: {text_color}; /* Explicitly set color for social icons */
         margin: 0 15px;
         font-size: 2rem;
         transition: color 0.3s ease, transform 0.3s ease;
@@ -231,7 +231,6 @@ byjus_logo_b64 = image_to_base64("Byjus.png")
 
 
 # --- HEADER & PROFILE ---
-# NEW LAYOUT: Place theme toggle on the right, then have a full-width centered header
 _, col2 = st.columns([0.9, 0.1])
 with col2:
     st.button("🌙" if st.session_state["theme"] == "dark" else "☀️", on_click=toggle_theme, key="theme_toggle")
@@ -268,9 +267,11 @@ with col2:
 
 # --- ABOUT ME ---
 st.header("🧑‍💼 About Me")
-st.write("""
-Hi, I’m Vishal Anand, a data professional passionate about using data to solve problems and drive insights. With skills in SQL, Python, Excel, and data visualization, I enjoy analyzing and presenting data to help organizations make informed decisions. Outside of data, I love cooking, traveling, and listening to podcasts.
-""")
+st.write(f"""
+<div style="text-align: center; color: {text_color};">
+    Hi, I’m Vishal Anand, a data professional passionate about using data to solve problems and drive insights. With skills in SQL, Python, Excel, and data visualization, I enjoy analyzing and presenting data to help organizations make informed decisions. Outside of data, I love cooking, traveling, and listening to podcasts.
+</div>
+""", unsafe_allow_html=True)
 
 # --- SKILLS (DYNAMIC CARD LAYOUT) ---
 st.header("🛠️ Skills")
@@ -405,6 +406,7 @@ st.markdown(
     <div class="card-grid">
         <div class="card"><h3>Google Data Analytics</h3><p>Coursera</p></div>
         <div class="card"><h3>SAS Certified Specialist</h3><p>Base Programming</p></div>
+        <div class="card"><h3>Deloitte Australia</h3><p>Data Analytics Job Simulation (Forage)</p></div>
         <div class="card"><h3>GenAI Concepts</h3><p>Kaggle</p></div>
     </div>
     """,
