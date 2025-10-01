@@ -50,67 +50,67 @@ else: # Dark Theme
         "button_bg": "linear-gradient(45deg, #434343 0%, black 100%)",
     }
 
-# --- CUSTOM CSS (NOW USING .format() FOR ROBUSTNESS) ---
+# --- CUSTOM CSS (WITH CORRECTLY ESCAPED BRACES) ---
 css_rules = """
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto+Slab:wght@700&display=swap');
     @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
 
     /* --- Keyframe Animations --- */
-    @keyframes gradient-animation {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
+    @keyframes gradient-animation {{
+        0% {{ background-position: 0% 50%; }}
+        50% {{ background-position: 100% 50%; }}
+        100% {{ background-position: 0% 50%; }}
+    }}
 
-    @keyframes fadeIn {
-        from {
+    @keyframes fadeIn {{
+        from {{
             opacity: 0;
             transform: translateY(30px);
-        }
-        to {
+        }}
+        to {{
             opacity: 1;
             transform: translateY(0);
-        }
-    }
+        }}
+    }}
     
-    @keyframes shine {
-        0% { left: -100px; }
-        100% { left: 100%; }
-    }
+    @keyframes shine {{
+        0% {{ left: -100px; }}
+        100% {{ left: 100%; }}
+    }}
 
     /* --- General Body and Background --- */
-    body {
+    body {{
         font-family: 'Lato', sans-serif;
         color: {text_color};
-    }
+    }}
 
-    [data-testid="stAppViewContainer"] {
+    [data-testid="stAppViewContainer"] {{
         background: linear-gradient(-45deg, {bg_grad_1}, {bg_grad_2}, #23a6d5, #23d5ab);
         background-size: 400% 400%;
         animation: gradient-animation 15s ease infinite;
-    }
+    }}
 
-    [data-testid="stHeader"], footer { display: none; }
+    [data-testid="stHeader"], footer {{ display: none; }}
 
     /* --- Typography and Headers --- */
-    h1, h2 {
+    h1, h2 {{
         font-family: 'Roboto Slab', serif;
         font-weight: 700;
         animation: fadeIn 0.8s ease-out forwards;
-    }
+    }}
     
-    h2, .st-emotion-cache-1629p8f e1nzilvr5 {
+    h2, .st-emotion-cache-1629p8f e1nzilvr5 {{
         background: linear-gradient(90deg, {accent_color}, {text_color}, {accent_color});
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
         background-size: 200% auto;
         animation: gradient-animation 5s linear infinite;
-    }
+    }}
 
     /* --- Glassmorphism Cards --- */
-    .card, .flip-card-front, .flip-card-back {
+    .card, .flip-card-front, .flip-card-back {{
         background: {card_bg};
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
@@ -119,80 +119,80 @@ css_rules = """
         box-shadow: 0 8px 32px 0 {card_shadow};
         animation: fadeIn 0.5s ease-out forwards;
         opacity: 0; /* Start hidden for animation */
-    }
+    }}
     
-    .card-grid > * { animation-delay: 0.2s; }
+    .card-grid > * {{ animation-delay: 0.2s; }}
 
-    .card:hover {
+    .card:hover {{
         transform: translateY(-8px) scale(1.02);
         box-shadow: 0 12px 40px 0 {card_shadow};
-    }
-    .card h3 {
+    }}
+    .card h3 {{
         color: {accent_color};
         font-size: 1.4rem;
         text-shadow: 0 0 10px {card_shadow};
-    }
+    }}
 
     /* --- Flip Card Specifics --- */
-    .flip-card {
+    .flip-card {{
         background-color: transparent;
         min-height: 500px;
         perspective: 1500px;
         animation: fadeIn 0.5s ease-out forwards;
         opacity: 0;
         animation-delay: 0.2s;
-    }
-    .flip-card-inner {
+    }}
+    .flip-card-inner {{
         position: relative;
         width: 100%;
         height: 100%;
         transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
         transform-style: preserve-3d;
-    }
-    .flip-card:hover .flip-card-inner {
+    }}
+    .flip-card:hover .flip-card-inner {{
         transform: rotateY(180deg);
-    }
-    .flip-card-front, .flip-card-back {
+    }}
+    .flip-card-front, .flip-card-back {{
         position: absolute;
         width: 100%;
         height: 100%;
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
-    }
-    .flip-card-front {
+    }}
+    .flip-card-front {{
         display: flex;
         justify-content: center;
         align-items: center;
         padding: 1rem;
-    }
-    .flip-card-back {
+    }}
+    .flip-card-back {{
         transform: rotateY(180deg);
         padding: 1.5rem;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-    }
-    .company-logo {
+    }}
+    .company-logo {{
         max-width: 90%;
         max-height: 90%;
         object-fit: contain;
         border-radius: 8px;
-    }
-    .experience-content p {
+    }}
+    .experience-content p {{
         font-size: 0.95rem;
         line-height: 1.6;
         color: {text_color};
-    }
+    }}
 
     /* --- Buttons with Shine Effect --- */
-    .github-button, [data-testid="stDownloadButton"] button, .st-emotion-cache-7ym5gk a button {
+    .github-button, [data-testid="stDownloadButton"] button, .st-emotion-cache-7ym5gk a button {{
         position: relative;
         overflow: hidden;
         transition: all 0.3s ease;
         border: 1px solid {accent_color} !important;
         background: {button_bg} !important;
-    }
-    .github-button::before, [data-testid="stDownloadButton"] button::before, .st-emotion-cache-7ym5gk a button::before {
+    }}
+    .github-button::before, [data-testid="stDownloadButton"] button::before, .st-emotion-cache-7ym5gk a button::before {{
         content: "";
         position: absolute;
         top: 0;
@@ -201,24 +201,24 @@ css_rules = """
         background: rgba(255, 255, 255, 0.5);
         transform: skewX(-45deg);
         animation: shine 3s infinite;
-    }
-    .github-button:hover, [data-testid="stDownloadButton"] button:hover, .st-emotion-cache-7ym5gk a button:hover {
+    }}
+    .github-button:hover, [data-testid="stDownloadButton"] button:hover, .st-emotion-cache-7ym5gk a button:hover {{
         box-shadow: 0 0 20px {card_shadow};
         transform: scale(1.05);
-    }
+    }}
     
     /* --- Social Icons --- */
-    .social-button {
+    .social-button {{
         color: {text_color};
         margin: 0 15px;
         font-size: 2.2rem;
         transition: all 0.3s ease;
-    }
-    .social-button:hover {
+    }}
+    .social-button:hover {{
         color: {accent_color};
         transform: scale(1.3) rotate(10deg);
         text-shadow: 0 0 15px {accent_color};
-    }
+    }}
 </style>
 """
 
