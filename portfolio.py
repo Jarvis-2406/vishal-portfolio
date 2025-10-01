@@ -3,7 +3,7 @@ from PIL import Image
 import base64
 from pathlib import Path
 
-# --- FONT AWESOME IMPORT (NEW, MORE RELIABLE METHOD) ---
+# --- FONT AWESOME IMPORT ---
 st.markdown("""
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 """, unsafe_allow_html=True)
@@ -83,7 +83,7 @@ st.markdown(
     h2 {{
         text-align: center;
         width: 100%;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem; /* Reduced space below headers */
     }}
     .header-section {{
         text-align: center;
@@ -101,7 +101,7 @@ st.markdown(
     .card {{
         background-color: {card_bg};
         border-radius: 12px;
-        padding: 2rem;
+        padding: 1.5rem; /* Reduced padding */
         border: 1px solid {card_border};
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -117,18 +117,18 @@ st.markdown(
     }}
     .card h3 {{
         color: {accent_color} !important;
-        font-size: 1.3rem;
-        margin-bottom: 0.75rem;
+        font-size: 1.2rem; /* Adjusted size */
+        margin-bottom: 0.5rem;
     }}
     .card-grid {{
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Reduced min-width */
+        gap: 1rem; /* Reduced gap */
     }}
     
     .flip-card {{
         background-color: transparent;
-        min-height: 500px;
+        min-height: 450px; /* Reduced height */
         perspective: 1000px;
     }}
     .flip-card-inner {{
@@ -171,18 +171,18 @@ st.markdown(
         justify-content: flex-start;
     }}
     .company-logo {{
-        max-width: 90%;
-        max-height: 90%;
+        max-width: 85%; /* Slightly smaller */
+        max-height: 85%;
         object-fit: contain;
         border-radius: 8px;
     }}
     .experience-content {{
         text-align: left;
-        margin-top: 1rem;
-        line-height: 1.5;
+        margin-top: 0.5rem;
+        line-height: 1.4;
     }}
     .experience-content p {{
-        font-size: 0.95rem;
+        font-size: 0.9rem; /* Slightly smaller */
     }}
     
     .github-button {{
@@ -228,7 +228,6 @@ cognizant_logo_b64 = image_to_base64("Cognizant().png")
 hsbc_logo_b64 = image_to_base64("HSBC().png")
 byjus_logo_b64 = image_to_base64("Byjus.png")
 
-
 # --- HEADER & PROFILE ---
 _, col2 = st.columns([0.9, 0.1])
 with col2:
@@ -241,8 +240,7 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
-
-# --- IMAGE (CENTERED AND RESIZED) ---
+# --- IMAGE ---
 img_col1, img_col2, img_col3 = st.columns([1, 2, 1])
 with img_col2:
     st.image("IMG_0217.JPG")
@@ -272,91 +270,58 @@ st.write(f"""
 </div>
 """, unsafe_allow_html=True)
 
-# --- SKILLS (DYNAMIC CARD LAYOUT) ---
+# --- SKILLS ---
 st.header("🛠️ Skills")
 st.markdown("""
 <div class="card-grid">
-    <div class="card">
-        <h3>Programming</h3>
-        <p>Python (Pandas, NumPy, Matplotlib, Seaborn)<br>R<br>SAS</p>
-    </div>
-    <div class="card">
-        <h3>Data Analysis</h3>
-        <p>Excel (PivotTables, Power Query, DAX)<br>SQL (Joins, Aggregations, Subqueries)</p>
-    </div>
-    <div class="card">
-        <h3>Visualization</h3>
-        <p>Tableau<br>Power BI</p>
-    </div>
-    <div class="card">
-        <h3>Machine Learning</h3>
-        <p>Predictive Modeling<br>Data Mining</p>
-    </div>
+    <div class="card"><h3>Programming</h3><p>Python (Pandas, NumPy)<br>R<br>SAS</p></div>
+    <div class="card"><h3>Data Analysis</h3><p>Excel (PivotTables, Power Query)<br>SQL (Joins, Subqueries)</p></div>
+    <div class="card"><h3>Visualization</h3><p>Tableau<br>Power BI</p></div>
+    <div class="card"><h3>Machine Learning</h3><p>Predictive Modeling<br>Data Mining</p></div>
 </div>
 """, unsafe_allow_html=True)
 
-# --- EXPERIENCE (NEW FLIP CARD LAYOUT) ---
+# --- EXPERIENCE ---
 st.header("💼 Experience")
 st.markdown(f"""
 <div class="card-grid">
     <div class="flip-card">
         <div class="flip-card-inner">
-            <div class="flip-card-front">
-                <img src="{amazon_logo_b64}" alt="Amazon Logo" class="company-logo">
-            </div>
+            <div class="flip-card-front"><img src="{amazon_logo_b64}" alt="Amazon Logo" class="company-logo"></div>
             <div class="flip-card-back">
                 <h3>Risk Specialist - Abuse Risk Mining</h3>
                 <p><strong>Amazon</strong> | Oct 2025 - Present</p>
-                <div class="experience-content">
-                    <p>As a Risk Specialist in Amazon’s Abuse Risk Mining team, I detect and mitigate fraud and high-risk activities by analyzing data patterns, investigating emerging abuse trends, and driving process improvements. I collaborate across teams to enhance risk strategies, automate detection, and uphold customer trust and marketplace integrity</p>
-                </div>
+                <div class="experience-content"><p>As a Risk Specialist in Amazon’s Abuse Risk Mining team, I detect and mitigate fraud and high-risk activities by analyzing data patterns, investigating emerging abuse trends, and driving process improvements.</p></div>
             </div>
         </div>
     </div>
     <div class="flip-card">
         <div class="flip-card-inner">
-            <div class="flip-card-front">
-                <img src="{cognizant_logo_b64}" alt="Cognizant Logo" class="company-logo">
-            </div>
+            <div class="flip-card-front"><img src="{cognizant_logo_b64}" alt="Cognizant Logo" class="company-logo"></div>
             <div class="flip-card-back">
                 <h3>Process Specialist</h3>
                 <p><strong>Cognizant</strong> | Sep 2025 - Sep 2025</p>
-                <div class="experience-content">
-                    <p>Supported US clients via voice, chat, and email on the DocuSign platform, assisting with key features like eSignatures, templates, envelope workflows, and account configurations.</p>
-                    <p>Helped clients resolve issues, optimize their document processes, and ensured smooth adoption of DocuSign solutions.</p>
-                </div>
+                <div class="experience-content"><p>Supported US clients on the DocuSign platform, assisting with key features like eSignatures, templates, and envelope workflows, and helped them resolve issues and optimize processes.</p></div>
             </div>
         </div>
     </div>
     <div class="flip-card">
         <div class="flip-card-inner">
-            <div class="flip-card-front">
-                <img src="{hsbc_logo_b64}" alt="HSBC Logo" class="company-logo">
-            </div>
+            <div class="flip-card-front"><img src="{hsbc_logo_b64}" alt="HSBC Logo" class="company-logo"></div>
             <div class="flip-card-back">
                 <h3>Contact Centre Executive</h3>
                 <p><strong>HSBC</strong> | Nov 2022 - Nov 2024</p>
-                <div class="experience-content">
-                    <p>Analyzed 10,000+ customer interactions using SQL and Excel, reducing false positives by 20%.</p>
-                    <p>Developed Power BI dashboards to monitor KPIs, improving SLA adherence by 15%.</p>
-                    <p>Maintained >95% QA scores while reducing Average Handling Time (AHT) by 18%.</p>
-                </div>
+                <div class="experience-content"><p>Analyzed 10,000+ customer interactions, reducing false positives by 20%, and developed Power BI dashboards to improve SLA adherence by 15%.</p></div>
             </div>
         </div>
     </div>
     <div class="flip-card">
         <div class="flip-card-inner">
-            <div class="flip-card-front">
-                 <img src="{byjus_logo_b64}" alt="BYJUS Logo" class="company-logo">
-            </div>
+            <div class="flip-card-front"><img src="{byjus_logo_b64}" alt="BYJUS Logo" class="company-logo"></div>
             <div class="flip-card-back">
                 <h3>Business Development Associate</h3>
                 <p><strong>BYJUS</strong> | Dec 2020 - Sep 2022</p>
-                <div class="experience-content">
-                    <p>Conducted cohort analysis & A/B testing across 100K+ users, improving retention by 15%.</p>
-                    <p>Built Tableau dashboards on engagement metrics, contributing to a 10% reduction in churn.</p>
-                    <p>Leveraged SQL for targeted lead generation, boosting conversion rates by 20%.</p>
-                </div>
+                <div class="experience-content"><p>Conducted A/B testing across 100K+ users, improving retention by 15%, and built Tableau dashboards that contributed to a 10% reduction in churn.</p></div>
             </div>
         </div>
     </div>
@@ -365,52 +330,50 @@ st.markdown(f"""
 
 # --- PROJECTS ---
 st.header("📁 Projects")
-st.markdown(
-    """
-    <div class="card-grid">
-        <div class="card">
-            <h3>AI-powered Financial Audit Assistant</h3>
-            <p>Automated document search and verification using LangChain and OpenAI to improve audit efficiency.</p>
-            <a href="https://github.com/Jarvis-2406/GenAI-for-Financial-Audits" target="_blank" class="github-button">GitHub Repo</a>
-        </div>
-        <div class="card">
-            <h3>Gold Price Prediction</h3>
-            <p>Built a predictive ML model with XGBoost to forecast gold prices, including comprehensive EDA with Pandas & Seaborn.</p>
-            <a href="https://github.com/Jarvis-2406/Gold-Price-Prediction" target="_blank" class="github-button">GitHub Repo</a>
-        </div>
-        <div class="card">
-            <h3>BellaBeat Data Insights</h3>
-            <p>Performed an in-depth EDA on smart device usage data to provide strategic business recommendations, visualized with Tableau.</p>
-            <a href="https://github.com/Jarvis-2406/BellaBeat-Data-Insights" target="_blank" class="github-button">GitHub Repo</a>
-        </div>
-        <div class="card">
-            <h3>Counterfeit Fraud Analysis</h3>
-            <p>Detects counterfeit transactions using ML on an e-commerce dataset. Includes preprocessing, modeling, and evaluation.</p>
-            <a href="https://github.com/Jarvis-2406/Counterfeit-Transaction-Detection" target="_blank" class="github-button">GitHub Repo</a>
-        </div>
-        <div class="card">
-            <h3>Financial Planner</h3>
-            <p>A single-page web app for personal finance tracking, analysis, and forecasting with interactive visualizations.</p>
-            <a href="https://github.com/Jarvis-2406/Financial-Planner" target="_blank" class="github-button">GitHub Repo</a>
-        </div>
+st.markdown("""
+<div class="card-grid">
+    <div class="card">
+        <h3>AI-powered Financial Audit Assistant</h3><p>Automated document search and verification using LangChain and OpenAI to improve audit efficiency.</p>
+        <a href="https://github.com/Jarvis-2406/GenAI-for-Financial-Audits" target="_blank" class="github-button">GitHub Repo</a>
     </div>
-    """,
-    unsafe_allow_html=True,
-)
+    <div class="card">
+        <h3>Gold Price Prediction</h3><p>Built a predictive ML model with XGBoost to forecast gold prices, including EDA with Pandas & Seaborn.</p>
+        <a href="https://github.com/Jarvis-2406/Gold-Price-Prediction" target="_blank" class="github-button">GitHub Repo</a>
+    </div>
+    <div class="card">
+        <h3>BellaBeat Data Insights</h3><p>Performed an in-depth EDA on smart device usage data to provide strategic business recommendations.</p>
+        <a href="https://github.com/Jarvis-2406/BellaBeat-Data-Insights" target="_blank" class="github-button">GitHub Repo</a>
+    </div>
+    <div class="card">
+        <h3>Counterfeit Fraud Analysis</h3><p>Detects counterfeit transactions using ML on an e-commerce dataset.</p>
+        <a href="https://github.com/Jarvis-2406/Counterfeit-Transaction-Detection" target="_blank" class="github-button">GitHub Repo</a>
+    </div>
+    <div class="card">
+        <h3>Financial Planner</h3><p>A single-page web app for personal finance tracking, analysis, and forecasting.</p>
+        <a href="https://github.com/Jarvis-2406/Financial-Planner" target="_blank" class="github-button">GitHub Repo</a>
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+# --- EDUCATION ---
+st.header("🎓 Education")
+st.markdown("""
+<div style="text-align: center;">
+    <h3>B.Tech in Computer Science & Engineering</h3>
+    <p><strong>Jawaharlal Nehru Technological University</strong>, Hyderabad, India</p>
+</div>
+""", unsafe_allow_html=True)
 
 # --- CERTIFICATIONS ---
 st.header("📜 Certifications")
-st.markdown(
-    """
-    <div class="card-grid">
-        <div class="card"><h3>Google Data Analytics</h3><p>Coursera</p></div>
-        <div class="card"><h3>SAS Certified Specialist</h3><p>Base Programming</p></div>
-        <div class="card"><h3>Deloitte Australia</h3><p>Data Analytics Job Simulation (Forage)</p></div>
-        <div class="card"><h3>GenAI Concepts</h3><p>Kaggle</p></div>
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
+st.markdown("""
+<div class="card-grid">
+    <div class="card"><h3>Google Data Analytics</h3><p>Coursera</p></div>
+    <div class="card"><h3>SAS Certified Specialist</h3><p>Base Programming</p></div>
+    <div class="card"><h3>Deloitte Australia</h3><p>Data Analytics Job Simulation (Forage)</p></div>
+    <div class="card"><h3>GenAI Concepts</h3><p>Kaggle</p></div>
+</div>
+""", unsafe_allow_html=True)
 
 # --- LANGUAGES ---
 st.header("🗣️ Languages")
@@ -418,14 +381,11 @@ st.markdown(f"<div style='text-align: center; color: {text_color};'><strong>Engl
 
 # --- CONTACT ---
 st.header("📬 Contact")
-st.markdown(
-    """
-    <div class="social-buttons">
-        <a href="https://www.linkedin.com/in/vishal-anand2404/" target="_blank" class="social-button"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/Jarvis-2406" target="_blank" class="social-button"><i class="fab fa-github"></i></a>
-        <a href="mailto:vishalanand2406@gmail.com" class="social-button"><i class="far fa-envelope"></i></a>
-    </div>
-    <p style="text-align: center; margin-top: 1rem;">+91-7989353480</p>
-    """,
-    unsafe_allow_html=True,
-)
+st.markdown("""
+<div class="social-buttons">
+    <a href="https://www.linkedin.com/in/vishal-anand2404/" target="_blank" class="social-button"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/Jarvis-2406" target="_blank" class="social-button"><i class="fab fa-github"></i></a>
+    <a href="mailto:vishalanand2406@gmail.com" class="social-button"><i class="far fa-envelope"></i></a>
+</div>
+<p style="text-align: center; margin-top: 1rem;">+91-7989353480</p>
+""", unsafe_allow_html=True)
