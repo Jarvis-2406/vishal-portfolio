@@ -67,7 +67,7 @@ st.markdown(
         color: {text_color};
     }}
 
-    /* Project, Skills, and Certification Cards */
+    /* Standard Card for Skills/Projects */
     .card {{
         background-color: {card_bg};
         border-radius: 12px;
@@ -92,7 +92,7 @@ st.markdown(
     }}
     .card p {{
         font-size: 1rem;
-        line-height: 1.8; /* Added line-height for better spacing in skills cards */
+        line-height: 1.8;
         color: {text_color};
         flex-grow: 1;
     }}
@@ -100,10 +100,65 @@ st.markdown(
     /* Grid layout for cards */
     .card-grid {{
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Increased min-width for experience cards */
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         gap: 1.5rem;
     }}
-
+    
+    /* --- NEW CSS FOR FLIP CARD EXPERIENCE SECTION --- */
+    .flip-card {{
+        background-color: transparent;
+        min-height: 350px;
+        perspective: 1000px;
+    }}
+    .flip-card-inner {{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.7s;
+        transform-style: preserve-3d;
+    }}
+    .flip-card:hover .flip-card-inner {{
+        transform: rotateY(180deg);
+    }}
+    .flip-card-front, .flip-card-back {{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden; /* Safari */
+        backface-visibility: hidden;
+        background-color: {card_bg};
+        border-radius: 12px;
+        border: 1px solid {card_border};
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }}
+    .flip-card-front {{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }}
+    .flip-card-back {{
+        transform: rotateY(180deg);
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }}
+    .company-logo {{
+        max-width: 70%;
+        max-height: 70%;
+        border-radius: 8px; /* Optional: adds rounded corners to logos */
+    }}
+    .experience-list {{
+        text-align: left;
+        padding-left: 1.2rem;
+        margin-top: 1rem;
+        flex-grow: 1;
+    }}
+    .experience-list li {{
+        margin-bottom: 0.5rem;
+    }}
+    /* --- END OF NEW CSS --- */
+    
     /* GitHub Button on Project Cards */
     .github-button {{
         background: {button_bg};
@@ -124,23 +179,6 @@ st.markdown(
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }}
     
-    /* --- NEW CSS FOR EXPERIENCE SECTION --- */
-    .company-logo {{
-        max-height: 50px; /* Control logo size */
-        width: auto;
-        margin-bottom: 1rem;
-    }}
-    .experience-list {{
-        text-align: left; /* Override card's center alignment for list items */
-        padding-left: 1.2rem;
-        margin-top: 1rem;
-        flex-grow: 1;
-    }}
-    .experience-list li {{
-        margin-bottom: 0.5rem; /* Space between bullet points */
-    }}
-    /* --- END OF NEW CSS --- */
-    
     /* Contact Section Styling */
     .social-buttons {{
         text-align: center;
@@ -156,7 +194,6 @@ st.markdown(
         color: {accent_color};
         transform: scale(1.2);
     }}
-
     </style>
     """,
     unsafe_allow_html=True,
@@ -172,7 +209,6 @@ with col2:
     st.button("🌙" if st.session_state["theme"] == "dark" else "☀️", on_click=toggle_theme, key="theme_toggle")
 
 # --- IMAGE (CENTERED AND RESIZED) ---
-# By placing the image in the middle column of a 3-column layout, we can control its size and center it.
 img_col1, img_col2, img_col3 = st.columns([1, 2, 1])
 with img_col2:
     st.image("IMG_0217.JPG")
@@ -211,58 +247,59 @@ st.markdown("""
 <div class="card-grid">
     <div class="card">
         <h3>Programming</h3>
-        <p>
-            Python (Pandas, NumPy, Matplotlib, Seaborn)<br>
-            R<br>
-            SAS
-        </p>
+        <p>Python (Pandas, NumPy, Matplotlib, Seaborn)<br>R<br>SAS</p>
     </div>
     <div class="card">
         <h3>Data Analysis</h3>
-        <p>
-            Excel (PivotTables, Power Query, DAX)<br>
-            SQL (Joins, Aggregations, Subqueries)
-        </p>
+        <p>Excel (PivotTables, Power Query, DAX)<br>SQL (Joins, Aggregations, Subqueries)</p>
     </div>
     <div class="card">
         <h3>Visualization</h3>
-        <p>
-            Tableau<br>
-            Power BI
-        </p>
+        <p>Tableau<br>Power BI</p>
     </div>
     <div class="card">
         <h3>Machine Learning</h3>
-        <p>
-            Predictive Modeling<br>
-            Data Mining
-        </p>
+        <p>Predictive Modeling<br>Data Mining</p>
     </div>
 </div>
 """, unsafe_allow_html=True)
 
 
-# --- EXPERIENCE (NEW CARD LAYOUT) ---
+# --- EXPERIENCE (NEW FLIP CARD LAYOUT) ---
 st.header("💼 Experience")
 st.markdown("""
 <div class="card-grid">
-    <div class="card">
-        <h3>Contact Centre Executive</h3>
-        <p><strong>HSBC</strong> | Nov 2022 - Nov 2024</p>
-        <ul class="experience-list">
-            <li>Analyzed 10,000+ customer interactions using SQL and Excel, reducing false positives by 20%.</li>
-            <li>Developed Power BI dashboards to monitor KPIs, improving SLA adherence by 15%.</li>
-            <li>Maintained >95% QA scores while reducing Average Handling Time (AHT) by 18%.</li>
-        </ul>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/HSBC_logo_%282018%29.svg/1024px-HSBC_logo_%282018%29.svg.png" alt="HSBC Logo" class="company-logo">
+            </div>
+            <div class="flip-card-back">
+                <h3>Contact Centre Executive</h3>
+                <p><strong>HSBC</strong> | Nov 2022 - Nov 2024</p>
+                <ul class="experience-list">
+                    <li>Analyzed 10,000+ customer interactions using SQL and Excel, reducing false positives by 20%.</li>
+                    <li>Developed Power BI dashboards to monitor KPIs, improving SLA adherence by 15%.</li>
+                    <li>Maintained >95% QA scores while reducing Average Handling Time (AHT) by 18%.</li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <div class="card">
-        <h3>Business Development Associate</h3>
-        <p><strong>BYJUS</strong> | Dec 2020 - Sep 2022</p>
-        <ul class="experience-list">
-            <li>Conducted cohort analysis & A/B testing across 100K+ users, improving retention by 15%.</li>
-            <li>Built Tableau dashboards on engagement metrics, contributing to a 10% reduction in churn.</li>
-            <li>Leveraged SQL for targeted lead generation, boosting conversion rates by 20%.</li>
-        </ul>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Byju%27s_Logo.svg/1200px-Byju%27s_Logo.svg.png" alt="BYJUS Logo" class="company-logo">
+            </div>
+            <div class="flip-card-back">
+                <h3>Business Development Associate</h3>
+                <p><strong>BYJUS</strong> | Dec 2020 - Sep 2022</p>
+                <ul class="experience-list">
+                    <li>Conducted cohort analysis & A/B testing across 100K+ users, improving retention by 15%.</li>
+                    <li>Built Tableau dashboards on engagement metrics, contributing to a 10% reduction in churn.</li>
+                    <li>Leveraged SQL for targeted lead generation, boosting conversion rates by 20%.</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
 """, unsafe_allow_html=True)
