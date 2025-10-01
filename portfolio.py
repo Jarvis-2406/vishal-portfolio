@@ -289,7 +289,7 @@ st.markdown(f"""
     <div class="flip-card">
         <div class="flip-card-inner">
             <div class="flip-card-front">
-                <img src="{cognizant logo_b64}" alt="Cognizant Logo" class="company-logo">
+                <img src="{cognizant_logo_b64}" alt="Cognizant Logo" class="company-logo">
             </div>
             <div class="flip-card-back">
                 <h3>Process Specialist</h3>
