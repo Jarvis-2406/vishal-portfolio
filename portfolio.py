@@ -28,13 +28,13 @@ if "theme" not in st.session_state:
 def toggle_theme():
     st.session_state["theme"] = "light" if st.session_state["theme"] == "dark" else "dark"
 
-# --- UPDATED THEME COLORS ---
+# --- THEME COLORS ---
 if st.session_state["theme"] == "light":
     # Professional White & Blue Theme
     primary_gradient_start = "#FFFFFF"
     primary_gradient_end = "#F0F2F6"
     text_color = "#212529"
-    accent_color = "#007BFF" # Professional Blue
+    accent_color = "#007BFF"
     button_bg = "linear-gradient(to right, #007BFF, #0056b3)"
     button_text_color = "#FFFFFF"
     card_bg = "rgba(255, 255, 255, 0.7)"
@@ -44,16 +44,11 @@ else: # Dark theme
     primary_gradient_start = "#121212"
     primary_gradient_end = "#121212"
     text_color = "#F8F9FA"
-    accent_color = "#08F7FE" # Vibrant Cyan Accent
+    accent_color = "#08F7FE"
     button_bg = "linear-gradient(to right, #08F7FE, #00BFFF)"
     button_text_color = "#121212"
     card_bg = "rgba(255, 255, 255, 0.07)"
     card_border = "rgba(8, 247, 254, 0.3)"
-    card_glow = f"0 0 20px {accent_color}" # Neon glow for dark theme
-
-# Set card_glow for light theme to a standard shadow
-if "card_glow" not in locals():
-    card_glow = "0 6px 12px rgba(0, 0, 0, 0.1)"
 
 
 # --- CUSTOM CSS ---
@@ -82,11 +77,10 @@ st.markdown(
         font-family: 'Roboto Slab', serif;
         font-weight: 700;
     }}
-    /* Center all section headers */
     h2 {{
         text-align: center;
         width: 100%;
-        margin-bottom: 1.5rem; /* Add some space below centered headers */
+        margin-bottom: 1.5rem;
     }}
     .header-section {{
         text-align: center;
@@ -154,13 +148,13 @@ st.markdown(
         background-color: {card_bg};
         border-radius: 12px;
         border: 1px solid {card_border};
-        box-shadow: {card_glow};
+        box-shadow: 0 8px 16px rgba(0,0,0,0.1); /* Standard shadow, no glow */
         transition: box-shadow 0.3s ease;
     }}
-     .flip-card:hover .flip-card-front,
-     .flip-card:hover .flip-card-back {{
-        box-shadow: 0 0 35px {accent_color};
-     }}
+    .flip-card:hover .flip-card-front,
+    .flip-card:hover .flip-card-back {{
+        box-shadow: 0 12px 24px rgba(0,0,0,0.2); /* Slightly larger shadow on hover */
+    }}
     .flip-card-front {{
         display: flex;
         justify-content: center;
@@ -414,7 +408,7 @@ st.markdown(
 
 # --- LANGUAGES ---
 st.header("🗣️ Languages")
-st.markdown("- **English** (Fluent), **Hindi** (Native), **Telugu** (Native), **German** (Basic)")
+st.markdown("<div style='text-align: center;'><strong>English</strong> (Fluent) • <strong>Hindi</strong> (Native) • <strong>Telugu</strong> (Native) • <strong>German</strong> (Basic)</div>", unsafe_allow_html=True)
 
 # --- CONTACT ---
 st.header("📬 Contact")
