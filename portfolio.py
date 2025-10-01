@@ -277,8 +277,8 @@ st.markdown(f"""
     <h3>MBA in Business Analytics (WILP)</h3>
     <p><strong>BITS Pilani</strong> | 2024 - 2026 (Pursuing)</p>
     <br>
-    <h3>B.Tech in Electronics and Communication Engineering</h3>
-    <p><strong>Aditya Engineering College (JNTUK affiliated)</strong> | 2016 - 2020</p>
+    <h3>B.Tech in Computer Science & Engineering</h3>
+    <p><strong>Jawaharlal Nehru Technological University</strong>, Hyderabad | 2016 - 2020</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -323,7 +323,7 @@ st.markdown(f"""
             <div class="flip-card-back">
                 <h3>Contact Centre Executive</h3>
                 <p><strong>HSBC</strong> | Nov 2022 - Nov 2024</p>
-                <div class="experience-content"><p>Delivered banking support to UK customers, managing accounts, high-value payments, fraud alerts, and disputes with >93% quality scores. Supported chat process (38–45 WPM), maintained AHT/ACW targets, and ranked among top NPS performers. Collaborated with backend teams to improve processes, reduce escalations, and enhance first-time resolution.</p></div>
+                <div class="experience-content"><p>Delivered banking support to UK customers, managing accounts, high-value payments, fraud alerts, and disputes with >93% quality scores. Supported chat process (38–45 WPM), maintained AHT/ACW targets, and ranked among top NPS performers. Collaborated with backend teams to improve processes, reduce escalations, and enhance first-time resolution..</p></div>
             </div>
         </div>
     </div>
@@ -342,30 +342,34 @@ st.markdown(f"""
 
 # --- PROJECTS ---
 st.header("📁 Projects")
-st.markdown("""
-<div class="card-grid">
-    <div class="card">
-        <h3>AI-powered Financial Audit Assistant</h3><p>Automated document search and verification using LangChain and OpenAI to improve audit efficiency.</p>
-        <a href="https://github.com/Jarvis-2406/GenAI-for-Financial-Audits" target="_blank" class="github-button">GitHub Repo</a>
+st.markdown(
+    """
+    <div class="card-grid">
+        <div class="card">
+            <h3>AI-powered Financial Audit Assistant</h3><p>Automated document search and verification using LangChain and OpenAI to improve audit efficiency.</p>
+            <a href="https://github.com/Jarvis-2406/GenAI-for-Financial-Audits" target="_blank" class="github-button">GitHub Repo</a>
+        </div>
+        <div class="card">
+            <h3>Gold Price Prediction</h3><p>Built a predictive ML model with XGBoost to forecast gold prices, including EDA with Pandas & Seaborn.</p>
+            <a href="https://github.com/Jarvis-2406/Gold-Price-Prediction" target="_blank" class="github-button">GitHub Repo</a>
+        </div>
+        <div class="card">
+            <h3>BellaBeat Data Insights</h3><p>Performed an in-depth EDA on smart device usage data to provide strategic business recommendations.</p>
+            <a href="https://github.com/Jarvis-2406/BellaBeat-Data-Insights" target="_blank" class="github-button">GitHub Repo</a>
+        </div>
+        <div class="card">
+            <h3>Counterfeit Fraud Analysis</h3><p>Detects counterfeit transactions using ML on an e-commerce dataset.</p>
+            <a href="https://github.com/Jarvis-2406/Counterfeit-Transaction-Detection" target="_blank" class="github-button">GitHub Repo</a>
+        </div>
+        <div class="card">
+            <h3>Financial Planner</h3><p>A single-page web app for personal finance tracking, analysis, and forecasting.</p>
+            <a href="https://github.com/Jarvis-2406/Financial-Planner" target="_blank" class="github-button" style="margin-right: 5px;">GitHub Repo</a>
+            <a href="https://financial-planner-zwx6rstcdc6czwgjfwcvtt.streamlit.app/" target="_blank" class="github-button" style="margin-left: 5px;">Live App 🚀</a>
+        </div>
     </div>
-    <div class="card">
-        <h3>Gold Price Prediction</h3><p>Built a predictive ML model with XGBoost to forecast gold prices, including EDA with Pandas & Seaborn.</p>
-        <a href="https://github.com/Jarvis-2406/Gold-Price-Prediction" target="_blank" class="github-button">GitHub Repo</a>
-    </div>
-    <div class="card">
-        <h3>BellaBeat Data Insights</h3><p>Performed an in-depth EDA on smart device usage data to provide strategic business recommendations.</p>
-        <a href="https://github.com/Jarvis-2406/BellaBeat-Data-Insights" target="_blank" class="github-button">GitHub Repo</a>
-    </div>
-    <div class="card">
-        <h3>Counterfeit Fraud Analysis</h3><p>Detects counterfeit transactions using ML on an e-commerce dataset.</p>
-        <a href="https://github.com/Jarvis-2406/Counterfeit-Transaction-Detection" target="_blank" class="github-button">GitHub Repo</a>
-    </div>
-    <div class="card">
-        <h3>Financial Planner</h3><p>A single-page web app for personal finance tracking, analysis, and forecasting.</p>
-        <a href="https://github.com/Jarvis-2406/Financial-Planner" target="_blank" class="github-button">GitHub Repo</a>
-    </div>
-</div>
-""", unsafe_allow_html=True)
+    """,
+    unsafe_allow_html=True,
+)
 
 # --- CERTIFICATIONS ---
 st.header("📜 Certifications")
@@ -390,5 +394,5 @@ st.markdown("""
     <a href="https://github.com/Jarvis-2406" target="_blank" class="social-button"><i class="fab fa-github"></i></a>
     <a href="mailto:vishalanand2406@gmail.com" class="social-button"><i class="far fa-envelope"></i></a>
 </div>
-<p style="text-align: center; margin-top: 1rem;">+91-9000570939</p>
+<p style="text-align: center; margin-top: 1rem;">+91-7989353480</p>
 """, unsafe_allow_html=True)
