@@ -1,5 +1,19 @@
 import streamlit as st
 from PIL import Image
+import base64
+from pathlib import Path
+
+# --- FUNCTION TO ENCODE IMAGES ---
+# This is the new function to properly handle local images
+def image_to_base64(img_path):
+    """Converts a local image file to a base64 string."""
+    try:
+        img_bytes = Path(img_path).read_bytes()
+        encoded = base64.b64encode(img_bytes).decode()
+        return f"data:image/jpeg;base64,{encoded}"
+    except FileNotFoundError:
+        # Return a placeholder or an error message if the file is not found
+        return "https://via.placeholder.com/150?text=Image+Not+Found"
 
 # --- PAGE CONFIGURATION ---
 st.set_page_config(
@@ -21,7 +35,6 @@ if st.session_state["theme"] == "light":
     primary_gradient_end = "#e0e0e0"
     text_color = "#212121"
     accent_color = "#558b2f"
-    content_background = "#ffffff"
     button_bg = "linear-gradient(to right, #81c784, #66bb6a)"
     button_text_color = "#ffffff"
     card_bg = "rgba(0, 0, 0, 0.03)"
@@ -31,7 +44,6 @@ else: # Dark theme
     primary_gradient_end = "#2c3e50"
     text_color = "#ffffff"
     accent_color = "#f1c40f"
-    content_background = "#1a1a1a"
     button_bg = "linear-gradient(to right, #424242, #1e1e1e)"
     button_text_color = "white"
     card_bg = "rgba(255, 255, 255, 0.05)"
@@ -104,10 +116,10 @@ st.markdown(
         gap: 1.5rem;
     }}
     
-    /* --- NEW CSS FOR FLIP CARD EXPERIENCE SECTION --- */
+    /* --- CSS FOR FLIP CARD EXPERIENCE SECTION --- */
     .flip-card {{
         background-color: transparent;
-        min-height: 350px;
+        min-height: 400px; /* Adjusted height for content */
         perspective: 1000px;
     }}
     .flip-card-inner {{
@@ -141,7 +153,7 @@ st.markdown(
         padding: 2rem;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start; /* Aligns content to the top */
     }}
     .company-logo {{
         max-width: 70%;
@@ -155,9 +167,9 @@ st.markdown(
         flex-grow: 1;
     }}
     .experience-list li {{
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.75rem; /* Increased spacing between bullet points */
     }}
-    /* --- END OF NEW CSS --- */
+    /* --- END OF CSS --- */
     
     /* GitHub Button on Project Cards */
     .github-button {{
@@ -198,6 +210,13 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
+# --- ENCODE LOCAL IMAGES ---
+# Call the function for each of your logos
+amazon_logo_b64 = image_to_base64("Amazon.png")
+cognizant_logo_b64 = image_to_base64("cognizant logo.jpg")
+hsbc_logo_b64 = image_to_base64("hsbc.jpg")
+byjus_logo_b64 = image_to_base64("Byjus.png")
 
 
 # --- HEADER & PROFILE ---
@@ -267,20 +286,22 @@ st.markdown("""
 
 # --- EXPERIENCE (NEW FLIP CARD LAYOUT) ---
 st.header("💼 Experience")
-st.markdown("""
+# Use an f-string to embed the base64 image data
+st.markdown(f"""
 <div class="card-grid">
     <div class="flip-card">
         <div class="flip-card-inner">
             <div class="flip-card-front">
-                <img src="Amazon.png" alt="Amazon Logo" class="company-logo">
+                <img src="{amazon_logo_b64}" alt="Amazon Logo" class="company-logo">
             </div>
             <div class="flip-card-back">
                 <h3>Risk Specialist - Abuse Risk Mining</h3>
                 <p><strong>Amazon</strong> | Oct 2025 - Present</p>
                 <ul class="experience-list">
-                    <li>Analyze complex data patterns to detect and mitigate fraudulent and high-risk activities.Identify emerging abuse trends and conduct deep-dive investigations to protect the marketplace.
-                    Drive process improvements to strengthen customer trust and platform integrity.
-                    Collaborate with cross-functional teams to develop risk strategies and automate detection mechanisms.</li>
+                    <li>Analyze complex data patterns to detect and mitigate fraudulent and high-risk activities.</li>
+                    <li>Identify emerging abuse trends and conduct deep-dive investigations to protect the marketplace.</li>
+                    <li>Drive process improvements to strengthen customer trust and platform integrity.</li>
+                    <li>Collaborate with cross-functional teams to develop risk strategies and automate detection mechanisms.</li>
                 </ul>
             </div>
         </div>
@@ -288,14 +309,15 @@ st.markdown("""
     <div class="flip-card">
         <div class="flip-card-inner">
             <div class="flip-card-front">
-                <img src="cognizant logo.jpg" alt="Cognizant Logo" class="company-logo">
+                <img src="{cognizant_logo_b64}" alt="Cognizant Logo" class="company-logo">
             </div>
             <div class="flip-card-back">
                 <h3>Process Specialist</h3>
                 <p><strong>Cognizant</strong> | Sep 2025 - Sep 2025</p>
                 <ul class="experience-list">
-                    <li>Supported US clients on the DocuSign platform via voice, chat, and email.Assisted with key features like eSignatures, templates, and envelope workflows.
-                    Helped clients resolve issues and optimize document processes for smooth adoption.</li>
+                    <li>Supported US clients on the DocuSign platform via voice, chat, and email.</li>
+                    <li>Assisted with key features like eSignatures, templates, and envelope workflows.</li>
+                    <li>Helped clients resolve issues and optimize document processes for smooth adoption.</li>
                 </ul>
             </div>
         </div>
@@ -303,14 +325,15 @@ st.markdown("""
     <div class="flip-card">
         <div class="flip-card-inner">
             <div class="flip-card-front">
-                <img src="hsbc.jpg" alt="HSBC Logo" class="company-logo">
+                <img src="{hsbc_logo_b64}" alt="HSBC Logo" class="company-logo">
             </div>
             <div class="flip-card-back">
                 <h3>Contact Centre Executive</h3>
                 <p><strong>HSBC</strong> | Nov 2022 - Nov 2024</p>
                 <ul class="experience-list">
-                    <li>Analyzed 10,000+ customer interactions using SQL and Excel, reducing false positives by 20%.Developed Power BI dashboards to monitor KPIs, improving SLA adherence by 15%.
-                    Maintained >95% QA scores while reducing Average Handling Time (AHT) by 18%.</li>
+                    <li>Analyzed 10,000+ customer interactions using SQL and Excel, reducing false positives by 20%.</li>
+                    <li>Developed Power BI dashboards to monitor KPIs, improving SLA adherence by 15%.</li>
+                    <li>Maintained >95% QA scores while reducing Average Handling Time (AHT) by 18%.</li>
                 </ul>
             </div>
         </div>
@@ -318,14 +341,15 @@ st.markdown("""
     <div class="flip-card">
         <div class="flip-card-inner">
             <div class="flip-card-front">
-                 <img src="Byjus.png" alt="BYJUS Logo" class="company-logo">
+                 <img src="{byjus_logo_b64}" alt="BYJUS Logo" class="company-logo">
             </div>
             <div class="flip-card-back">
                 <h3>Business Development Associate</h3>
                 <p><strong>BYJUS</strong> | Dec 2020 - Sep 2022</p>
                 <ul class="experience-list">
-                    <li>Conducted cohort analysis & A/B testing across 100K+ users, improving retention by 15%.Built Tableau dashboards on engagement metrics, contributing to a 10% reduction in churn.
-                    Leveraged SQL for targeted lead generation, boosting conversion rates by 20%.</li> 
+                    <li>Conducted cohort analysis & A/B testing across 100K+ users, improving retention by 15%.</li>
+                    <li>Built Tableau dashboards on engagement metrics, contributing to a 10% reduction in churn.</li>
+                    <li>Leveraged SQL for targeted lead generation, boosting conversion rates by 20%.</li>
                 </ul>
             </div>
         </div>
