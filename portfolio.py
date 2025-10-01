@@ -97,10 +97,11 @@ st.markdown(
         font-family: 'Times New Roman', serif !important;
         font-size: 1.25rem;
     }}
-    /* New class for the Languages section */
+    /* Fixed class for the Languages section */
     .languages-section, .languages-section strong {{
         font-family: 'Times New Roman', serif !important;
         text-align: center;
+        color: {text_color} !important;
     }}
 
     .card {{
