@@ -303,7 +303,7 @@ st.markdown(f"""
             <div class="flip-card-back">
                 <h3>Risk Specialist - Abuse Risk Mining</h3>
                 <p><strong>Amazon</strong> | Oct 2025 - Present</p>
-                <div class="experience-content"><p>As a Risk Specialist in Amazon’s Abuse Risk Mining team, I detect and mitigate fraud and high-risk activities by analyzing data patterns, investigating emerging abuse trends, and driving process improvements.</p></div>
+                <div class="experience-content"><p>As a Risk Specialist in Amazon’s Abuse Risk Mining team, I detect and mitigate fraud and high-risk activities by analyzing data patterns, investigating emerging abuse trends, and driving process improvements. I collaborate across teams to enhance risk strategies, automate detection, and uphold customer trust and marketplace integrity.</p></div>
             </div>
         </div>
     </div>
