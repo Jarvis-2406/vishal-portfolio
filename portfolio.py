@@ -281,10 +281,10 @@ st.header("🎓 Education")
 st.markdown(f"""
 <div style="text-align: center;">
     <h3>MBA in Business Analytics (WILP)</h3>
-    <p><strong>BITS Pilani</strong> | 2024 - 2026 (Pursuing)</p>
+    <p><strong>BITS Pilani</strong> Hyderabad| 2024 - 2026 (Pursuing)</p>
     <br>
-    <h3>B.Tech in Computer Science & Engineering</h3>
-    <p><strong>Jawaharlal Nehru Technological University</strong>, Hyderabad | 2016 - 2020</p>
+    <h3>B.Tech in Electronic & Communication Engineering</h3>
+    <p><strong>Aditya Engineering College (JNTUK Affiliated)</strong>, Kakinada | 2016 - 2020</p>
 </div>
 """, unsafe_allow_html=True)
 
