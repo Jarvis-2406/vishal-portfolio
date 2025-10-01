@@ -196,7 +196,7 @@ st.markdown(
 
 # --- ENCODE LOCAL IMAGES ---
 # **IMPORTANT**: Rename your file "cognizant logo.jpg" to "cognizant_logo.jpg"
-amazon_logo_b64 = image_to_base64("Amazon png.png")
+amazon_logo_b64 = image_to_base64("AmazonPNG.png")
 cognizant_logo_b64 = image_to_base64("cognizant_logo.jpg") # Using the new filename
 hsbc_logo_b64 = image_to_base64("HSBC png.png")
 byjus_logo_b64 = image_to_base64("Byjus.png")
