@@ -3,6 +3,11 @@ from PIL import Image
 import base64
 from pathlib import Path
 
+# --- FONT AWESOME IMPORT (NEW, MORE RELIABLE METHOD) ---
+st.markdown("""
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+""", unsafe_allow_html=True)
+
 # --- FUNCTION TO ENCODE IMAGES ---
 def image_to_base64(img_path):
     """Converts a local image file to a base64 string."""
@@ -30,7 +35,6 @@ def toggle_theme():
 
 # --- THEME COLORS ---
 if st.session_state["theme"] == "light":
-    # Professional White & Blue Theme
     primary_gradient_start = "#FFFFFF"
     primary_gradient_end = "#F0F2F6"
     text_color = "#212529"
@@ -40,7 +44,6 @@ if st.session_state["theme"] == "light":
     card_bg = "rgba(255, 255, 255, 0.7)"
     card_border = "rgba(0, 0, 0, 0.1)"
 else: # Dark theme
-    # High-Contrast Dark Theme
     primary_gradient_start = "#121212"
     primary_gradient_end = "#121212"
     text_color = "#F8F9FA"
@@ -67,7 +70,6 @@ st.markdown(
         display: none;
     }}
     
-    /* --- HEADING STYLES --- */
     h1, h2, h3, p, li, .st-emotion-cache-1629p8f {{
         color: {text_color} !important;
     }}
@@ -96,7 +98,6 @@ st.markdown(
         font-size: 1.25rem;
     }}
 
-    /* --- CARD STYLES --- */
     .card {{
         background-color: {card_bg};
         border-radius: 12px;
@@ -125,7 +126,6 @@ st.markdown(
         gap: 1.5rem;
     }}
     
-    /* --- EXPERIENCE FLIP CARDS --- */
     .flip-card {{
         background-color: transparent;
         min-height: 500px;
@@ -185,7 +185,6 @@ st.markdown(
         font-size: 0.95rem;
     }}
     
-    /* --- OTHER ELEMENTS --- */
     .github-button {{
         background: {button_bg};
         color: {button_text_color} !important;
@@ -209,7 +208,7 @@ st.markdown(
         margin-top: 1rem;
     }}
     .social-button {{
-        color: {text_color}; /* Explicitly set color for social icons */
+        color: {text_color};
         margin: 0 15px;
         font-size: 2rem;
         transition: color 0.3s ease, transform 0.3s ease;
