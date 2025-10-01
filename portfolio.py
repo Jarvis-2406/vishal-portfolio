@@ -28,20 +28,19 @@ if "theme" not in st.session_state:
 def toggle_theme():
     st.session_state["theme"] = "light" if st.session_state["theme"] == "dark" else "dark"
 
-# --- HIGH-CONTRAST THEME COLORS ---
+# --- UPDATED THEME COLORS ---
 if st.session_state["theme"] == "light":
-    # Clean White Theme
+    # Professional White & Blue Theme
     primary_gradient_start = "#FFFFFF"
     primary_gradient_end = "#F0F2F6"
     text_color = "#212529"
-    accent_color = "#FF4B4B"
-    button_bg = "linear-gradient(to right, #FF4B4B, #FF6B6B)"
+    accent_color = "#007BFF" # Professional Blue
+    button_bg = "linear-gradient(to right, #007BFF, #0056b3)"
     button_text_color = "#FFFFFF"
     card_bg = "rgba(255, 255, 255, 0.7)"
     card_border = "rgba(0, 0, 0, 0.1)"
-    card_glow = "0 6px 12px rgba(0, 0, 0, 0.1)" # Standard shadow for light theme
 else: # Dark theme
-    # High-Contrast Dark Theme with Glow
+    # High-Contrast Dark Theme
     primary_gradient_start = "#121212"
     primary_gradient_end = "#121212"
     text_color = "#F8F9FA"
@@ -51,6 +50,11 @@ else: # Dark theme
     card_bg = "rgba(255, 255, 255, 0.07)"
     card_border = "rgba(8, 247, 254, 0.3)"
     card_glow = f"0 0 20px {accent_color}" # Neon glow for dark theme
+
+# Set card_glow for light theme to a standard shadow
+if "card_glow" not in locals():
+    card_glow = "0 6px 12px rgba(0, 0, 0, 0.1)"
+
 
 # --- CUSTOM CSS ---
 st.markdown(
@@ -70,17 +74,20 @@ st.markdown(
         display: none;
     }}
     
-    /* --- Force Text Color Visibility --- */
+    /* --- HEADING STYLES --- */
     h1, h2, h3, p, li, .st-emotion-cache-1629p8f {{
         color: {text_color} !important;
     }}
-
     h1, h2, h3 {{
         font-family: 'Roboto Slab', serif;
         font-weight: 700;
     }}
-    
-    /* Centered Header Section */
+    /* Center all section headers */
+    h2 {{
+        text-align: center;
+        width: 100%;
+        margin-bottom: 1.5rem; /* Add some space below centered headers */
+    }}
     .header-section {{
         text-align: center;
         width: 100%;
@@ -93,7 +100,7 @@ st.markdown(
         margin-top: -1rem;
     }}
 
-    /* Standard Cards (Skills, Certs) */
+    /* --- CARD STYLES --- */
     .card {{
         background-color: {card_bg};
         border-radius: 12px;
@@ -116,14 +123,13 @@ st.markdown(
         font-size: 1.3rem;
         margin-bottom: 0.75rem;
     }}
-
     .card-grid {{
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         gap: 1.5rem;
     }}
     
-    /* --- Experience Flip Cards with Glow Effect --- */
+    /* --- EXPERIENCE FLIP CARDS --- */
     .flip-card {{
         background-color: transparent;
         min-height: 500px;
@@ -148,7 +154,7 @@ st.markdown(
         background-color: {card_bg};
         border-radius: 12px;
         border: 1px solid {card_border};
-        box-shadow: {card_glow}; /* Applying the theme-dependent glow/shadow */
+        box-shadow: {card_glow};
         transition: box-shadow 0.3s ease;
     }}
      .flip-card:hover .flip-card-front,
@@ -183,7 +189,7 @@ st.markdown(
         font-size: 0.95rem;
     }}
     
-    /* --- Other Elements --- */
+    /* --- OTHER ELEMENTS --- */
     .github-button {{
         background: {button_bg};
         color: {button_text_color} !important;
