@@ -55,11 +55,11 @@ else: # Dark theme
 st.markdown(
     f"""
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto+Slab:wght@700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Nunito+Sans:wght@400;700&display=swap');
     @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
 
     body {{
-        font-family: 'Lato', sans-serif;
+        font-family: 'Nunito Sans', sans-serif;
         color: {text_color};
     }}
     [data-testid="stAppViewContainer"] {{
@@ -74,7 +74,7 @@ st.markdown(
         color: {text_color} !important;
     }}
     h1, h2, h3 {{
-        font-family: 'Roboto Slab', serif;
+        font-family: 'Poppins', sans-serif;
         font-weight: 700;
     }}
     h2 {{
@@ -148,12 +148,12 @@ st.markdown(
         background-color: {card_bg};
         border-radius: 12px;
         border: 1px solid {card_border};
-        box-shadow: 0 8px 16px rgba(0,0,0,0.1); /* Standard shadow, no glow */
+        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
         transition: box-shadow 0.3s ease;
     }}
     .flip-card:hover .flip-card-front,
     .flip-card:hover .flip-card-back {{
-        box-shadow: 0 12px 24px rgba(0,0,0,0.2); /* Slightly larger shadow on hover */
+        box-shadow: 0 12px 24px rgba(0,0,0,0.2);
     }}
     .flip-card-front {{
         display: flex;
