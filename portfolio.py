@@ -28,7 +28,7 @@ st.set_page_config(
 
 # --- THEME MANAGEMENT ---
 if "theme" not in st.session_state:
-    st.session_state["theme"] = "light" # Set the default theme to light
+    st.session_state["theme"] = "light"
 
 def toggle_theme():
     st.session_state["theme"] = "light" if st.session_state["theme"] == "dark" else "dark"
@@ -265,7 +265,7 @@ with col2:
 # --- ABOUT ME ---
 st.header("🧑‍💼 About Me")
 st.write(f"""
-<div style="text-align: center; color: {text_color};">
+<div style="text-align: center; color: {text_color}; font-family: 'Times New Roman', serif;">
     Hi, I’m Vishal Anand, a data professional passionate about using data to solve problems and drive insights. With skills in SQL, Python, Excel, and data visualization, I enjoy analyzing and presenting data to help organizations make informed decisions. Outside of data, I love cooking, traveling, and listening to podcasts.
 </div>
 """, unsafe_allow_html=True)
