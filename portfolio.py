@@ -323,7 +323,7 @@ st.markdown(f"""
             <div class="flip-card-back">
                 <h3>Contact Centre Executive</h3>
                 <p><strong>HSBC</strong> | Nov 2022 - Nov 2024</p>
-                <div class="experience-content"><p>Analyzed 10,000+ customer interactions, reducing false positives by 20%, and developed Power BI dashboards to improve SLA adherence by 15%.</p></div>
+                <div class="experience-content"><p>Delivered banking support to UK customers, managing accounts, high-value payments, fraud alerts, and disputes with >93% quality scores. Supported chat process (38–45 WPM), maintained AHT/ACW targets, and ranked among top NPS performers. Collaborated with backend teams to improve processes, reduce escalations, and enhance first-time resolution.</p></div>
             </div>
         </div>
     </div>
@@ -333,7 +333,7 @@ st.markdown(f"""
             <div class="flip-card-back">
                 <h3>Business Development Associate</h3>
                 <p><strong>BYJUS</strong> | Dec 2020 - Sep 2022</p>
-                <div class="experience-content"><p>Conducted A/B testing across 100K+ users, improving retention by 15%, and built Tableau dashboards that contributed to a 10% reduction in churn.</p></div>
+                <div class="experience-content"><p>Delivered personalized demos and counseling to parents, driving ₹1Cr+ in revenue through consultative sales. Promoted as Interim Manager, led a 7-member team to achieve ₹50L in 2 months. Consistently recognized as “Best Performer” for exceeding targets, training new hires, and optimizing CRM-driven sales pipelines. Improved conversions by tailoring strategies to regional needs and matching students with the right BYJU’s programs.</p></div>
             </div>
         </div>
     </div>
