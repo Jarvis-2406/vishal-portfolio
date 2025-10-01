@@ -83,7 +83,7 @@ st.markdown(
     h2 {{
         text-align: center;
         width: 100%;
-        margin-bottom: 1rem; /* Reduced space below headers */
+        margin-bottom: 1rem;
     }}
     .header-section {{
         text-align: center;
@@ -101,7 +101,7 @@ st.markdown(
     .card {{
         background-color: {card_bg};
         border-radius: 12px;
-        padding: 1.5rem; /* Reduced padding */
+        padding: 1.5rem;
         border: 1px solid {card_border};
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -117,18 +117,18 @@ st.markdown(
     }}
     .card h3 {{
         color: {accent_color} !important;
-        font-size: 1.2rem; /* Adjusted size */
+        font-size: 1.2rem;
         margin-bottom: 0.5rem;
     }}
     .card-grid {{
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Reduced min-width */
-        gap: 1rem; /* Reduced gap */
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
     }}
     
     .flip-card {{
         background-color: transparent;
-        min-height: 450px; /* Reduced height */
+        min-height: 450px;
         perspective: 1000px;
     }}
     .flip-card-inner {{
@@ -171,7 +171,7 @@ st.markdown(
         justify-content: flex-start;
     }}
     .company-logo {{
-        max-width: 85%; /* Slightly smaller */
+        max-width: 85%;
         max-height: 85%;
         object-fit: contain;
         border-radius: 8px;
@@ -182,7 +182,7 @@ st.markdown(
         line-height: 1.4;
     }}
     .experience-content p {{
-        font-size: 0.9rem; /* Slightly smaller */
+        font-size: 0.9rem;
     }}
     
     .github-button {{
@@ -270,6 +270,18 @@ st.write(f"""
 </div>
 """, unsafe_allow_html=True)
 
+# --- EDUCATION ---
+st.header("🎓 Education")
+st.markdown(f"""
+<div style="text-align: center;">
+    <h3>MBA in Business Analytics (WILP)</h3>
+    <p><strong>BITS Pilani</strong> | 2024 - 2026 (Pursuing)</p>
+    <br>
+    <h3>B.Tech in Electronics and Communication Engineering</h3>
+    <p><strong>Aditya Engineering College (JNTUK affiliated)</strong> | 2016 - 2020</p>
+</div>
+""", unsafe_allow_html=True)
+
 # --- SKILLS ---
 st.header("🛠️ Skills")
 st.markdown("""
@@ -352,15 +364,6 @@ st.markdown("""
         <h3>Financial Planner</h3><p>A single-page web app for personal finance tracking, analysis, and forecasting.</p>
         <a href="https://github.com/Jarvis-2406/Financial-Planner" target="_blank" class="github-button">GitHub Repo</a>
     </div>
-</div>
-""", unsafe_allow_html=True)
-
-# --- EDUCATION ---
-st.header("🎓 Education")
-st.markdown("""
-<div style="text-align: center;">
-    <h3>B.Tech in Computer Science & Engineering</h3>
-    <p><strong>Jawaharlal Nehru Technological University</strong>, Hyderabad, India</p>
 </div>
 """, unsafe_allow_html=True)
 
