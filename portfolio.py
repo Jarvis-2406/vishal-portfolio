@@ -272,7 +272,40 @@ st.markdown("""
     <div class="flip-card">
         <div class="flip-card-inner">
             <div class="flip-card-front">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/HSBC_logo_%282018%29.svg/1024px-HSBC_logo_%282018%29.svg.png" alt="HSBC Logo" class="company-logo">
+                <img src="Amazon.png" alt="Amazon Logo" class="company-logo">
+            </div>
+            <div class="flip-card-back">
+                <h3>Risk Specialist - Abuse Risk Mining</h3>
+                <p><strong>Amazon</strong> | Oct 2025 - Present</p>
+                <ul class="experience-list">
+                    <li>Analyze complex data patterns to detect and mitigate fraudulent and high-risk activities.</li>
+                    <li>Identify emerging abuse trends and conduct deep-dive investigations to protect the marketplace.</li>
+                    <li>Drive process improvements to strengthen customer trust and platform integrity.</li>
+                    <li>Collaborate with cross-functional teams to develop risk strategies and automate detection mechanisms.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img src="cognizant logo.jpg" alt="Cognizant Logo" class="company-logo">
+            </div>
+            <div class="flip-card-back">
+                <h3>Process Specialist</h3>
+                <p><strong>Cognizant</strong> | Sep 2025 - Sep 2025</p>
+                <ul class="experience-list">
+                    <li>Supported US clients on the DocuSign platform via voice, chat, and email.</li>
+                    <li>Assisted with key features like eSignatures, templates, and envelope workflows.</li>
+                    <li>Helped clients resolve issues and optimize document processes for smooth adoption.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img src="hsbc.jpg" alt="HSBC Logo" class="company-logo">
             </div>
             <div class="flip-card-back">
                 <h3>Contact Centre Executive</h3>
@@ -288,7 +321,7 @@ st.markdown("""
     <div class="flip-card">
         <div class="flip-card-inner">
             <div class="flip-card-front">
-                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Byju%27s_Logo.svg/1200px-Byju%27s_Logo.svg.png" alt="BYJUS Logo" class="company-logo">
+                 <img src="Byjus.png" alt="BYJUS Logo" class="company-logo">
             </div>
             <div class="flip-card-back">
                 <h3>Business Development Associate</h3>
