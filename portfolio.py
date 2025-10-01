@@ -100,7 +100,7 @@ st.markdown(
     /* Grid layout for cards */
     .card-grid {{
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Increased min-width for experience cards */
         gap: 1.5rem;
     }}
 
@@ -123,6 +123,23 @@ st.markdown(
         transform: scale(1.05);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }}
+    
+    /* --- NEW CSS FOR EXPERIENCE SECTION --- */
+    .company-logo {{
+        max-height: 50px; /* Control logo size */
+        width: auto;
+        margin-bottom: 1rem;
+    }}
+    .experience-list {{
+        text-align: left; /* Override card's center alignment for list items */
+        padding-left: 1.2rem;
+        margin-top: 1rem;
+        flex-grow: 1;
+    }}
+    .experience-list li {{
+        margin-bottom: 0.5rem; /* Space between bullet points */
+    }}
+    /* --- END OF NEW CSS --- */
     
     /* Contact Section Styling */
     .social-buttons {{
@@ -154,7 +171,11 @@ with col1:
 with col2:
     st.button("🌙" if st.session_state["theme"] == "dark" else "☀️", on_click=toggle_theme, key="theme_toggle")
 
-st.image("IMG_0217.JPG", use_container_width=True)
+# --- IMAGE (CENTERED AND RESIZED) ---
+# By placing the image in the middle column of a 3-column layout, we can control its size and center it.
+img_col1, img_col2, img_col3 = st.columns([1, 2, 1])
+with img_col2:
+    st.image("IMG_0217.JPG")
 
 
 # --- RESUME BUTTONS ---
@@ -221,20 +242,31 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-# --- EXPERIENCE ---
+# --- EXPERIENCE (NEW CARD LAYOUT) ---
 st.header("💼 Experience")
-st.subheader("HSBC — Contact Centre Executive (Nov 2022 - Nov 2024)")
 st.markdown("""
-- Analyzed 10,000+ customer interactions using SQL and Excel, reducing false positives by 20%.
-- Developed Power BI dashboards to monitor KPIs, improving SLA adherence by 15%.
-- Maintained >95% QA scores while reducing Average Handling Time (AHT) by 18%.
-""")
-st.subheader("BYJUS — Business Development Associate (Dec 2020 - Sep 2022)")
-st.markdown("""
-- Conducted cohort analysis & A/B testing across 100K+ users, improving retention by 15%.
-- Built Tableau dashboards on engagement metrics, contributing to a 10% reduction in churn.
-- Leveraged SQL for targeted lead generation, boosting conversion rates by 20%.
-""")
+<div class="card-grid">
+    <div class="card">
+        <h3>Contact Centre Executive</h3>
+        <p><strong>HSBC</strong> | Nov 2022 - Nov 2024</p>
+        <ul class="experience-list">
+            <li>Analyzed 10,000+ customer interactions using SQL and Excel, reducing false positives by 20%.</li>
+            <li>Developed Power BI dashboards to monitor KPIs, improving SLA adherence by 15%.</li>
+            <li>Maintained >95% QA scores while reducing Average Handling Time (AHT) by 18%.</li>
+        </ul>
+    </div>
+    <div class="card">
+        <h3>Business Development Associate</h3>
+        <p><strong>BYJUS</strong> | Dec 2020 - Sep 2022</p>
+        <ul class="experience-list">
+            <li>Conducted cohort analysis & A/B testing across 100K+ users, improving retention by 15%.</li>
+            <li>Built Tableau dashboards on engagement metrics, contributing to a 10% reduction in churn.</li>
+            <li>Leveraged SQL for targeted lead generation, boosting conversion rates by 20%.</li>
+        </ul>
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
 
 # --- PROJECTS ---
 st.header("📁 Projects")
