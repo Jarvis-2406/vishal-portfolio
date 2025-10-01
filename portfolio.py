@@ -278,10 +278,9 @@ st.markdown("""
                 <h3>Risk Specialist - Abuse Risk Mining</h3>
                 <p><strong>Amazon</strong> | Oct 2025 - Present</p>
                 <ul class="experience-list">
-                    <li>Analyze complex data patterns to detect and mitigate fraudulent and high-risk activities.</li>
-                    <li>Identify emerging abuse trends and conduct deep-dive investigations to protect the marketplace.</li>
-                    <li>Drive process improvements to strengthen customer trust and platform integrity.</li>
-                    <li>Collaborate with cross-functional teams to develop risk strategies and automate detection mechanisms.</li>
+                    <li>Analyze complex data patterns to detect and mitigate fraudulent and high-risk activities.Identify emerging abuse trends and conduct deep-dive investigations to protect the marketplace.
+                    Drive process improvements to strengthen customer trust and platform integrity.
+                    Collaborate with cross-functional teams to develop risk strategies and automate detection mechanisms.</li>
                 </ul>
             </div>
         </div>
@@ -295,9 +294,8 @@ st.markdown("""
                 <h3>Process Specialist</h3>
                 <p><strong>Cognizant</strong> | Sep 2025 - Sep 2025</p>
                 <ul class="experience-list">
-                    <li>Supported US clients on the DocuSign platform via voice, chat, and email.</li>
-                    <li>Assisted with key features like eSignatures, templates, and envelope workflows.</li>
-                    <li>Helped clients resolve issues and optimize document processes for smooth adoption.</li>
+                    <li>Supported US clients on the DocuSign platform via voice, chat, and email.Assisted with key features like eSignatures, templates, and envelope workflows.
+                    Helped clients resolve issues and optimize document processes for smooth adoption.</li>
                 </ul>
             </div>
         </div>
@@ -311,9 +309,8 @@ st.markdown("""
                 <h3>Contact Centre Executive</h3>
                 <p><strong>HSBC</strong> | Nov 2022 - Nov 2024</p>
                 <ul class="experience-list">
-                    <li>Analyzed 10,000+ customer interactions using SQL and Excel, reducing false positives by 20%.</li>
-                    <li>Developed Power BI dashboards to monitor KPIs, improving SLA adherence by 15%.</li>
-                    <li>Maintained >95% QA scores while reducing Average Handling Time (AHT) by 18%.</li>
+                    <li>Analyzed 10,000+ customer interactions using SQL and Excel, reducing false positives by 20%.Developed Power BI dashboards to monitor KPIs, improving SLA adherence by 15%.
+                    Maintained >95% QA scores while reducing Average Handling Time (AHT) by 18%.</li>
                 </ul>
             </div>
         </div>
@@ -327,9 +324,8 @@ st.markdown("""
                 <h3>Business Development Associate</h3>
                 <p><strong>BYJUS</strong> | Dec 2020 - Sep 2022</p>
                 <ul class="experience-list">
-                    <li>Conducted cohort analysis & A/B testing across 100K+ users, improving retention by 15%.</li>
-                    <li>Built Tableau dashboards on engagement metrics, contributing to a 10% reduction in churn.</li>
-                    <li>Leveraged SQL for targeted lead generation, boosting conversion rates by 20%.</li>
+                    <li>Conducted cohort analysis & A/B testing across 100K+ users, improving retention by 15%.Built Tableau dashboards on engagement metrics, contributing to a 10% reduction in churn.
+                    Leveraged SQL for targeted lead generation, boosting conversion rates by 20%.</li> 
                 </ul>
             </div>
         </div>
