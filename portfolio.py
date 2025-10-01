@@ -229,7 +229,7 @@ with header_col:
     st.markdown(f"""
     <div class="header-section">
         <h1>👋 Hey, I'm <strong>Vishal Anand</strong></h1>
-        <p style="font-size: 1.25rem; color: {text_color}; margin-top: -1rem;">Aspiring Data Professional</p>
+        <p style="font-size: 1.25rem; color: {text_color}; margin-top: -1rem;">The Amiable Analyst, Catching Bad Apples 🍎</p>
     </div>
     """, unsafe_allow_html=True)
 
