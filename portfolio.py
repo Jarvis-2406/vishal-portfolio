@@ -196,9 +196,9 @@ st.markdown(
 
 # --- ENCODE LOCAL IMAGES ---
 # **IMPORTANT**: Rename your file "cognizant logo.jpg" to "cognizant_logo.jpg"
-amazon_logo_b64 = image_to_base64("Amazon-India.jpg")
+amazon_logo_b64 = image_to_base64("Amazon png.png")
 cognizant_logo_b64 = image_to_base64("cognizant_logo.jpg") # Using the new filename
-hsbc_logo_b64 = image_to_base64("hsbc.jpg")
+hsbc_logo_b64 = image_to_base64("HSBC png.png")
 byjus_logo_b64 = image_to_base64("Byjus.png")
 
 
@@ -280,9 +280,9 @@ st.markdown(f"""
                 <h3>Risk Specialist - Abuse Risk Mining</h3>
                 <p><strong>Amazon</strong> | Oct 2025 - Present</p>
                 <div class="experience-content">
-                    <p>Analyze complex data patterns to detect and mitigate fraudulent, abusive, and high-risk activities across Amazon’s global marketplace.</p>
-                    <p>Identify emerging abuse trends, conduct deep investigations, and drive process improvements to strengthen customer trust and marketplace integrity.</p>
-                    <p>Collaborate with cross-functional teams to develop risk strategies, automate detection mechanisms, and ensure compliance with Amazon’s high standards for safety and security.</p>
+                    <p>Analyze complex data patterns to detect and mitigate fraudulent, abusive, and high-risk activities across Amazon’s global marketplace.
+                    Identify emerging abuse trends, conduct deep investigations, and drive process improvements to strengthen customer trust and marketplace integrity.
+                    Collaborate with cross-functional teams to develop risk strategies, automate detection mechanisms, and ensure compliance with Amazon’s high standards for safety and security.</p>
                 </div>
             </div>
         </div>
@@ -296,8 +296,8 @@ st.markdown(f"""
                 <h3>Process Specialist</h3>
                 <p><strong>Cognizant</strong> | Sep 2025 - Sep 2025</p>
                 <div class="experience-content">
-                    <p>Supported US clients via voice, chat, and email on the DocuSign platform, assisting with key features like eSignatures, templates, envelope workflows, and account configurations.</p>
-                    <p>Helped clients resolve issues, optimize their document processes, and ensure smooth adoption of DocuSign solutions.</p>
+                    <p>Supported US clients via voice, chat, and email on the DocuSign platform, assisting with key features like eSignatures, templates, envelope workflows, and account configurations.
+                    Helped clients resolve issues, optimize their document processes, and ensure smooth adoption of DocuSign solutions.</p>
                 </div>
             </div>
         </div>
@@ -311,9 +311,9 @@ st.markdown(f"""
                 <h3>Contact Centre Executive</h3>
                 <p><strong>HSBC</strong> | Nov 2022 - Nov 2024</p>
                 <div class="experience-content">
-                    <p>Analyzed 10,000+ customer interactions using SQL and Excel, reducing false positives by 20%.</p>
-                    <p>Developed Power BI dashboards to monitor KPIs, improving SLA adherence by 15%.</p>
-                    <p>Maintained >95% QA scores while reducing Average Handling Time (AHT) by 18%.</p>
+                    <p>Analyzed 10,000+ customer interactions using SQL and Excel, reducing false positives by 20%.
+                    Developed Power BI dashboards to monitor KPIs, improving SLA adherence by 15%.
+                    Maintained >95% QA scores while reducing Average Handling Time (AHT) by 18%.</p>
                 </div>
             </div>
         </div>
@@ -327,9 +327,9 @@ st.markdown(f"""
                 <h3>Business Development Associate</h3>
                 <p><strong>BYJUS</strong> | Dec 2020 - Sep 2022</p>
                 <div class="experience-content">
-                    <p>Conducted cohort analysis & A/B testing across 100K+ users, improving retention by 15%.</p>
-                    <p>Built Tableau dashboards on engagement metrics, contributing to a 10% reduction in churn.</p>
-                    <p>Leveraged SQL for targeted lead generation, boosting conversion rates by 20%.</p>
+                    <p>Conducted cohort analysis & A/B testing across 100K+ users, improving retention by 15%.
+                    Built Tableau dashboards on engagement metrics, contributing to a 10% reduction in churn.
+                    Leveraged SQL for targeted lead generation, boosting conversion rates by 20%.</p>
                 </div>
             </div>
         </div>
